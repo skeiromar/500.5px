@@ -13,3 +13,32 @@
  *= require_tree .
  *= require_self
  */
+
+/* have @import '/nameOfFile/nameOfFile'  and remove "require_tree ." to import files in the way you want.*/
+body {
+    background: rgba(244, 244, 244, 0.966);
+}
+
+
+.form-container {
+    display: flex;
+    margin: auto;
+    width: 25%;
+    padding: 20px 10px;
+    background-color: white;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid gray;
+}   
+
+.li-wo-bullets {
+    list-style-type: none;
+    margin: 20px;
+    padding: 0;
+}
+
+.form-components {
+    padding: 5px;
+    margin: 5px;
+    align-self: center;
+}

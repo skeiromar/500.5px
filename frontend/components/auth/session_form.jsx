@@ -9,13 +9,14 @@ export default class SessionForm extends Component{
             password: ""
         };
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleDemoLogin = this.handleDemoLogin.bind(this);
+
     }
 
     handleSubmit(e) {
         e.preventDefault();
         const user = Object.assign({}, this.state);
         const whatev = this.props.processForm;
-        // debugger
         whatev.login ? whatev.login(user).then(() => this.props.history.push('/')) : whatev.signup(user).then(() => this.props.history.push('/'));
     }
 
@@ -26,22 +27,39 @@ export default class SessionForm extends Component{
             });
         };
     }
-
+    handleDemoLogin() {
+        const user = {username: 'helloworld', password: 'factorized'};
+        const whatev = this.props.processForm;
+        whatev.login(user).then(() => this.props.history.push('/'));
+    }
     render() {
         return this.props.formType === "login" ? (
             <>
             <Link to="/signup"></Link>
-            <form onSubmit={this.handleSubmit} >
+            <form onSubmit={this.handleSubmit} className="form-container">
+                <ul className="li-wo-bullets">
 
-                <label htmlFor="">Username
-                <input type="text" onChange={this.onChange("username")} name="" id=""/>
-                </label>
 
-                <label htmlFor="">Password
-                <input type="password" onChange={this.onChange("password")} name="" id=""/>
-                </label>
+                <p className="form-label">Username</p>
+                <li className="form-components">
+                <input type="text" onChange={this.onChange("username")} name="" id="" className="form-input"/>
+                </li>
 
-                <input type="submit" value="sign in"/>
+
+                <p className="form-label">Password</p>
+                <li className="form-components">
+                <input type="password" onChange={this.onChange("password")} name="" id="" className="form-input"/>
+                </li>
+
+                <li className="button-log-submit">
+
+                    <input  type="submit" value="sign in" />
+                </li>
+                <li >
+                    <button onClick={this.handleDemoLogin} className="button-log">demo sign in</button>
+                </li>
+                </ul>
+
             </form>
             </>
         ) : (
@@ -50,26 +68,26 @@ export default class SessionForm extends Component{
             <form onSubmit={this.handleSubmit} className="form-container">
                 <ul className="li-wo-bullets">
 
-                <label htmlFor="" />Username
+                <label htmlFor="" /><p className="form-label">Username</p>
                 <li className="form-components">
-                <input type="text" onChange={this.onChange("username")} name="" id="" />
+                <input type="text" onChange={this.onChange("username")}  className="form-input"/>
                 
 
                 </li>
-                <label htmlFor="" />Email
+                <label htmlFor="" /><p className="form-label">Email</p>
                 <li className="form-components">
-                <input type="text" onChange={this.onChange("email")} name="" id=""/>
+                <input type="text" onChange={this.onChange("email")}  className="form-input"/>
 
                 </li>    
 
-                <label htmlFor="" />Password
+                <label htmlFor="" /><p className="form-label">Password</p>
                 <li className="form-components">
-                <input type="password" onChange={this.onChange("password")} name="" id="" />
+                <input type="password" onChange={this.onChange("password")}  className="form-input"/>
 
                 </li>
 
 
-                <li >
+                <li className="button-log-submit">
                 <input type="submit" value="sign up" />
                 </li>
 

@@ -4,7 +4,6 @@ import { connect } from 'react-redux';
 import { Redirect, Route, withRouter } from 'react-router-dom';
 
 const mapStateToProps = state => {
-  // console.log(state)
   return {
     loggedIn: Boolean(state.session.id),
 }};
@@ -26,7 +25,6 @@ const Protected = ({ component: Component, path, loggedIn }) => {
    const retVal = (<Route
         path={path}
         render={props => {
-            console.log(props)
             return loggedIn ? (
             <Component {...props} />)
              : 

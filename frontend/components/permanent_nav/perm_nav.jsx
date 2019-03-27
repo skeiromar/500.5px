@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
 
 
-export default class Greeting extends Component {
+export default class PermNav extends Component {
     constructor(props) {
         super(props);
         
@@ -22,17 +22,17 @@ export default class Greeting extends Component {
             <div>
                 
 
-                <nav className="navbar">
-                <ul className="navbar-ul-elems">
+                <nav className="perm-navbar">
+                <ul className="perm-navbar-ul-elems">
                     <li>
-                        <a href="/#/" className="navbar-ul-elems-logo">
+                        <a href="/#/" className="perm-navbar-ul-elems-logo">
                             500.5px
                         </a>
                     </li>
                     <li>Discover</li>
                     <li>About</li>
                 </ul>
-                <ul className="navbar-ul-elems right-ul-elems">
+                <ul className="perm-navbar-ul-elems perm-right-ul-elems">
                     <li>
                         <Link to="/signup">sign up</Link>
                     </li>

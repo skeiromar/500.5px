@@ -1,0 +1,78 @@
+
+
+.icon-avatar {
+
+    border-radius: 50%;
+    width: 28px;
+    margin: 0;
+    padding-top: -5;
+}
+.dropdown {
+    position: relative;
+    display: inline-block;
+  }
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    margin-top: 0px; 
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    padding: 5px 6px;
+    /* text-align: center; */
+    right: 0px;
+    z-index: 1;
+    
+    /* border-bottom: 1px solid #eeeff2; */
+  }
+  .dropdown-content li {
+        padding-bottom: 15px;
+      /* line-height: 10px; */
+      height: 13px;
+      margin-left: -20px;
+      left: 0px;
+      font-size: 13px;
+  }
+.dropdown-content p {
+    /* padding-bottom: 15px; */
+  /* line-height: 10px; */
+  /* height: 13px; */
+  margin-left: -20px;
+  /* left: 0px; */
+}
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
+
+
+
+.icon {
+    background: transparent url(//assetcdn.500px.org/assets/px_topnav/nav_sprite-6622b0c472bbcbb295c078d0c4322491.png) right bottom no-repeat;
+    display: inline-block;
+    margin: 0;
+    width: 20px;
+    height: 20px;
+    height: 20px;
+    line-height: 20px;
+    font-size: 20px;
+    text-align: left;
+    cursor: pointer;
+    color: #b9c1c7;
+    vertical-align: middle;
+    margin-bottom: 3px;
+}
+
+.icon.upload {
+    width: 24px;
+    background-position: -165px top;
+}
+.nav-upload-icon {
+
+    background-color: #34bf49;
+    color: white;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 25px;
+    padding-bottom: 8.5px;
+    /* line-height: 5px; */
+}

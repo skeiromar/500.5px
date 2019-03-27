@@ -1,5 +1,5 @@
 import {connect} from "react-redux";
-import Test from './test';
+import Nav from './nav';
 import {logout} from '../actions/session_actions';
 
 const mapStateToProps = state => {
@@ -14,4 +14,4 @@ const mapDispatchToProps = thunkCaller => ({
 });
 
 
-export default connect(mapStateToProps, mapDispatchToProps)(Test);
+export default connect(mapStateToProps, mapDispatchToProps)(Nav);

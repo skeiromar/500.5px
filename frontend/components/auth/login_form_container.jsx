@@ -1,5 +1,5 @@
 import {connect} from 'react-redux';
-import {login} from '../../actions/session_actions';
+import { login, receiveErrors, clearErrors } from '../../actions/session_actions';
 import SessionForm from './session_form';
 
 
@@ -13,10 +13,13 @@ const msp = (state, ownProps) => {
 }
 
 
-const mdp = thunkCaller => {
+const mdp = dispatch => {
 
     return {
-        processForm: { login: (user) => thunkCaller(login(user)) }
+        processForm: { login: (user) => dispatch(login(user)) },
+        receiveErrors: (errors) => dispatch(receiveErrors(errors)),
+        clearErrors: () => dispatch(clearErrors()),
+        demoLogin: (user) => dispatch(login(user))
     }
 }
 

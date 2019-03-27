@@ -34,18 +34,7 @@ button, input[type="submit"], input[type="reset"] {
 	outline: inherit;
 }
 
-.form-container {
-    display: flex;
-    margin: auto;
-    width: 300px;
-    /* height: 30px; */
-    padding: 30px 10px;
-    background-color: white;
-    flex-direction: column;
-    align-items: center;
-    border: 1px solid gray;
-    /* justify-content: flex-end; */
-}   
+
 li  {
     list-style-type: none;
 }
@@ -60,12 +49,7 @@ li  {
 
 }
 
-.form-components {
-    padding: 5px;
-    margin: 5px;
-    align-self: center;
-    
-}
+
 
 .button-log {
     margin-left: 10px;
@@ -134,7 +118,7 @@ li  {
 .right-ul-elems {
     position: absolute;
     right: 5%;
-    top: 1%;
+    top: 0%;
 }
 
 .splash {
@@ -310,7 +294,7 @@ a {
     color: rgb(53, 47, 47); 
 }
 /* here lie splash animations */
-@keyframes splashAnimation{
+/* @keyframes splashAnimation{
     0%{
         transform: scale(0.8) translateY(-10%);
         opacity: 0;
@@ -323,7 +307,7 @@ a {
 
 .splash{
     animation: splashAnimation 0.7s forwards 0s ease;
-}
+} */
 @keyframes rest-splash-animation {
     0%{
         transform: scale(0.8) translateY(-10%);

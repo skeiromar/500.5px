@@ -1,0 +1,48 @@
+.form-container {
+    display: flex;
+    margin: auto;
+    width: 350px;
+    /* height: 30px; */
+    padding: 30px 10px;
+    background-color: white;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid #eeeff2;
+    margin-top: 110px;
+    text-align: center;
+    
+    /* justify-content: flex-end; */
+}   
+
+.form-container h2 {
+    color: #525558;    
+}
+.form-container p {
+    color: #525558;    
+}
+.form-components {
+    padding: 5px;
+    margin: 5px;
+    align-self: center;
+    transition: border-color 0.4s;
+}
+
+.lighten-a {
+    color: rgba(55, 218, 55, 0.801);
+    padding: 10px;
+    /* background: green; */
+}
+.lighten-a:hover {
+    color: rgba(38, 248, 38, 0.945);
+    /* padding: 10px; */
+    /* background: green; */
+}
+.demo-btn {
+    padding-right: 10px;
+    margin-right: 20px;
+}
+
+.session-errors {
+    color: red;
+    font-size: 15px;
+}

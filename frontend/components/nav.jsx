@@ -25,7 +25,7 @@ export default class Greeting extends Component {
                 <nav className="navbar">
                 <ul className="navbar-ul-elems">
                     <li>
-                        <a href="/" className="navbar-ul-elems-logo">
+                        <a href="/#/" className="navbar-ul-elems-logo">
                             500.5px
                         </a>
                     </li>

@@ -1,9 +1,54 @@
 
+
+
 .feed-cnt {
     width: 92%;
     margin: 0 auto;
 }
 
 .feed-txt {
+    
+}
+
+.feed-tabs {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.feed-tabs-ul {
+    display: flex;
+    text-align: left;
+    padding-left: 0px;
+}
+.feed-tabs-ul li {
+    padding: 0 10px;
+    /* font-size: 14px; */
+}
+.feed-tabs-ul li a {
+    font-size: 14px;
+    display: inline-block;
+    /* padding: 15px 0; */
+    /* height: 50px; */
+    border-bottom: 2px solid transparent;
+    color: #71767a;
+    cursor: pointer;
+    font-weight: bold;
+}
+.feed-tabs-ul li a:hover {
+    color: #0099e5;
+}
+
+.active {
+    color: blue;
+    /* background: blue; */
+}
+
+.hline-feed { 
+    width: 107%;
+    margin-left: -50px;
+    /* width:100%;  */
+    height:1px; 
+    background: rgb(228, 225, 225);
     
 }

@@ -14,7 +14,7 @@ export default class SessionForm extends Component{
 
     }
     componentDidUpdate(e) {
-        // console.log(this.props.location, e.location)
+        // debugger(this.props.location, e.location)
         if (this.props.location.pathname !== e.location.pathname) {
 
             this.props.clearErrors();
@@ -22,7 +22,7 @@ export default class SessionForm extends Component{
     }
     handleSubmit(e) {
         e.preventDefault();
-        console.log(this.props)
+        // console.log(this.props)
         const user = Object.assign({}, this.state);
         const whatev = this.props.processForm;
         whatev.login ? whatev.login(user)

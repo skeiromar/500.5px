@@ -1,17 +1,24 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
 
-// import { library } from '@fortawesome/fontawesome-svg-core';
-// import { faEnvelope, faKey } from '@fortawesome/free-solid-svg-icons';
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { faEnvelope, faKey } from '@fortawesome/free-solid-svg-icons';
 
-// library.add(faEnvelope, faKey);
+library.add(faEnvelope, faKey);
 
 
 
 export default class Feed extends Component {
     constructor(props) {
         super(props);
+
+
+    this.listenScroll = this.listenScroll.bind(this);
         
+    }
+
+    listenScroll() {
+
     }
 
 
@@ -82,7 +89,7 @@ export default class Feed extends Component {
                     <li >
                     
                     <a href="" className="nav-upload-icon">
-                        <i class="fa fa-cloud-upload display-if" aria-hidden="true"></i>
+                        <i className="fa fa-cloud-upload display-if" aria-hidden="true"></i>
                         <span>
                             Upload
                         </span>
@@ -95,16 +102,108 @@ export default class Feed extends Component {
 
                 <div className="feed-cnt">
                     <div className="feed-txt">
-                        <h1  >
+                        <h1>
                             What's popular today
                         </h1> 
-                        <p  >
+                        <p>
                             See recently added photos with the highest Pulse.
                         </p>
                     </div>
+
+                    <div className="feed-tabs">
+                        <ul className="feed-tabs-ul">
+                            <li >
+                                <a className="active" href="">POPULAR</a>
+                            </li>
+                            <li>
+                                <a href="">UPCOMING</a>
+                            </li>
+                            <li>
+                                <a href="">FRESH</a>
+                            </li>
+                            <li>
+                                <a href="">EDITOR'S CHOICE</a>
+                            </li>
+                        </ul>
+                    </div>
+                        <p className="hline-feed"></p>
+
+                    
+                <div className="feed-flex-cnt">
+
+                    <div className="feed-photo-flex">
+                        <div>
+                             <img src='https://picsum.photos/500/400/?random'/>
+                        </div>
+                        <div>
+                            <img src='https://picsum.photos/600/800/?random'/>
+                        </div>
+                        <div>
+                            <img src='https://picsum.photos/700/400/?random'/>
+                        </div>
+                        <div>
+                            <img src='https://picsum.photos/500/600/?random'/>
+                        </div>
+                        
+                        <div>
+                             <img src='https://picsum.photos/800/600/?random'/>
+                        </div>
+                        <div>
+                            <img src='https://picsum.photos/400/700/?random'/>
+                        </div>
+                        <div>
+                            <img src='https://picsum.photos/700/500/?random'/>
+                        </div>
+                        <div>
+                            <img src='https://picsum.photos/500/400/?random'/>
+                        </div>
+
+                        <div>
+                             <img src='https://picsum.photos/400/400/?random'/>
+                        </div>
+                        <div>
+                            <img src='https://picsum.photos/600/700/?random'/>
+                        </div>
+                        <div>
+                            <img src='https://picsum.photos/600/500/?random'/>
+                        </div>
+                        <div>
+                            <img src='https://picsum.photos/500/600/?random'/>
+                        </div>
+
+                        <div>
+                             <img src='https://picsum.photos/500/900/?random'/>
+                        </div>
+                        <div>
+                            <img src='https://picsum.photos/400/600/?random'/>
+                        </div>
+                        <div>
+                            <img src='https://picsum.photos/700/300/?random'/>
+                        </div>
+                        <div>
+                            <img src='https://picsum.photos/500/500/?random'/>
+                        </div>
+
+                        <div>
+                             <img src='https://picsum.photos/500/400/?random'/>
+                        </div>
+                        <div>
+                            <img src='https://picsum.photos/600/800/?random'/>
+                        </div>
+                        <div>
+                            <img src='https://picsum.photos/500/800/?random'/>
+                        </div>
+                       
+                        <div>
+                            <img src='https://picsum.photos/500/900/?random'/>
+                        </div>
+
+                    </div>
                 </div>
 
+                </div>
 
+                
 
 
 

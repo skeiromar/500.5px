@@ -13,9 +13,12 @@ export default class Feed extends Component {
         super(props);
 
         this.state = {
-            pics: ''
+            pics: '',
+            picFile: null
         };
         this.listenScroll = this.listenScroll.bind(this);
+        this.handleFile = this.handleFile.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
         
     }
     requestPictures() {
@@ -24,22 +27,41 @@ export default class Feed extends Component {
             url: `api/pictures`,
         }).then(pics => {
             
-            this.setState({pics: pics[0].pictureUrl});
+            this.setState({pics: pics[1].pictureUrl});
         });
     }
 
     componentDidMount() {
-        this.requestPictures();
+        // this.requestPictures();
+        this.props.fetchPictures();
         // console.log(this.state);
     }
 
     listenScroll() {
 
     }
+    handleFile(e) {
+        this.setState({picFile: e.currentTarget.files[0]});
+    }
+    handleSubmit(e) {
+        e.preventDefault();
+        // this.props.action(this.state);
+        const formData = new FormData();
+        formData.append("picture[title]", 'this is a test 2');
+        formData.append("picture[description]", 'this is a test description 2');
+        formData.append("picture[picture]", this.state.picFile);
+        // formData.append("picture[author_id]", '8');
+        return $.ajax({
+            method: "POST",
+            url: `api/pictures`,
+            data: formData, 
+            contentType: false,
+            processData: false
+        }).then(resp => console.log(resp));
+      }
 
-
-    render() {
-
+    render() {  
+        console.log(this.state);
         return (
             <div>
 
@@ -106,7 +128,10 @@ export default class Feed extends Component {
                     <a href="" className="nav-upload-icon">
                         <i className="fa fa-cloud-upload display-if" aria-hidden="true"></i>
                         <span>
-                            Upload
+                            <form onSubmit={this.handleSubmit}>
+                            <input type="file" onChange={this.handleFile}/>
+                            <input type="submit" value="submit"/>
+                            </form>
                         </span>
                     </a>
                     </li>

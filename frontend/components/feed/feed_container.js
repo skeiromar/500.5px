@@ -1,8 +1,9 @@
 import {connect} from 'react-redux';
 import Feed from './feed';
+import {fetchPictures} from '../../actions/picture_actions';
 
 const msp = (state, props) => {
-
+    console.log(state);
     // let pic = sta
     return {
         
@@ -12,8 +13,8 @@ const msp = (state, props) => {
 
 const mdp = (dispatch) => {
 
-    return {
-
+    return {    
+        fetchPictures: () => dispatch(fetchPictures())
     };
 };
 

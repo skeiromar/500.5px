@@ -6,8 +6,10 @@ class Api::PicturesController < ApplicationController
 
     def create
         @picture = Picture.new(picture_params)
+        @picture.author_id = 8
+        debugger
         if @picture.save
-            render :show
+            render json: {message: 'nice'}
         else
             render json: @picture.errors.full_messages, status: 401
         end
@@ -48,7 +50,7 @@ class Api::PicturesController < ApplicationController
     end
     
     def picture_params
-        params.require(:picture).permit(:title, :description)
+        params.require(:picture).permit(:title, :description, :picture)
     end
     
     

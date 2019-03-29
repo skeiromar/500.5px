@@ -57,7 +57,7 @@ export default class Feed extends Component {
             data: formData, 
             contentType: false,
             processData: false
-        }).then(resp => console.log(resp));
+        });
       }
 
     render() {  

@@ -7,7 +7,6 @@ class Api::PicturesController < ApplicationController
     def create
         @picture = Picture.new(picture_params)
         @picture.author_id = 8
-        debugger
         if @picture.save
             render json: {message: 'nice'}
         else

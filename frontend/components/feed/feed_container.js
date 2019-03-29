@@ -3,8 +3,9 @@ import Feed from './feed';
 
 const msp = (state, props) => {
 
+    // let pic = sta
     return {
-
+        
     };
 };
 

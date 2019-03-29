@@ -3,6 +3,8 @@ import ReactDOM from 'react-dom';
 import configureStore  from './store/store';
 import {Root} from './components/root';
 import {login, logout, signup} from './actions/session_actions';
+import { followUser } from './util/follow_api_utils';
+import {requestPictures} from './util/picture_api_utils';
 
 document.addEventListener('DOMContentLoaded', () => {
     const root = document.getElementById('root');
@@ -31,7 +33,8 @@ document.addEventListener('DOMContentLoaded', () => {
     window.login = login;
     window.logout = logout;
     window.signup = signup;
-    
+    window.followUser = followUser;
+    window.requestPictures = requestPictures;
     ReactDOM.render(<Root store={store}/>, root);
 });
 

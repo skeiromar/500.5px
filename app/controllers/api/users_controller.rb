@@ -22,6 +22,7 @@ class Api::UsersController < ApplicationController
     
     def show
     @user = selected_user
+
     end
     
     def index
@@ -41,7 +42,7 @@ class Api::UsersController < ApplicationController
     private
     
     def selected_user
-    User.find(params[:id])
+    User.includes(:followers).includes(:followed).find(params[:id])
     end
     
     def user_params

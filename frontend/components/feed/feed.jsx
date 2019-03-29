@@ -12,9 +12,25 @@ export default class Feed extends Component {
     constructor(props) {
         super(props);
 
-
-    this.listenScroll = this.listenScroll.bind(this);
+        this.state = {
+            pics: ''
+        };
+        this.listenScroll = this.listenScroll.bind(this);
         
+    }
+    requestPictures() {
+        $.ajax({
+            method: "GET",
+            url: `api/pictures`,
+        }).then(pics => {
+            
+            this.setState({pics: pics[0].pictureUrl});
+        });
+    }
+
+    componentDidMount() {
+        this.requestPictures();
+        // console.log(this.state);
     }
 
     listenScroll() {
@@ -26,7 +42,6 @@ export default class Feed extends Component {
 
         return (
             <div>
-                
 
                 <nav className="perm-navbar">
                 <ul className="perm-navbar-ul-elems">
@@ -132,7 +147,8 @@ export default class Feed extends Component {
                 <div className="feed-flex-cnt">
 
                     <div className="feed-photo-flex">
-                        <div>
+                        <div style={{backgroundImage: `url(${'https://picsum.photos/500/400/?random'})`}}>
+                             <img src={this.state.pics} alt=""/> 
                              <img src='https://picsum.photos/500/400/?random'/>
                         </div>
                         <div>

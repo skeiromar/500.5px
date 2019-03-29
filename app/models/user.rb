@@ -7,6 +7,13 @@ class User < ApplicationRecord
 
     after_initialize :ensure_session_token
 
+
+  has_many :followers, class_name: "Follow", foreign_key: "follower_id"
+  has_many :followed, class_name: "Follow", foreign_key: "followed_id"
+
+
+
+
   def self.find_by_credentials(username, password)
     user = User.find_by(username: username)
     return nil unless user

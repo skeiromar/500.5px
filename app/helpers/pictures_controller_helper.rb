@@ -1,0 +1,2 @@
+module PicturesControllerHelper
+end

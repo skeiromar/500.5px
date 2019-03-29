@@ -5,8 +5,8 @@
 # t.datetime "updated_at", null: false
 class Picture < ApplicationRecord 
     
-    belongs_to :author, class_name: "user", foreign_key: "author_id"
+    belongs_to :author, class_name: "User", foreign_key: "author_id"
 
-    # has_one_attached :picture
+    has_one_attached :picture
 
 end

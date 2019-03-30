@@ -1,7 +1,8 @@
 import React, {Component} from 'react';
 import { Link, Route } from 'react-router-dom';
-// import Modal from '../modal/modal';
+import Modal from '../modal/modal';
 import PictureIndexItem from './picture_index_item';
+
 
 export default class Feed extends Component {
     constructor(props) {
@@ -28,6 +29,7 @@ export default class Feed extends Component {
 
     componentDidMount() {
         // this.requestPictures();
+        // debugger
         this.props.fetchPictures();
         // console.log(this.state);
     }
@@ -52,9 +54,10 @@ export default class Feed extends Component {
     }
 
     render() {  
-        console.log(this.state);
+        // console.log(this.state);
         return (
             <div>
+                <Modal />
                 <nav className="perm-navbar">
                 <ul className="perm-navbar-ul-elems">
                     <li>
@@ -73,7 +76,7 @@ export default class Feed extends Component {
                     <li>
                         <div className="dropdown">
                          
-                         <img alt="avatar" className="icon-avatar" src="https://graph.facebook.com/v2.7/2368798293349642/picture?height=100&amp;width=100"></img>
+                         <img src={`${this.props.user.pictureUrl}`} className="icon-avatar"/>
                         <div className="dropdown-content">
                         <ul>
                             <li>
@@ -160,7 +163,11 @@ export default class Feed extends Component {
                 </div>
                 <div className="feed-flex-cnt">
                     <ul className="feed-flex-img-cnt">
-                        {this.props.pictures.map((el, i) => <PictureIndexItem key={i} picture={el} />)}                    
+                        {this.props.pictures.map((el, i) => <PictureIndexItem 
+                        key={i} 
+                        picture={el}
+                        openModal={this.props.openModal}
+                        />)}                    
                         <div  className="feed-flex-item">
                             <img className="feed-flex-img" 
                             src='https://picsum.photos/500/900/?random'/>

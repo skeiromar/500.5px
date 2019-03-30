@@ -97,7 +97,7 @@ li  {
     /* align-items: center; */
     /* background: black; */
     color: white;
-    height: 50px;
+    height: 70px;
   }
 
 .navbar-ul-elems {
@@ -118,8 +118,8 @@ li  {
 
 .right-ul-elems {
     position: absolute;
-    right: 5%;
-    top: 0%;
+    right: 3%;
+    top: 0px;
 }
 
 .splash {
@@ -179,6 +179,27 @@ li  {
 .splash-btn:hover {
     background-color: #0882be;
 }
+.splash-btn-nav {
+
+    font-size: 14px;
+    display: inline-block;
+    color: white;
+    -webkit-border-radius: 100px;
+    border-radius: 100px;
+    /* height: 50px; */
+    padding: 0px 17px;
+    /* padding-top: 2px; */
+    border: 2px solid #0099e5;
+    line-height: 34px;
+    font-weight: bold;
+    /* text-shadow: none; */
+    cursor: pointer;
+    background-color: #0099e5;
+    transition: 0.1s ease-in-out;
+}
+.splash-btn-nav:hover {
+    background-color: #0882be;
+}
 
 .rest-splash-content {
     width: 100%;
@@ -195,14 +216,17 @@ li  {
 }
 
 .spl-sec-hdr {
-    margin: 0 0 20px;
+    margin: 20px 20px;
+    padding-top: 5px;
     width: 100%;
     height: 100%;
     text-align: center;
 }
 .rst-spl-tabs {
     display: flex;
-    padding: 0 38.5%;
+    justify-content: center;
+    align-items: center;
+    /* padding: 0 38.5%; */
     list-style-type: none;
     text-align: center;
     white-space: nowrap;
@@ -277,8 +301,8 @@ a {
 
     width: 60%;
     /* padding-top: 64px; */
+    padding: 0 20%;
     padding-bottom: 64px;
-    padding-left: 290px;
     display: flex;
     justify-content: space-between;
 }

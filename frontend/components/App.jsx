@@ -15,7 +15,7 @@ import SignupFormContainer from './auth/signup_form_container';
 import { AuthRoute, ProtectedRoute } from '../util/route_utils';
 import Splash from './splash.jsx';
 import FeedContainer from './feed/feed_container.js';
-import Modal from './modal/modal';
+// import Modal from './modal/modal';
 // import {closeModal} from '../actions/modal_actions';
 
 class App extends Component {
@@ -23,7 +23,6 @@ class App extends Component {
   render() {
     return (
       <div>
-        <Modal />
         <Switch>
         
         <Route exact path="/" component={Splash} />

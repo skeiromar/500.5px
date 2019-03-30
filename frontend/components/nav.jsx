@@ -37,7 +37,7 @@ export default class Greeting extends Component {
                         <Link to="/signup">sign up</Link>
                     </li>
                     <li>
-                        <Link to="/login">log in</Link>
+                        <Link to="/login" className="splash-btn-nav">log in</Link>
                     </li>
                 </ul>
                

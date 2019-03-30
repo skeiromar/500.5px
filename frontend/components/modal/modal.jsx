@@ -59,8 +59,9 @@ class Modal extends Component {
     const formData = new FormData();
     formData.append("picture[title]", this.state.title);
     formData.append("picture[description]", this.state.description);
+
     formData.append("picture[author_id]", this.props.currId);
-    
+
     if (this.state.picFile) {
       
       formData.append("picture[picture]", this.state.picFile);
@@ -181,6 +182,7 @@ class Modal extends Component {
 const mapStateToProps = state => {
   let st = state.session.id || [1]
   let currentUserId = st[0];
+  // debugger
   return {
     modal: state.ui.modal,
     currId: currentUserId,

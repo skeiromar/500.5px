@@ -51,7 +51,7 @@ export default class SessionForm extends Component{
             <PermNavContainer />
             <Link to="/signup"></Link>
             <form onSubmit={this.handleSubmit} className="form-container">
-                <h2>Join 500px</h2>
+                <h2>Join 500.5px</h2>
                 <p>Share your photos, get inspired, and grow your skills.</p>
                 <ul className="li-wo-bullets">
 
@@ -89,7 +89,7 @@ export default class SessionForm extends Component{
 
             <Link to="/signup"></Link>
             <form onSubmit={this.handleSubmit} className="form-container">
-            <h2>Join 500px</h2>
+            <h2>Join 500.5px</h2>
                 <p>Share your photos, get inspired, and grow your skills.</p>
                 <ul className="li-wo-bullets">
 

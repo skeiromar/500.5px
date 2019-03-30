@@ -10,7 +10,12 @@ export default class PictureIndexItem extends Component {
       };
       this.onHover = this.onHover.bind(this);
       this.offHover = this.offHover.bind(this);
+      this.handleClick = this.handleClick.bind(this);
+
   } 
+  handleClick() {   
+    // this.props.openModal('show-pic');
+  }
 
   onHover() {
     this.setState({hover: true});
@@ -25,8 +30,10 @@ export default class PictureIndexItem extends Component {
     let className = this.state.hover ? 'hover-state' : 'base-state';
     return (
       <div className={`feed-flex-item`}
-      onMouseEnter={this.onHover}
-        onMouseLeave={this.offHover} >
+        onMouseEnter={this.onHover}
+        onMouseLeave={this.offHover} 
+        onClick={this.handleClick}
+        >
         <Link to={`/picture/${picture.id}`}>
         <img src={`${picture.pictureUrl}`}
             className="feed-flex-img"

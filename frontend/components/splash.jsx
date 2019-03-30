@@ -47,27 +47,40 @@ class Splash extends Component {
                 </li>
             </ul>
         </div>
-        <div className="spl-grid-cnt">
-
-        <div className="spl-photo-grid">
-            <div className="spl-grid-item--1">
-                
-                <img className="img-spl"  src="https://images.unsplash.com/photo-1553607174-cdf41a592250?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80" alt=""/>
+        <ul className="feed-flex-img-cnt">                  
+            <div  className="feed-flex-item">
+                <img className="feed-flex-img" 
+                src='https://picsum.photos/500/900/?random'/>
             </div>
-            <div className="spl-grid-item--2">
-                <img className="img-spl"  src="https://images.unsplash.com/photo-1553448754-7dc4182ea807?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=967&q=80" alt=""/>
-
+            <div className="feed-flex-item">
+                <img className="feed-flex-img" 
+                src='https://picsum.photos/500/300/?random'/>
             </div>
-            <div className="spl-grid-item--3">
-
-                <img className="img-spl"  src="https://images.unsplash.com/photo-1553666102-4fb057e3d5e9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80" alt=""/>
+            <div className="feed-flex-item">
+                <img className="feed-flex-img" 
+                src='https://picsum.photos/300/200/?random'/>
             </div>
-            <div className="spl-grid-item--4">
-
-            <img className="img-spl"  src="https://images.unsplash.com/photo-1553467105-bdb9ae8a7eff?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1051&q=80" alt=""/>
+            <div className="feed-flex-item">
+                <img className="feed-flex-img" 
+                src='https://picsum.photos/500/700/?random'/>
             </div>
-        </div>
-        </div>
+            <div  className="feed-flex-item">
+                <img className="feed-flex-img" 
+                src='https://picsum.photos/500/500/?random'/>
+            </div>
+            <div className="feed-flex-item">
+                <img className="feed-flex-img" 
+                src='https://picsum.photos/600/800/?random'/>
+            </div>
+            <div className="feed-flex-item">
+                <img className="feed-flex-img" 
+                src='https://picsum.photos/700/400/?random'/>
+            </div>
+            <div className="feed-flex-item">
+                <img className="feed-flex-img" 
+                src='https://picsum.photos/200/600/?random'/>
+            </div>
+        </ul>
         
         <div className="spl-sec-hdr">
             <h1 className="rst-spl-hdl">Get motivated to share your best work</h1>

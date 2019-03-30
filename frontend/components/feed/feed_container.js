@@ -4,10 +4,11 @@ import {fetchPictures} from '../../actions/picture_actions';
 import {openModal, closeModal} from '../../actions/modal_actions';
 
 const msp = (state, props) => {
-    console.log(state);
     let pictures = Object.values(state.entities.pictures) || [];
+    let user = state.entities.users[state.session.id[0]] || {};
     return {
         pictures: pictures,
+        user: user
     };
 };
 
@@ -18,7 +19,7 @@ const mdp = (dispatch) => {
         fetchPictures: () => dispatch(fetchPictures()),
         closeModal: () => dispatch(closeModal('close')),
         openModal: (e) => {
-            e.preventDefault(); 
+            if (e.preventDefault) e.preventDefault(); 
             return dispatch(openModal('open-upload-modal'));
         }
     };

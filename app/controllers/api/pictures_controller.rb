@@ -1,12 +1,13 @@
 class Api::PicturesController < ApplicationController
 
     def index
-        @pictures = Picture.all
+        @pictures = Picture.includes(:author).all
     end
 
     def create
         @picture = Picture.new(picture_params)
-        @picture.author_id = 8
+        # debugger
+        # @picture.author_id = 8
         if @picture.save
             render json: {message: 'nice'}
         else
@@ -49,7 +50,7 @@ class Api::PicturesController < ApplicationController
     end
     
     def picture_params
-        params.require(:picture).permit(:title, :description, :picture)
+        params.require(:picture).permit(:title, :description, :picture, :author_id)
     end
     
     

@@ -10,8 +10,9 @@ class User < ApplicationRecord
 
   has_many :followers, class_name: "Follow", foreign_key: "follower_id"
   has_many :followed, class_name: "Follow", foreign_key: "followed_id"
+  has_many :pictures, class_name: "Picture", foreign_key: "author_id" 
 
-
+  has_one_attached :profile_picture
 
 
   def self.find_by_credentials(username, password)

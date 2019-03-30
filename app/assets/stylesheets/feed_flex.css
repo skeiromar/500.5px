@@ -9,30 +9,51 @@
     /* width: 100%;
     margin: auto; 
     height: 300px; */
-    background: rgba(244, 244, 244, 0.966);
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: flex-start;
+    /* background: rgba(244, 244, 244, 0.966);
+    display: flex; */
+    /* flex-wrap: wrap; */
+    /* justify-content: flex-start;
     flex-direction: row;
-    /* width: 100%; */
-    /* width: 100vw; */
     margin-left: auto;
-	margin-right: auto;
+	margin-right: auto; */
 	/* max-width: 40em; */
 	/* width: 88%; */
+    /* width: 100%; */
+    /* width: 100vw; */
 
 }
-.feed-photo-flex div {
+.feed-flex-img-cnt {
+    display: flex;
+    flex-wrap: wrap;
+    /* padding-bottom: 50px; */
+    width: 95%;
+    height: auto;
+    /* padding: 3% 5% 0 5%; */
+}
+.feed-flex-item {
+    flex-grow: 1;
+    margin: 3px 3px;
+    position: relative;
+    
+}
+.feed-flex-img {
+    height: 300px;
+    min-width: 100%;
+    max-width: 100%;
+    vertical-align: bottom;
+    object-fit: cover;
+}
+/* .feed-photo-flex div {
     background-size: cover;
     background-size: 100%; 
     
-}
+} */
 
 .feed-flex-cnt div img {
-    margin: 5px;
+    /* margin: 5px;
     transition: all 0.5s;
     height: 300px;
-    max-width: 800px;
+    max-width: 800px; */
     /* max-width: 50vw; */
     /* max-width: 500px; */
     /* max-width: 100%; */
@@ -40,10 +61,10 @@
     overflow: hidden; */
 
 }
-img:hover {
+/* img:hover {
     transform: scale(1.05);
 
-}
+} */
 .feed-flex-cnt div img:hover {
     transform: scale (1.1);
    }

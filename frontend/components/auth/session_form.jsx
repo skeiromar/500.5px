@@ -74,6 +74,9 @@ export default class SessionForm extends Component{
                 <li >
                     <button onClick={this.handleDemoLogin} className="button-log demo-btn">demo sign in</button>
                 </li>
+                <li >
+                    {/* <button onClick={this.props.openModal} className="button-log demo-btn">demo sign in</button> */}
+                </li>
                 </ul>
                 <p className="session-errors">
                 {this.props.errors}

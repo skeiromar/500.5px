@@ -67,12 +67,16 @@
     background-position: -165px top;
 }
 .nav-upload-icon {
-
+    display: flex;
     background-color: #34bf49;
     color: white;
     padding-left: 15px;
     padding-right: 15px;
-    padding-top: 25px;
-    padding-bottom: 8.5px;
+    padding-top: 16px;
+    padding-bottom: 16px;
     /* line-height: 5px; */
+    margin-top: -16px;
+    justify-content: center;
+    align-items: center;
+
 }

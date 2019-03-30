@@ -1,12 +1,13 @@
 import {connect} from 'react-redux';
 import Feed from './feed';
 import {fetchPictures} from '../../actions/picture_actions';
+import {openModal, closeModal} from '../../actions/modal_actions';
 
 const msp = (state, props) => {
     console.log(state);
-    // let pic = sta
+    let pictures = Object.values(state.entities.pictures) || [];
     return {
-        
+        pictures: pictures,
     };
 };
 
@@ -14,7 +15,12 @@ const msp = (state, props) => {
 const mdp = (dispatch) => {
 
     return {    
-        fetchPictures: () => dispatch(fetchPictures())
+        fetchPictures: () => dispatch(fetchPictures()),
+        closeModal: () => dispatch(closeModal('close')),
+        openModal: (e) => {
+            e.preventDefault(); 
+            return dispatch(openModal('open-upload-modal'));
+        }
     };
 };
 

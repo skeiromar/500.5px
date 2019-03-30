@@ -1,0 +1,172 @@
+
+
+.pic-container {
+    position: relative;
+    text-align: center;
+    color: white;
+}
+
+.bottom-middle {
+    position: absolute;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    bottom: 0px;
+    left:  0px;
+    /* display: flex; */
+    /* justify-content: space-between; */
+    /* align-items: stretch; */
+    text-align: right;
+    /* left: 0; */
+    /* right: 0; */
+    /* height: 50px; */
+    opacity: 0;
+    background: linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.6) 100%);
+    transition: opacity 0.2s;
+}
+
+
+.likes {
+    position: absolute;
+    top: 0;
+    right: 10px;
+    transition: top 0.2s;
+    font-size: 30px;
+    color: #fff;
+    text-shadow: 0 0 1px rgba(0,0,0,0.6);
+}
+
+.top-right {
+    position: absolute;
+    top: 8px;
+    right: 16px;
+    position: absolute;
+    text-align: right;
+    left: 0;
+    right: 0;
+    top: 0;
+    height: 30px;
+    opacity: 0;
+    background: linear-gradient(to top, transparent 0%, rgba(0,0,0,0.6) 100%);
+
+    transition: opacity 0.2s;
+
+}
+
+
+
+.base-state {
+    visibility: hidden;
+}
+
+@keyframes hoverAnimation{
+    0%{
+        transform: translateY(23%);
+        opacity: 0;
+        }
+    100%{
+        transform: translateY(0%);
+        opacity: 1;
+        }
+}
+
+.hover-state {
+    /* visibility: initial; */
+    /* transition: 1s; */
+    /* transition: all 1s ease; */
+    animation: hoverAnimation 0.2s forwards 0s ease;
+    /* font-size: 25px; */
+
+}
+.profile-info {
+    position: absolute;
+    width: 100%;
+    margin-left: 10px;
+    bottom: 10px;
+    /* text-align: end; */
+    align-self: start;
+    /* justify-content: start; */
+    align-items: center;
+    padding-right: 0px;
+    display: flex;
+}
+.icon-avatar-pic {
+
+    border-radius: 50%;
+    width: 28px;
+    height: 28px;
+    margin: 0;
+    
+    /* align-self: center; */
+
+    /* padding-top: -5; */
+}
+.icon-avatar-pic:hover {
+    /* background: green; */
+    opacity: 0.8;
+    transition: opacity 0.2s;
+}
+
+.like-more {
+    /* position: absolute; */
+    /* width: 100%; */
+    margin-bottom: 6px;
+    margin-right: 10px;
+    /* size: 100px; */
+    /* align-self: center; */
+    /* font-size: 15px; */
+    /* font-weight: bold; */
+    /* font-weight: 500; */
+    color: rgb(221, 221, 221);
+    /* position: relative;
+    position: static;
+    pointer-events: auto;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;  */
+}
+.icon-hover:hover {
+    /* background: blue; */
+    color: black;
+    transition: 0.2s;
+}
+.pic-icon-text {
+    /* position: absolute; */
+    margin-left: 8px;
+    margin-bottom: -5px;
+    /* width: 100%; */
+    /* padding-bottom: 90px; */
+    align-self: center;
+    /* color: white; */
+    /* line-height: 20px; */
+    /* line-height: 1.4em; */
+    /* display: inline-block; */
+    /* max-width: 100%; */
+    font-size: 15px;
+    font-weight: bold;
+    font-weight: 500;
+    color: #fff;
+    position: relative;
+    position: static;
+    pointer-events: auto;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.pic-icon-text:hover {
+    border: 0.8px solid rgba(219, 219, 219, 0.075);
+    background: rgba(255, 255, 255, 0.137);
+}
+
+/* top fade in for picture: */
+/* position: absolute;
+text-align: right;
+left: 0;
+right: 0;
+top: 0;
+height: 50px;
+opacity: 0;
+background: linear-gradient(to top, transparent 0%, rgba(0,0,0,0.6) 100%);
+-webkit-transition: opacity 0.2s;
+-moz-transition: opacity 0.2s;
+transition: opacity 0.2s; */

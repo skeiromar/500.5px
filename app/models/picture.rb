@@ -7,6 +7,15 @@ class Picture < ApplicationRecord
     
     belongs_to :author, class_name: "User", foreign_key: "author_id"
 
+    validate :ensure_picture
+
+    
     has_one_attached :picture
+
+    def ensure_picture 
+        unless self.picture.attached? 
+            errors[:picture] << "Picture must be attached"
+        end
+    end 
 
 end

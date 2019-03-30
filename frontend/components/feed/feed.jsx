@@ -1,12 +1,7 @@
 import React, {Component} from 'react';
-import {Link} from 'react-router-dom';
-
-import { library } from '@fortawesome/fontawesome-svg-core';
-import { faEnvelope, faKey } from '@fortawesome/free-solid-svg-icons';
-
-library.add(faEnvelope, faKey);
-
-
+import { Link, Route } from 'react-router-dom';
+// import Modal from '../modal/modal';
+import PictureIndexItem from './picture_index_item';
 
 export default class Feed extends Component {
     constructor(props) {
@@ -49,22 +44,17 @@ export default class Feed extends Component {
         const formData = new FormData();
         formData.append("picture[title]", 'this is a test 2');
         formData.append("picture[description]", 'this is a test description 2');
-        formData.append("picture[picture]", this.state.picFile);
+        if (this.state.picFile) {
+
+            formData.append("picture[picture]", this.state.picFile);
+        }
         // formData.append("picture[author_id]", '8');
-        return $.ajax({
-            method: "POST",
-            url: `api/pictures`,
-            data: formData, 
-            contentType: false,
-            processData: false
-        });
-      }
+    }
 
     render() {  
         console.log(this.state);
         return (
             <div>
-
                 <nav className="perm-navbar">
                 <ul className="perm-navbar-ul-elems">
                     <li>
@@ -124,14 +114,11 @@ export default class Feed extends Component {
                         </div>
                     </li>
                     <li >
-                    
-                    <a href="" className="nav-upload-icon">
-                        <i className="fa fa-cloud-upload display-if" aria-hidden="true"></i>
+                    <a className="nav-upload-icon" onClick={this.props.openModal}>
+                        <i className="fas fa-cloud-upload-alt cloud-margin-right"></i>
                         <span>
-                            <form onSubmit={this.handleSubmit}>
-                            <input type="file" onChange={this.handleFile}/>
-                            <input type="submit" value="submit"/>
-                            </form>
+                            <button >upload</button>
+                        
                         </span>
                     </a>
                     </li>
@@ -167,79 +154,56 @@ export default class Feed extends Component {
                         </ul>
                     </div>
                         <p className="hline-feed"></p>
+                
+                <div>
+
+                </div>
+                <div className="feed-flex-cnt">
+                    <ul className="feed-flex-img-cnt">
+                        {this.props.pictures.map((el, i) => <PictureIndexItem key={i} picture={el} />)}                    
+                        <div  className="feed-flex-item">
+                            <img className="feed-flex-img" 
+                            src='https://picsum.photos/500/900/?random'/>
+                        </div>
+                        <div className="feed-flex-item">
+                            <img className="feed-flex-img" 
+                            src='https://picsum.photos/500/300/?random'/>
+                        </div>
+                        <div className="feed-flex-item">
+                            <img className="feed-flex-img" 
+                            src='https://picsum.photos/300/200/?random'/>
+                        </div>
+                        <div className="feed-flex-item">
+                            <img className="feed-flex-img" 
+                            src='https://picsum.photos/500/700/?random'/>
+                        </div>
+                        <div  className="feed-flex-item">
+                            <img className="feed-flex-img" 
+                            src='https://picsum.photos/500/500/?random'/>
+                        </div>
+                        <div className="feed-flex-item">
+                            <img className="feed-flex-img" 
+                            src='https://picsum.photos/600/800/?random'/>
+                        </div>
+                        <div className="feed-flex-item">
+                            <img className="feed-flex-img" 
+                            src='https://picsum.photos/700/400/?random'/>
+                        </div>
+                        <div className="feed-flex-item">
+                            <img className="feed-flex-img" 
+                            src='https://picsum.photos/200/600/?random'/>
+                        </div>
+                    </ul>
 
                     
-                <div className="feed-flex-cnt">
+                        {/* <Route exact path="/" component={PokemonFormContainer} /> */}
+                        {/* <Route
+                        path="/pokemon/:pokemonId"
+                        component={PokemonDetailContainer} /> */}
 
-                    <div className="feed-photo-flex">
-                        <div style={{backgroundImage: `url(${'https://picsum.photos/500/400/?random'})`}}>
-                             <img src={this.state.pics} alt=""/> 
-                             <img src='https://picsum.photos/500/400/?random'/>
-                        </div>
-                        <div>
-                            <img src='https://picsum.photos/600/800/?random'/>
-                        </div>
-                        <div>
-                            <img src='https://picsum.photos/700/400/?random'/>
-                        </div>
-                        <div>
-                            <img src='https://picsum.photos/500/600/?random'/>
-                        </div>
-                        
-                        <div>
-                             <img src='https://picsum.photos/800/600/?random'/>
-                        </div>
-                        <div>
-                            <img src='https://picsum.photos/400/700/?random'/>
-                        </div>
-                        <div>
-                            <img src='https://picsum.photos/700/500/?random'/>
-                        </div>
-                        <div>
-                            <img src='https://picsum.photos/500/400/?random'/>
-                        </div>
 
-                        <div>
-                             <img src='https://picsum.photos/400/400/?random'/>
-                        </div>
-                        <div>
-                            <img src='https://picsum.photos/600/700/?random'/>
-                        </div>
-                        <div>
-                            <img src='https://picsum.photos/600/500/?random'/>
-                        </div>
-                        <div>
-                            <img src='https://picsum.photos/500/600/?random'/>
-                        </div>
 
-                        <div>
-                             <img src='https://picsum.photos/500/900/?random'/>
-                        </div>
-                        <div>
-                            <img src='https://picsum.photos/400/600/?random'/>
-                        </div>
-                        <div>
-                            <img src='https://picsum.photos/700/300/?random'/>
-                        </div>
-                        <div>
-                            <img src='https://picsum.photos/500/500/?random'/>
-                        </div>
 
-                        <div>
-                             <img src='https://picsum.photos/500/400/?random'/>
-                        </div>
-                        <div>
-                            <img src='https://picsum.photos/600/800/?random'/>
-                        </div>
-                        <div>
-                            <img src='https://picsum.photos/500/800/?random'/>
-                        </div>
-                       
-                        <div>
-                            <img src='https://picsum.photos/500/900/?random'/>
-                        </div>
-
-                    </div>
                 </div>
 
                 </div>

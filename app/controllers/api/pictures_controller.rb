@@ -16,8 +16,9 @@ class Api::PicturesController < ApplicationController
     end
         
     def update
-        @picture = selected_picture
-        if @picture && @picture.update_attributes(picture_params)
+
+        @picture = Picture.find(params[:id])
+        if @picture && @picture.update_attributes(picture_update_params)
             render :show
         elsif !@picture
             render json: ['Could not locate picture'], status: 400
@@ -51,6 +52,10 @@ class Api::PicturesController < ApplicationController
     
     def picture_params
         params.require(:picture).permit(:title, :description, :picture, :author_id)
+    end
+
+    def picture_update_params 
+        params.require(:picture).permit(:title, :description)
     end
     
     

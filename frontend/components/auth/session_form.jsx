@@ -30,7 +30,7 @@ export default class SessionForm extends Component{
         this.props.history.push('/feed'), errors => this.props.receiveSessionErrors(errors.responseJSON)) : 
         whatev.signup(user)
         .then(() => 
-        this.props.history.push('/feed'), errors => this.props.receiveSessionErrors(errors.responseJSON));
+        this.props.history.push('/feed'), errors => this.props.receiveSessionErrors(errors.responseJSON) );
     }
 
     onChange(type) {
@@ -49,7 +49,6 @@ export default class SessionForm extends Component{
         return this.props.formType === "login" ? (
             <>
             <PermNavContainer />
-            <Link to="/signup"></Link>
             <form onSubmit={this.handleSubmit} className="form-container">
                 <h2>Join 500.5px</h2>
                 <p>Share your photos, get inspired, and grow your skills.</p>
@@ -87,7 +86,6 @@ export default class SessionForm extends Component{
             <>  
             <PermNavContainer />
 
-            <Link to="/signup"></Link>
             <form onSubmit={this.handleSubmit} className="form-container">
             <h2>Join 500.5px</h2>
                 <p>Share your photos, get inspired, and grow your skills.</p>

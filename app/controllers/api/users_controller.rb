@@ -52,9 +52,9 @@ class Api::UsersController < ApplicationController
         if @user
             @user.destroy
             render :show
-    else
-        render ['Could not find user']
-    end
+        else
+            render ['Could not find user']
+        end
     end
     
     private

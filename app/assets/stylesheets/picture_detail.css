@@ -242,8 +242,12 @@
 }
 
 
-.like-icon-container:hover {
-
+.like-icon-container {
+    padding-right: 32px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 .like-icon {
     transform: scale(1.3);
@@ -253,4 +257,152 @@
     transform: scale(1.5);
     transition: 0.5s transform ease;
     color: #ff2222;
+}
+
+.comment-style {
+    max-width: 100%;
+    margin-bottom: 24px;
+    display: flex;
+    justify-content: space-between;
+    /* align-items: center; */
+    /* flex-direction: column; */
+
+}
+.comment-icon-container {
+    display: flex;
+    align-items: center;
+    min-width: 32px;
+}
+.comment-icon-style {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-bottom: 50px;
+}
+.comment-container {
+    display: flex;
+    position: relative;
+    height: 100%;
+    width: 100%;
+    margin-left: 16px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgb(109, 115, 120);
+    border-image: initial;
+    border-radius: 4px;
+}
+textarea {
+    border: none;
+    overflow: auto;
+    outline: none;
+
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+
+    resize: none; /*remove the resize handle on the bottom right*/
+}
+.comment-style-text {
+    /* will have to implement height via react using state 
+    and increasing height after a certain amount of chars. */
+    
+    height: 25px;
+    min-height: 25px;
+    max-height: 170px;
+    overflow-y: hidden;
+    width: calc(100% - 56px);
+    font-size: 18px;
+    line-height: 24px;
+    color: rgb(34, 34, 34);
+    background-color: transparent;
+    border-width: 0px;
+    border-style: initial;
+    border-color: initial;
+    border-image: initial;
+    padding: 16px;
+
+}
+.comment-content {
+    padding-right: 9.4%;    
+    padding-top: 16%;
+}
+
+.num-comment-style {
+    padding-left: 16px;
+}
+.comment-icon {
+    font-size: 24px;
+    /* top: 100px; */
+    /* bottom: 10px; */
+    padding-top: 16px;
+    padding-right: 16px;
+}
+.make-comment-container{
+    word-break: break-word;
+    max-width: 100%;
+    justify-content: flex-end;
+    align-items: center;
+    display: flex;
+    margin-top: 16px;
+
+    /* right: 0; */
+}
+
+.make-comment-cancel {
+    position: relative;
+    font-size: 16px;
+    line-height: 20px;
+    color: rgb(8, 112, 209);
+    font-weight: bold;
+    cursor: pointer;
+    margin-right: 16px;
+    text-decoration: none;
+    transition: color 0.1s ease 0s;
+}
+.make-comment {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(8, 112, 209);
+    color: rgb(255, 255, 255);
+    font-size: 16px;
+    line-height: 16px;
+    font-weight: bold;
+    height: 32px;
+    padding: 0px 16px;
+    border-width: 2px;
+    border-color: rgb(8, 112, 209);
+    border-radius: 100px;
+    border-style: solid;
+    margin: 0px;
+}
+.comment-btn-text-cont {
+    display: flex;
+    flex-direction: column;
+    /* margin-right: -50; */
+}
+.make-comment-cancel:hover {
+    transform: scale(0.95) translateY(-1%);
+    color: rgb(68, 165, 255);    
+}
+.make-comment:hover {
+    background-color: rgb(30, 133, 230);
+    border-color: rgb(30, 133, 230);
+}
+.like-icon-edit {
+    transform: scale(1.2);
+    margin-right: 20px;
+    margin-bottom: 5px;
+}
+.like-icon-edit:hover {
+    transform: scale(1.5);
+    transition: 0.5s transform ease;
+    color: #ff2222;
+}
+#like-icon-likes {
+    /* position: absolute; */
+    /* margin-top: 5px; */
+    /* padding-right: 20px; */
+    /* align-self: center; */
 }

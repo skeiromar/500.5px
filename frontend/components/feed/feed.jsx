@@ -15,6 +15,7 @@ export default class Feed extends Component {
     componentDidMount() {
         this.props.fetchPictures();
     }
+
     handleLogout() {
         this.props.logout();
     }

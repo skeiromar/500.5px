@@ -16,6 +16,7 @@ import { AuthRoute, ProtectedRoute } from '../util/route_utils';
 import Splash from './splash.jsx';
 import FeedContainer from './feed/feed_container.js';
 import PictureDetailContainer from './feed/picture_detail/picture_detail_container';
+import PictureEditContainer from './feed/picture_edit/picture_edit_container';
 // import Modal from './modal/modal';
 // import {closeModal} from '../actions/modal_actions';
 
@@ -31,7 +32,8 @@ class App extends Component {
         <AuthRoute exact path="/login" component={ LoginFormContainer } />
         <AuthRoute exact path="/signup" component={ SignupFormContainer } />
         <ProtectedRoute exact path="/feed" component={ FeedContainer } />
-        <ProtectedRoute path="/pictures/:pictureId" component={ PictureDetailContainer } />
+        <ProtectedRoute exact path="/pictures/:pictureId" component={ PictureDetailContainer } />
+        <ProtectedRoute path="/pictures/:pictureId/edit" component={ PictureEditContainer } />
         </Switch>
       </div>
     )

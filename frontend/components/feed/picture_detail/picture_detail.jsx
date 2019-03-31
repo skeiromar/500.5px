@@ -17,10 +17,12 @@ class PictureDetail extends Component {
     this.hoverOff = this.hoverOff.bind(this);
     this.handleLike = this.handleLike.bind(this);
     this.handleUnlike = this.handleUnlike.bind(this);
+    this.handleEdit = this.handleEdit.bind(this);
 
   }
   componentDidMount() {
     this.props.requestPicture(this.props.match.params.pictureId);
+
   }
 
   componentDidUpdate(prevProps) {
@@ -57,6 +59,14 @@ class PictureDetail extends Component {
   handleUnlike() {
     this.setState({liked: false});
   }
+
+  handleEdit() {
+    // here be thy
+    // console.log('this works', this.props);
+    this.props.history.push(`/pictures/${this.props.picture.id}/edit`);
+    
+  }
+  
 
   render() {
     
@@ -140,8 +150,32 @@ class PictureDetail extends Component {
                     
                       {!this.state.liked ? svgReg : svgLiked }
                     
+                      <span id="like-icon-likes">19 Likes</span>
                     </div>
-                    <span>19 Likes</span>
+                    
+                      <svg 
+                      onClick={this.handleEdit}
+                      className="like-icon-edit"
+                      width="24px" height="28px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink">
+
+                        <defs>
+                          <path d="M3.90995992,16.0903633 L7.91963649,20.1000398 L18.428707,9.59096938 L14.4190304,5.5812928 L3.90995992,16.0903633 Z M3.3869141,17.5470318 L2.77170333,21.2382964 L6.46296795,20.6230857 L3.3869141,17.5470318 Z M8.02667114,21.7816474 L2.03526454,22.7802151 C1.56153382,22.8591703 1.1508295,22.4484659 1.22978462,21.9747352 L2.22835239,15.9833286 C2.2287653,15.9806457 2.22919383,15.9779647 2.22963799,15.9752858 C2.2536743,15.8313971 2.32201965,15.6985892 2.42517414,15.5954347 L16.0099073,2.01070154 C17.064176,0.956432857 18.7732321,0.956432857 19.8275007,2.01070154 L21.9992982,4.18249901 C23.0535669,5.23676769 23.0535669,6.9458238 21.9992982,8.00009248 L8.41456508,21.5848256 C8.31141059,21.6879801 8.17860264,21.7563254 8.03470505,21.7803084 L8.02667114,21.7816474 C7.81378483,21.8144113 7.58868635,21.7488041 7.4247079,21.5848256 L6.46296795,20.6230857 Z M15.4088876,4.59143562 L19.4185641,8.60111219 L21.009441,7.0102353 C21.5170267,6.50264964 21.5170267,5.67994185 21.009441,5.17235619 L18.8376436,3.00055873 C18.3300579,2.49297307 17.5073501,2.49297307 16.9997645,3.00055873 L15.4088876,4.59143562 Z" id="path-1___DDQ0V4qe" />
+                        </defs>
+                        <g id="Icon/Very-Dark-Grey/Edit___DDQ0V4qe" stroke="none" strokeWidth={1} fill="none" fillRule="evenodd">
+                          <g id="01-Icon/Utility-Icon/_/Edit___DDQ0V4qe">
+                            <mask id="mask-2___DDQ0V4qe" fill="white">
+                              <use xlinkHref="#path-1___DDQ0V4qe" />
+                            </mask>
+                            <use id="Mask___DDQ0V4qe" fill="#222222" fillRule="nonzero" xlinkHref="#path-1___DDQ0V4qe" />
+                            <g className="inline_svg_icon__fill" id="00-Mixin/Fill/01-Very-Dark-Grey___DDQ0V4qe" mask="url(#mask-2___DDQ0V4qe)" fill="#222222" fillRule="evenodd">
+                              <rect id="Box___DDQ0V4qe" x={0} y={0} width={24} height={24} />
+                            </g>
+                          </g>
+                        </g>
+                      </svg>
+                      <span>Edit Picture</span>
+
+
                   </div>
                   <div className="pic-title">
 
@@ -174,27 +208,46 @@ class PictureDetail extends Component {
                   </div>
 
                 </li>
-                <li>
+                <li className="comment-content">
 
                   <div>
-                    <h3>
+                    <h3 className="num-comment-style">
                       35 Comments
                     </h3>
                     <div>
-                      <div>
-                        <div>
-                          <img src={`${user.pictureUrl}`} 
-                          alt=""/>
-                        </div>
-                        <div>
-                          <textarea name="" id="" cols="`10" rows="2">
-
-                          </textarea>
-                          <i className="far fa-comment"></i>
-                        </div>
+                      <div className="comment-style">
+                        
+                          <div className="comment-icon-container">
+                            <img src={`${user.pictureUrl}`} 
+                            className="comment-icon-style" />
+                          </div>
+                        <div className="comment-btn-text-cont">
+                          <div className="comment-container">
+                            <textarea 
+                            className="comment-style-text" 
+                            
+                            placeholder="Add a comment"
+                            defaultValue={""}
+                            ></textarea>
+                            <i className="far fa-comment comment-icon"></i>
+                            {/* <div className="comment-icon"></div> */}
+                          </div>
+                        
+                        <div className="make-comment-container">
+                          <a 
+                          className="make-comment-cancel">
+                              Cancel
+                          </a>
+                          <a 
+                          className="make-comment">
+                              Comment
+                          </a>
+                        </div>  
+                      </div>
                       </div>
                       <div>
                         {/* CommentItem */}
+                        
                       </div>
                     </div>
                     <div>

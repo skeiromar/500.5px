@@ -35,7 +35,6 @@ class Modal extends Component {
   closeMod() {
     this.setState({uploaded: false});
     this.props.closeModal();
-    // this.props.history.push(`feed/`);
   }
 
   handleFile(e) {
@@ -159,7 +158,8 @@ class Modal extends Component {
                 </li>
                 <li className="upload-modal-list">
                   Description:
-                  <input type="text" onChange={this.onChange("description")}/>
+                  {/* <input type="text" onChange={this.onChange("description")}/> */}
+                  <textarea cols="30" rows="10" onChange={this.onChange("description")}></textarea>
 
                 </li>
                 </form>

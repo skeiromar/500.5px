@@ -24,16 +24,19 @@
 
 .perm-navbar-ul-elems > li {
     padding: 0 10px;
+    z-index: 2;
 }
 
 .perm-navbar-ul-elems-logo {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-size: 25px;
     color: black;
+    
 }
 
 .perm-right-ul-elems {
     position: absolute;
     right: 5%;
     top: 0%;
+    
 }

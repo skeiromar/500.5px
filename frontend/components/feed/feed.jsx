@@ -1,56 +1,22 @@
 import React, {Component} from 'react';
 import { Link, Route } from 'react-router-dom';
+import {ProtectedRoute} from '../../util/route_utils';
 import Modal from '../modal/modal';
 import PictureIndexItem from './picture_index_item';
-
+import PictureDetailContainer from './picture_detail/picture_detail_container';
 
 export default class Feed extends Component {
     constructor(props) {
         super(props);
-
-        this.state = {
-            pics: '',
-            picFile: null
-        };
-        this.listenScroll = this.listenScroll.bind(this);
-        this.handleFile = this.handleFile.bind(this);
-        this.handleSubmit = this.handleSubmit.bind(this);
         
-    }
-    requestPictures() {
-        $.ajax({
-            method: "GET",
-            url: `api/pictures`,
-        }).then(pics => {
-            
-            this.setState({pics: pics[1].pictureUrl});
-        });
+        this.handleLogout = this.handleLogout.bind(this);
     }
 
     componentDidMount() {
-        // this.requestPictures();
-        // debugger
         this.props.fetchPictures();
-        // console.log(this.state);
     }
-
-    listenScroll() {
-
-    }
-    handleFile(e) {
-        this.setState({picFile: e.currentTarget.files[0]});
-    }
-    handleSubmit(e) {
-        e.preventDefault();
-        // this.props.action(this.state);
-        const formData = new FormData();
-        formData.append("picture[title]", 'this is a test 2');
-        formData.append("picture[description]", 'this is a test description 2');
-        if (this.state.picFile) {
-
-            formData.append("picture[picture]", this.state.picFile);
-        }
-        // formData.append("picture[author_id]", '8');
+    handleLogout() {
+        this.props.logout();
     }
 
     render() {  
@@ -109,7 +75,7 @@ export default class Feed extends Component {
 
                             </li>
                             <li>
-                        <button>Log Out</button>
+                        <button onClick={this.handleLogout}>Log Out</button>
 
                             </li>
                         </ul>
@@ -130,7 +96,9 @@ export default class Feed extends Component {
                 <br/>
                 </nav>
 
+
                 <div className="feed-cnt">
+                    
                     <div className="feed-txt">
                         <h1>
                             What's popular today
@@ -203,21 +171,9 @@ export default class Feed extends Component {
                     </ul>
 
                     
-                        {/* <Route exact path="/" component={PokemonFormContainer} /> */}
-                        {/* <Route
-                        path="/pokemon/:pokemonId"
-                        component={PokemonDetailContainer} /> */}
-
-
-
-
                 </div>
 
                 </div>
-
-                
-
-
 
             </div>
         )

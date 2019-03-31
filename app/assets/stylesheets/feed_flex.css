@@ -22,11 +22,13 @@
     /* width: 100vw; */
 
 }
+
 .feed-flex-img-cnt {
     display: flex;
     flex-wrap: wrap;
     /* padding-bottom: 50px; */
-    width: 95%;
+    width: 100%;
+    margin-left: -34px;
     height: auto;
     /* padding: 3% 5% 0 5%; */
 }

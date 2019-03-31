@@ -125,11 +125,7 @@
     overflow: hidden;
     text-overflow: ellipsis;  */
 }
-.icon-hover:hover {
-    /* background: blue; */
-    color: black;
-    transition: 0.2s;
-}
+
 .pic-icon-text {
     /* position: absolute; */
     margin-left: 8px;

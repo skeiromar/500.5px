@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { signup, receiveErrors } from '../../actions/session_actions';
+import { signup, receiveErrors, receiveSessionErrors } from '../../actions/session_actions';
 import SessionForm from './session_form';
 
 
@@ -17,7 +17,8 @@ const mdp = thunkCaller => {
 
     return {
         processForm: { signup: (user) => thunkCaller(signup(user)) },
-        receiveErrors: (errors) => thunkCaller(receiveErrors(errors))
+        receiveErrors: (errors) => thunkCaller(receiveErrors(errors)),
+        receiveSessionErrors: (errors) => dispatch(receiveSessionErrors(errors))
     }
 }
 

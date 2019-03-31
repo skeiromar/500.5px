@@ -7,8 +7,6 @@ export default (state = [], action) => {
             return [];
         case RECEIVE_SESSION_ERRORS:
             return action.errors;
-        case RECEIVE_ERRORS:
-            return action.errors;
         case CLEAR_ERRORS:
             return [];
         default:

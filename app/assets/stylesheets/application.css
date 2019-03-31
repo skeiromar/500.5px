@@ -142,7 +142,7 @@ li  {
 
 .splash-content {
     position: relative;
-    padding-top: 80px;
+    padding-top: 54px;
 
 }
 
@@ -316,6 +316,10 @@ a {
     padding-top: 10px; 
     font-size: 14px;
     color: rgb(53, 47, 47); 
+}
+.spl-imgs div img:hover {
+    transform: scale(1.02);
+    transition: 0.3s transform ease;
 }
 /* here lie splash animations */
 /* @keyframes splashAnimation{

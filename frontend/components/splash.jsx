@@ -47,14 +47,14 @@ class Splash extends Component {
                 </li>
             </ul>
         </div>
-        <ul className="feed-flex-img-cnt">                  
+        <ul className="feed-flex-img-cnt spl-imgs">                  
             <div  className="feed-flex-item">
                 <img className="feed-flex-img" 
-                src='https://picsum.photos/500/900/?random'/>
+                src='https://picsum.photos/500/600/?random'/>
             </div>
             <div className="feed-flex-item">
                 <img className="feed-flex-img" 
-                src='https://picsum.photos/500/300/?random'/>
+                src='https://picsum.photos/600/500/?random'/>
             </div>
             <div className="feed-flex-item">
                 <img className="feed-flex-img" 
@@ -66,7 +66,7 @@ class Splash extends Component {
             </div>
             <div  className="feed-flex-item">
                 <img className="feed-flex-img" 
-                src='https://picsum.photos/500/500/?random'/>
+                src='https://picsum.photos/700/500/?random'/>
             </div>
             <div className="feed-flex-item">
                 <img className="feed-flex-img" 
@@ -74,7 +74,7 @@ class Splash extends Component {
             </div>
             <div className="feed-flex-item">
                 <img className="feed-flex-img" 
-                src='https://picsum.photos/700/400/?random'/>
+                src='https://picsum.photos/800/600/?random'/>
             </div>
             <div className="feed-flex-item">
                 <img className="feed-flex-img" 

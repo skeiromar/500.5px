@@ -2,6 +2,7 @@ import {connect} from 'react-redux';
 import Feed from './feed';
 import {fetchPictures} from '../../actions/picture_actions';
 import {openModal, closeModal} from '../../actions/modal_actions';
+import { logout } from '../../actions/session_actions';
 
 const msp = (state, props) => {
     let pictures = Object.values(state.entities.pictures) || [];
@@ -21,7 +22,8 @@ const mdp = (dispatch) => {
         openModal: (e) => {
             if (e.preventDefault) e.preventDefault(); 
             return dispatch(openModal('open-upload-modal'));
-        }
+        },
+        logout: () => dispatch(logout())
     };
 };
 

@@ -18,6 +18,10 @@ export const receiveErrors = (errors) => ({
     type: RECEIVE_ERRORS,
     errors 
 });
+export const receiveSessionErrors = (errors) => ({
+    type: RECEIVE_SESSION_ERRORS,
+    errors 
+});
 
 export const clearErrors = () => ({
     type: CLEAR_ERRORS

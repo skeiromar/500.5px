@@ -15,6 +15,8 @@ export default class PictureIndexItem extends Component {
   } 
   handleClick() {   
     // this.props.openModal('show-pic');
+    // setTimeout(null , 1000);
+
   }
 
   onHover() {
@@ -34,7 +36,7 @@ export default class PictureIndexItem extends Component {
         onMouseLeave={this.offHover} 
         onClick={this.handleClick}
         >
-        <Link to={`/picture/${picture.id}`}>
+        <Link to={`/pictures/${picture.id}`}>
         <img src={`${picture.pictureUrl}`}
             className="feed-flex-img"
         />

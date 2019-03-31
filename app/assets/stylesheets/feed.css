@@ -56,3 +56,11 @@
 .cloud-margin-right {
     margin-right: 5px;
 }
+
+.fa-heart:hover {
+    /* color: green; */
+    /* background: green; */
+    transform: scale(1.3);
+    transition: 0.5s transform ease;
+    color: #0099e5;
+}

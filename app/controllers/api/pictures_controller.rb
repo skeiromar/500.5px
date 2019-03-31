@@ -27,7 +27,7 @@ class Api::PicturesController < ApplicationController
     end
     
     def show
-        @picture = selected_picture
+        @picture = Picture.includes(:author).find(params[:id])
 
     end
     
@@ -46,7 +46,7 @@ class Api::PicturesController < ApplicationController
     
     def selected_picture
         # .includes(:followers).includes(:followed)
-        picture.find(params[:id])
+        Picture.find(params[:id])
     end
     
     def picture_params

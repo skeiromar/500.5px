@@ -14,7 +14,7 @@ export default class SessionForm extends Component{
 
     }
     componentDidUpdate(e) {
-        // debugger(this.props.location, e.location)
+        
         if (this.props.location.pathname !== e.location.pathname) {
 
             this.props.clearErrors();
@@ -27,10 +27,10 @@ export default class SessionForm extends Component{
         const whatev = this.props.processForm;
         whatev.login ? whatev.login(user)
         .then(() => 
-        this.props.history.push('/feed'), errors => this.props.receiveErrors(errors.responseJSON)) : 
+        this.props.history.push('/feed'), errors => this.props.receiveSessionErrors(errors.responseJSON)) : 
         whatev.signup(user)
         .then(() => 
-        this.props.history.push('/feed'), errors => this.props.receiveErrors(errors.responseJSON));
+        this.props.history.push('/feed'), errors => this.props.receiveSessionErrors(errors.responseJSON));
     }
 
     onChange(type) {

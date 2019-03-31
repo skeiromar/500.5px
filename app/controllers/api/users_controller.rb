@@ -1,7 +1,7 @@
 class Api::UsersController < ApplicationController
     def create
         @user = User.new(user_params)
-        @user.profile_picture.attach(io: File.open("/home/omar/Pictures/test_pictures/seventeen.jpeg"), filename: 'seventeen.jpeg')
+        @user.profile_picture.attach(io: File.open("/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBGdz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--28400227f0cdba533f68ccfad515b17ffc4968da/seventeen.jpeg"), filename: 'seventeen.jpeg')
         if @user.save
           login!(@user)
           render :show

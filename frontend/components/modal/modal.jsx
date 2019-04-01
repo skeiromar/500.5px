@@ -181,7 +181,7 @@ class Modal extends Component {
 
 const mapStateToProps = state => {
   let st = state.session.id || [1]
-  let currentUserId = st[0];
+  let currentUserId = st;
   // debugger
   return {
     modal: state.ui.modal,

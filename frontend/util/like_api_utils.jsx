@@ -22,3 +22,11 @@ export const deletePictureLike = like => {
       data: {like}
     });
 };
+
+export const deleteCommentLike = like => {
+  return $.ajax({
+    url: `/api/comments/${like.likable_id}/unlike`,
+    method: 'DELETE',
+    data: {like}
+  });
+};

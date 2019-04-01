@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Route } from 'react-router-dom';
-
+import CommentItem from '../comments/comment_item';
 
 class PictureDetail extends Component {
   constructor(props) {
@@ -8,7 +8,9 @@ class PictureDetail extends Component {
     this.state = {
       feedTransition: false,
       like: 'black',
-      liked: false
+      liked: false,
+      commentBody: '',
+      comments: this.props.comments
     };
     this.handleClick = this.handleClick.bind(this);
     this.handleClickPrev = this.handleClickPrev.bind(this);
@@ -19,6 +21,7 @@ class PictureDetail extends Component {
     this.handleUnlike = this.handleUnlike.bind(this);
     this.handleEdit = this.handleEdit.bind(this);
     this.handleDelete = this.handleDelete.bind(this);
+    this.handleCreateComment = this.handleCreateComment.bind(this);
 
   }
   componentDidMount() {
@@ -27,7 +30,31 @@ class PictureDetail extends Component {
     this.props.requestPicture(this.props.match.params.pictureId)
               .then(s => this.setState({liked: s.picture.ids.includes(user.id)}));
 
+    this.props.fetchAllComments(this.props.match.params.pictureId);
 
+  }
+
+  handleCreateComment(e) {
+    e.preventDefault();
+    const {picture, user} = this.props;
+    if (this.state.commentBody.length > 0) {
+      let comment = {
+        picture_id: picture.id, 
+        author_id: user.id, 
+        body: this.state.commentBody,
+        username: user.username,
+        username_pic: user.pictureUrl
+      };
+      this.props.createComment(comment).then(el => console.log(el));
+    }
+
+  }
+  onChange(type) {
+    return (e) => {
+        this.setState({
+            [type]: e.target.value
+        });
+    };
   }
 
   componentDidUpdate(prevProps) {
@@ -36,6 +63,7 @@ class PictureDetail extends Component {
     if (prevProps.match.params.pictureId !== this.props.match.params.pictureId) {
       this.props.requestPicture(this.props.match.params.pictureId)
       .then(s => this.setState({liked: s.picture.ids.includes(user.id)}));
+      this.props.fetchAllComments(this.props.match.params.pictureId);
     }
   }
   handleClick() {
@@ -92,7 +120,7 @@ class PictureDetail extends Component {
 
   render() {
     
-    const { picture, user } = this.props;
+    const { picture, user, comments } = this.props;
 
     if (!picture) return null;
     let cName = this.state.feedTransition ? 'pic-fade-out' : 'base';
@@ -236,7 +264,7 @@ class PictureDetail extends Component {
 
                   <div>
                     <h3 className="num-comment-style">
-                      35 Comments
+                      {comments.length} Comments
                     </h3>
                     <div>
                       <div className="comment-style">
@@ -249,7 +277,7 @@ class PictureDetail extends Component {
                           <div className="comment-container">
                             <textarea 
                             className="comment-style-text" 
-                            
+                            onChange={this.onChange('commentBody')}
                             placeholder="Add a comment"
                             defaultValue={""}
                             ></textarea>
@@ -263,14 +291,23 @@ class PictureDetail extends Component {
                               Cancel
                           </a>
                           <a 
-                          className="make-comment">
+                          className="make-comment"
+                          onClick={this.handleCreateComment}
+                          >
                               Comment
                           </a>
                         </div>  
                       </div>
                       </div>
-                      <div>
-                        {/* CommentItem */}
+                      <div >
+                        {comments.map((el,i) => <CommentItem 
+                          comment={el}
+                          key={i}
+                          createLike={this.props.createLike}
+                          deleteCommentLike={this.props.deleteCommentLike}
+                          user={user}
+                          liked={el.likerIds.filter(e => e === user.id).length === 1}
+                        />)}
                         
                       </div>
                     </div>

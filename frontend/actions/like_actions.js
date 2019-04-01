@@ -19,15 +19,10 @@ export const createLike = like => dispatch => (
 ));
 
 
-export const deleteLike = like => dispatch => (
-    LikeApiUtils.deleteLike(like.id)
+export const deleteCommentLike = like => dispatch => (
+    LikeApiUtils.deleteCommentLike(like)
     .then(() => {
-        // debugger
-        if (like.likable_type === 'Picture') {
-           return dispatch(removePictureLike({likeId: like.id, authorId: like.author_id, pictureId: like.likable_id}));
-       } else {
-            return dispatch(removeCommentLike({likeId: like.id, authorId: like.author_id, commentId: like.likable_id}));
-       }
+        return dispatch(removeCommentLike({authorId: like.author_id, commentId: like.likable_id}));
     }
 ));
 

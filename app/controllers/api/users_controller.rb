@@ -62,7 +62,7 @@ class Api::UsersController < ApplicationController
     def selected_user
         # a lot of stuff to carry to frontend, how can it be optimized?
         
-        User.includes(:followers).includes(:followed).find(params[:id])
+        User.includes(:followers).with_attached_profile_picture.includes(:followed).find(params[:id])
     end
     
     def user_params

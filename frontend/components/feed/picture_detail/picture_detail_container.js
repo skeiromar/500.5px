@@ -7,7 +7,7 @@ import { createLike, deletePictureLike } from '../../../actions/like_actions';
 
 const mapStateToProps = (state, ownProps) => {
   const picture = state.entities.pictures[ownProps.match.params.pictureId];
-  let user = state.entities.users[state.session.id[0]] || {};
+  let user = state.entities.users[state.session.id] || {};
   // when doing loading icon, look in pokemon_detail_container'
   return {
     picture: picture,

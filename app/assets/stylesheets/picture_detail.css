@@ -406,3 +406,21 @@ textarea {
     /* padding-right: 20px; */
     /* align-self: center; */
 }
+
+.delete-pic {
+    padding-left: 32px;
+    display: flex;
+    justify-content: space-between;
+    width: 140px;
+    align-items: flex-end;
+    font-size: 16px;
+    padding-bottom: 5px;
+}
+.fa-trash-alt {
+    font-size: 24px;
+}
+.fa-trash-alt:hover {
+    color: rgb(145, 6, 6);
+    transform: scale(1.2);
+    transition: 0.4s all ease;
+}

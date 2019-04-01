@@ -1,3 +1,17 @@
+# == Schema Information
+#
+# Table name: users
+#
+#  id              :bigint(8)        not null, primary key
+#  username        :string           not null
+#  password_digest :string           not null
+#  session_token   :string           not null
+#  email           :string
+#  created_at      :datetime         not null
+#  updated_at      :datetime         not null
+#  picture_url     :string
+#
+
 class User < ApplicationRecord
     attr_reader :password
 
@@ -11,7 +25,8 @@ class User < ApplicationRecord
   has_many :followers, class_name: "Follow", foreign_key: "follower_id"
   has_many :followed, class_name: "Follow", foreign_key: "followed_id"
   has_many :pictures, class_name: "Picture", foreign_key: "author_id" 
-
+  has_many :likes, class_name: "Like", foreign_key: "author_id"
+  
   has_one_attached :profile_picture
 
 

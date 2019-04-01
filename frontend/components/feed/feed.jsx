@@ -13,6 +13,7 @@ export default class Feed extends Component {
     }
 
     componentDidMount() {
+        
         this.props.fetchPictures();
     }
 

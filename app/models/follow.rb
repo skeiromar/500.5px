@@ -1,3 +1,14 @@
+# == Schema Information
+#
+# Table name: follows
+#
+#  id          :bigint(8)        not null, primary key
+#  follower_id :integer          not null
+#  followed_id :integer          not null
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#
+
 # t.integer "follower_id", null: false
 # t.integer "followed_id", null: false
 

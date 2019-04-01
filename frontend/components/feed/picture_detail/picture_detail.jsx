@@ -18,6 +18,7 @@ class PictureDetail extends Component {
     this.handleLike = this.handleLike.bind(this);
     this.handleUnlike = this.handleUnlike.bind(this);
     this.handleEdit = this.handleEdit.bind(this);
+    this.handleDelete = this.handleDelete.bind(this);
 
   }
   componentDidMount() {
@@ -58,6 +59,11 @@ class PictureDetail extends Component {
   }
   handleUnlike() {
     this.setState({liked: false});
+  }
+  handleDelete() {
+    this.props.deletePicture(this.props.picture.id).then(() => 
+    this.props.history.push('/feed'), 
+    errors => console.log(errors.responseJSON));
   }
 
   handleEdit() {
@@ -174,8 +180,10 @@ class PictureDetail extends Component {
                         </g>
                       </svg>
                       <span>Edit Picture</span>
-
-
+                      <div className="delete-pic">
+                        <i className="fas fa-trash-alt" onClick={this.handleDelete}></i>
+                        <span>Delete Picture</span>
+                      </div>
                   </div>
                   <div className="pic-title">
 

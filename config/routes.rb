@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  # resources :comments
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root to: "static_pages#root"
 
@@ -12,10 +13,13 @@ Rails.application.routes.draw do
   # confirm with another.
 
   namespace :api, defaults: {format: :json} do
-    resources :pictures, only: [:index, :show, :create, :update, :destroy]
+    resources :pictures, only: [:index, :show, :create, :update, :destroy] do 
+      resources :likes, only: [:create, :destroy]
+    end
     resources :users do 
       resources :follows, only: [:create, :destroy]
       resources :pictures, only: [:index]
+      resources :likes, only: [:create, :destroy]
     end
     resource :session 
 

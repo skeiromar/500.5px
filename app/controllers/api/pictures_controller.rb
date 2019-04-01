@@ -34,12 +34,13 @@ class Api::PicturesController < ApplicationController
     
     
     def destroy
-        @picture = selected_picture
+        @picture = Picture.find(params[:id])
+        
         if @picture
             @picture.destroy
             render :show
         else
-            render ['Could not find picture']
+            render json: ['Could not find picture'], status: 404
         end
     end
     

@@ -2,7 +2,7 @@
 import { connect } from 'react-redux';
 
 import PictureDetail from './picture_detail';
-import { fetchPicture } from '../../../actions/picture_actions';
+import { fetchPicture, deletePicture } from '../../../actions/picture_actions';
 
 const mapStateToProps = (state, ownProps) => {
   const picture = state.entities.pictures[ownProps.match.params.pictureId];
@@ -15,7 +15,8 @@ const mapStateToProps = (state, ownProps) => {
 };
 
 const mapDispatchToProps = dispatch => ({
-  requestPicture: id => dispatch(fetchPicture(id))
+  requestPicture: id => dispatch(fetchPicture(id)),
+  deletePicture: id => dispatch(deletePicture(id))
 });
 
 export default connect(

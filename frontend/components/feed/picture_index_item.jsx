@@ -28,7 +28,7 @@ export default class PictureIndexItem extends Component {
     
   }
   render() {
-    const {picture} = this.props;
+    const {picture, numLikes, likerIds} = this.props;
     let className = this.state.hover ? 'hover-state' : 'base-state';
     return (
       <div className={`feed-flex-item`}
@@ -42,7 +42,7 @@ export default class PictureIndexItem extends Component {
         />
         </Link>
         <div className={`top-right ${className}`}>
-            <span className="like-more icon-hover likes">0</span>
+            <span className="like-more icon-hover likes">{numLikes}</span>
         </div>
         <div className={`bottom-middle ${className}`}>
             <div className="profile-info">

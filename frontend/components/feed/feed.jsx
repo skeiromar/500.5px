@@ -44,7 +44,7 @@ export default class Feed extends Component {
                     <li>
                         <div className="dropdown">
                          
-                         <img src={`${this.props.user.pictureUrl}`} className="icon-avatar"/>
+                        {this.props.user.pictureUrl ? <img src={`${this.props.user.pictureUrl}`} className="icon-avatar"/> : null } 
                         <div className="dropdown-content">
                         <ul>
                             <li>
@@ -137,6 +137,8 @@ export default class Feed extends Component {
                         key={i} 
                         picture={el}
                         openModal={this.props.openModal}
+                        numLikes={el.numLikes}
+                        likerIds={el.likerIds}
                         />)}                    
                         <div  className="feed-flex-item">
                             <img className="feed-flex-img" 

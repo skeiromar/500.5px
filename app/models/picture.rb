@@ -22,6 +22,8 @@ class Picture < ApplicationRecord
     validate :ensure_picture
     has_many :likes, as: :likable
 
+    has_many :likers, through: :likes, source: :author
+
     has_one_attached :picture
 
     def ensure_picture 

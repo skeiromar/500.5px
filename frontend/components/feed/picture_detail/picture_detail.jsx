@@ -22,13 +22,20 @@ class PictureDetail extends Component {
 
   }
   componentDidMount() {
-    this.props.requestPicture(this.props.match.params.pictureId);
+    const { picture, user } = this.props;
+
+    this.props.requestPicture(this.props.match.params.pictureId)
+              .then(s => this.setState({liked: s.picture.ids.includes(user.id)}));
+
 
   }
 
   componentDidUpdate(prevProps) {
+    const { picture, user } = this.props;
+
     if (prevProps.match.params.pictureId !== this.props.match.params.pictureId) {
-      this.props.requestPicture(this.props.match.params.pictureId);
+      this.props.requestPicture(this.props.match.params.pictureId)
+      .then(s => this.setState({liked: s.picture.ids.includes(user.id)}));
     }
   }
   handleClick() {
@@ -56,14 +63,23 @@ class PictureDetail extends Component {
   }
   handleLike() {
     this.setState({liked: true});
+
+    this.props.createLike({author_id: this.props.user.id, likable_id: this.props.picture.id, 
+                          likable_type: 'Picture'});
   }
   handleUnlike() {
+    const {user, picture} = this.props;
+
     this.setState({liked: false});
+    this.props.deletePictureLike({author_id: user.id, likable_id: picture.id });
   }
   handleDelete() {
-    this.props.deletePicture(this.props.picture.id).then(() => 
-    this.props.history.push('/feed'), 
-    errors => console.log(errors.responseJSON));
+    const {picture, user} = this.props; 
+    // if (picture.author_id === user.id) {
+      this.props.deletePicture(this.props.picture.id).then(() => 
+      this.props.history.push('/feed'), 
+      errors => console.log(errors.responseJSON));
+    // }
   }
 
   handleEdit() {
@@ -156,7 +172,7 @@ class PictureDetail extends Component {
                     
                       {!this.state.liked ? svgReg : svgLiked }
                     
-                      <span id="like-icon-likes">19 Likes</span>
+                      <span id="like-icon-likes">{this.props.picture.numLikes} Likes</span>
                     </div>
                     
                       <svg 
@@ -206,7 +222,7 @@ class PictureDetail extends Component {
                   <div>
                     <div>
                       <h3>Description:</h3>
-                      <p className="pic-description">{picture.description}</p>
+                      <p className="pic-description">{`${picture.description}`}</p>
                     </div>
 
                     <div>

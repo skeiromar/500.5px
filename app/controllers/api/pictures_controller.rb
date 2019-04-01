@@ -1,7 +1,8 @@
 class Api::PicturesController < ApplicationController
 
     def index
-        @pictures = Picture.includes(:author).all
+        @pictures = Picture.includes(:author).includes(:likers).all
+        # @likers = @pictures.likers.length
     end
 
     def create
@@ -28,8 +29,9 @@ class Api::PicturesController < ApplicationController
     end
     
     def show
-        @picture = Picture.includes(:author).find(params[:id])
-
+        @picture = Picture.includes(:author).includes(:likers).find(params[:id])
+        @likers = @picture.likers.length
+        
     end
     
     
@@ -41,6 +43,15 @@ class Api::PicturesController < ApplicationController
             render :show
         else
             render json: ['Could not find picture'], status: 404
+        end
+    end
+
+    def unlike 
+        @like = Like.where(likable_id: params[:picture_id])
+                    .where(author_id: like_params[:author_id])[0]
+        
+        if @like.destroy 
+
         end
     end
     
@@ -57,6 +68,10 @@ class Api::PicturesController < ApplicationController
 
     def picture_update_params 
         params.require(:picture).permit(:title, :description)
+    end
+
+    def like_params
+        params.require(:like).permit(:author_id, :likable_id, :likable_type)
     end
     
     

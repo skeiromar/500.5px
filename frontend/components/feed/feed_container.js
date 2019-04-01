@@ -6,7 +6,7 @@ import { logout } from '../../actions/session_actions';
 
 const msp = (state, props) => {
     let pictures = Object.values(state.entities.pictures) || [];
-    let user = state.entities.users[state.session.id[0]] || {};
+    let user = state.entities.users[state.session.id] || {};
     return {
         pictures: pictures,
         user: user

@@ -11,6 +11,9 @@
 #
 
 class Like < ApplicationRecord 
+    # validates :author_id, :likable, uniqueness: true
+    validates :author_id, :uniqueness => { :scope => [:likable_type, :likable_id] }
+    
     belongs_to :author, class_name: "User", foreign_key: "author_id"
     belongs_to :likable, polymorphic: true
     

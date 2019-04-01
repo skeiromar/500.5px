@@ -1,5 +1,14 @@
+require 'json' 
+
 class ApplicationController < ActionController::Base
-    helper_method :current_user, :logged_in?
+    helper_method :current_user, :logged_in?, :make_hashes_of_likes
+
+
+    def make_hashes_of_likes
+      like_hash = {}
+      current_user.likes.each { |l| like_hash[l.likable_id] = l.id }
+      return like_hash
+    end
 
     def login!(user)
       

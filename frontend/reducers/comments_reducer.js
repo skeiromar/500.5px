@@ -29,7 +29,7 @@ import { RECEIVE_COMMENT_LIKE, REMOVE_COMMENT_LIKE } from '../actions/like_actio
         let comment_del = newestState[action.like.commentId];  
         
         comment_del.numLikes -= 1;
-        comment_del.likerIds.filter(el => el !== action.like.authorId);
+        comment_del.likerIds = comment_del.likerIds.filter(el => el !== action.like.authorId);
         
         return newestState;
 

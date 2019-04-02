@@ -6,7 +6,6 @@ class CommentItem extends Component {
 
         this.state = {
             like: 'black',
-            liked: this.props.liked
         };
         this.handleLike = this.handleLike.bind(this);
         this.handleUnlike = this.handleUnlike.bind(this);
@@ -17,14 +16,14 @@ class CommentItem extends Component {
     componentDidMount() {
         const {user, comment} = this.props;
         console.log(comment.likerIds.includes(user.id));
-        if (comment.likerIds.includes(user.id)) 
-            this.setState({liked: true});
+        // if (comment.likerIds.includes(user.id)) 
+        //     this.setState({liked: true});
     }
 
     handleLike(e) {
         e.preventDefault();
         
-        this.setState({liked: true});
+        // this.setState({liked: true});
 
         this.props.createLike({
             author_id: this.props.user.id, 
@@ -36,7 +35,7 @@ class CommentItem extends Component {
       handleUnlike(e) {
         e.preventDefault();
         const {user, comment} = this.props;
-            this.setState({liked: false});
+            // this.setState({liked: false});
             this.props.deleteCommentLike({
                 author_id: user.id, likable_id: comment.id 
             });
@@ -113,7 +112,7 @@ class CommentItem extends Component {
                      {comment.body}
                     </p>
                     <a className="comment-like">
-                     <div> {!this.state.liked ? regSvg : svgLiked }</div>
+                     <div> {this.props.liked ? svgLiked : regSvg }</div>
                      <span className="comment-likes">{comment.numLikes} Likes</span>
                     </a>
                 </li> 

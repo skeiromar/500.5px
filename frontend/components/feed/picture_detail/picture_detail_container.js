@@ -14,7 +14,8 @@ const mapStateToProps = (state, ownProps) => {
   return {
     picture: picture,
     user: user,
-    comments: comments
+    comments: comments,
+    pictureIds: state.ui.pictureIds,
   };
 };
 

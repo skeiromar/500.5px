@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Route } from 'react-router-dom';
 import CommentItem from '../comments/comment_item';
+import isEmpty from 'lodash/isEmpty';
 
 class PictureDetail extends Component {
   constructor(props) {
@@ -74,13 +75,24 @@ class PictureDetail extends Component {
     }, 300);
   }
   handleClickNext() {
-    let nextPage = parseInt(this.props.match.params.pictureId) + 1;
-    this.props.history.push(`/pictures/${nextPage}`);
+    const {pictureIds, match} = this.props;
+    if (isEmpty(pictureIds)) return null;
+
+    let indexInPicIds = pictureIds.indexOf(match.params.pictureId);
+
+    let nextPage = pictureIds[indexInPicIds + 1];
+    if (nextPage !== undefined) 
+      this.props.history.push(`/pictures/${nextPage}`);
     
   }
   handleClickPrev() {
-    let prevPage = this.props.match.params.pictureId - 1;
-    this.props.history.push(`/pictures/${prevPage}`);
+    const {pictureIds, match} = this.props;
+    if (isEmpty(pictureIds)) return null;
+    let indexInPicIds = pictureIds.indexOf(match.params.pictureId);
+
+    let prevPage = pictureIds[indexInPicIds - 1];
+    if (prevPage !== undefined) 
+      this.props.history.push(`/pictures/${prevPage}`);
     
   }
   hoverOn() {
@@ -306,8 +318,7 @@ class PictureDetail extends Component {
                           createLike={this.props.createLike}
                           deleteCommentLike={this.props.deleteCommentLike}
                           user={user}
-                          liked={el.likerIds.filter(e => e === user.id).length === 1}
-                        />)}
+                          liked={el.likerIds.some(e => { return e === user.id })} />)}
                         
                       </div>
                     </div>

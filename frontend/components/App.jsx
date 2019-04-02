@@ -17,6 +17,7 @@ import Splash from './splash.jsx';
 import FeedContainer from './feed/feed_container.js';
 import PictureDetailContainer from './feed/picture_detail/picture_detail_container';
 import PictureEditContainer from './feed/picture_edit/picture_edit_container';
+import ProfileContainer from './profile/profile_container';
 // import Modal from './modal/modal';
 // import {closeModal} from '../actions/modal_actions';
 
@@ -34,6 +35,7 @@ class App extends Component {
         <ProtectedRoute exact path="/feed" component={ FeedContainer } />
         <ProtectedRoute exact path="/pictures/:pictureId" component={ PictureDetailContainer } />
         <ProtectedRoute path="/pictures/:pictureId/edit" component={ PictureEditContainer } />
+        <ProtectedRoute path="/profile/:userId" component={ ProfileContainer } />
         </Switch>
       </div>
     )

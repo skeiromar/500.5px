@@ -2,12 +2,20 @@
 
 
 // follow = { follower_id: 1, followed_id: 3}
-export const followUser = (follow) => {
+export const createFollow = (follow) => {
     return $.ajax({
-        url: `/api/users/${follow.follower_id}/follows`,
         method: 'POST',
+        url: `/api/users/${follow.follower_id}/follow`,
         data: { follow }
     });
 };
 
 
+
+export const deleteFollow = (follow) => {
+    return $.ajax({
+        method: 'DELETE',
+        url: `/api/users/${follow.follower_id}/unfollow`,
+        data: { follow }
+    });
+};

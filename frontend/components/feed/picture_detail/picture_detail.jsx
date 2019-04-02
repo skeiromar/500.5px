@@ -6,12 +6,14 @@ import isEmpty from 'lodash/isEmpty';
 class PictureDetail extends Component {
   constructor(props) {
     super(props);
+    
     this.state = {
       feedTransition: false,
       like: 'black',
       liked: false,
       commentBody: '',
-      comments: this.props.comments
+      comments: this.props.comments,
+      follows: false
     };
     this.handleClick = this.handleClick.bind(this);
     this.handleClickPrev = this.handleClickPrev.bind(this);
@@ -23,13 +25,18 @@ class PictureDetail extends Component {
     this.handleEdit = this.handleEdit.bind(this);
     this.handleDelete = this.handleDelete.bind(this);
     this.handleCreateComment = this.handleCreateComment.bind(this);
+    this.handleFollow = this.handleFollow.bind(this);
+    this.handleUnfollow = this.handleUnfollow.bind(this);
 
   }
   componentDidMount() {
     const { picture, user } = this.props;
 
     this.props.requestPicture(this.props.match.params.pictureId)
-              .then(s => this.setState({liked: s.picture.ids.includes(user.id)}));
+              .then(s => this.setState({
+                liked: s.picture.ids.includes(user.id), 
+                follows: user.followedIds.includes(s.picture.author_id)
+              }));
 
     this.props.fetchAllComments(this.props.match.params.pictureId);
 
@@ -38,6 +45,8 @@ class PictureDetail extends Component {
   handleCreateComment(e) {
     e.preventDefault();
     const {picture, user} = this.props;
+
+    this.setState({commentBody: ''});
     if (this.state.commentBody.length > 0) {
       let comment = {
         picture_id: picture.id, 
@@ -63,7 +72,10 @@ class PictureDetail extends Component {
 
     if (prevProps.match.params.pictureId !== this.props.match.params.pictureId) {
       this.props.requestPicture(this.props.match.params.pictureId)
-      .then(s => this.setState({liked: s.picture.ids.includes(user.id)}));
+      .then(s => this.setState({
+        liked: s.picture.ids.includes(user.id),
+        follows: user.followedIds.includes(s.picture.author_id)      
+      }));
       this.props.fetchAllComments(this.props.match.params.pictureId);
     }
   }
@@ -127,6 +139,21 @@ class PictureDetail extends Component {
     // console.log('this works', this.props);
     this.props.history.push(`/pictures/${this.props.picture.id}/edit`);
     
+  }
+  
+  handleFollow() {
+    const { followUser, user, picture } = this.props;
+    this.setState({follows: true});
+
+    followUser({ follower_id: user.id, followed_id: picture.author_id});
+
+  }
+
+  handleUnfollow() {
+    const { unfollowUser, user, picture } = this.props;
+    this.setState({follows: false});
+
+    unfollowUser({ follower_id: user.id, followed_id: picture.author_id});
   }
   
 
@@ -237,7 +264,7 @@ class PictureDetail extends Component {
                       </svg>
                       <span>Edit Picture</span>
                       <div className="delete-pic">
-                        <i className="fas fa-trash-alt" onClick={this.handleDelete}></i>
+                        <i className="fas fa-trash-alt trash-pic" onClick={this.handleDelete}></i>
                         <span>Delete Picture</span>
                       </div>
                   </div>
@@ -248,7 +275,16 @@ class PictureDetail extends Component {
                     <div>
                       <h3 className="h3-pic-title">{picture.title}</h3>
                       <p>
-                      by {picture.author} &nbsp;•&nbsp; <a className="follow-style">Follow</a>
+                      by {picture.author} &nbsp;•&nbsp; {this.state.follows ? 
+                      <a 
+                      onClick={this.handleUnfollow}
+                      className="follow-style">Unfollow</a>
+                       : 
+                       <a 
+                      onClick={this.handleFollow}
+                      className="follow-style">Follow</a>
+
+                      }
                       </p>
                       
                     </div>
@@ -291,7 +327,7 @@ class PictureDetail extends Component {
                             className="comment-style-text" 
                             onChange={this.onChange('commentBody')}
                             placeholder="Add a comment"
-                            defaultValue={""}
+                            value={this.state.commentBody}
                             ></textarea>
                             <i className="far fa-comment comment-icon"></i>
                             {/* <div className="comment-icon"></div> */}
@@ -317,8 +353,10 @@ class PictureDetail extends Component {
                           key={i}
                           createLike={this.props.createLike}
                           deleteCommentLike={this.props.deleteCommentLike}
+                          deleteComment={this.props.deleteComment}
                           user={user}
                           liked={el.likerIds.some(e => { return e === user.id })} />)}
+                          
                         
                       </div>
                     </div>

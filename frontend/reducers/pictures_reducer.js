@@ -34,6 +34,7 @@ import {
         pic.numLikes -= 1;
         pic.ids.filter(el => el !== action.like.authorId);
         
+        
         return newestState;
 
       default:

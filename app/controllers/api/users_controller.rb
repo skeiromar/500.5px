@@ -56,6 +56,30 @@ class Api::UsersController < ApplicationController
             render ['Could not find user']
         end
     end
+
+
+    def follow 
+
+        @follow = Follow.new(follow_params)
+
+        if @follow.save
+            render json: ['worked']            
+        else
+            
+            render json: ['Nope. Wrong credentials!'], status: 401
+        end
+
+    end
+
+    def unfollow 
+        @follow = Follow.where(follower_id: follow_params[:follower_id])
+        .where(followed_id: follow_params[:followed_id])[0]
+
+        if @follow.destroy 
+
+        end
+    end
+
     
     private
     
@@ -67,5 +91,9 @@ class Api::UsersController < ApplicationController
     
     def user_params
         params.require(:user).permit(:username, :email, :password)
+    end
+
+    def follow_params
+        params.require(:follow).permit(:follower_id, :followed_id)
     end
 end

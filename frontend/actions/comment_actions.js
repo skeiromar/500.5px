@@ -29,16 +29,12 @@ export const fetchAllComments = id => dispatch => (
 ));
 
 
-// export const deleteComment = id => dispatch => (
-//     CommentApiUtils.deleteComment(id)
-//     .then(() => {
-//         if (like.likable_type === 'Picture') {
-//            return dispatch(removePictureLike({likeId: like.id, authorId: like.author_id, pictureId: like.likable_id}));
-//        } else {
-//             return dispatch(removeCommentLike({likeId: like.id, authorId: like.author_id, commentId: like.likable_id}));
-//        }
-//     }
-// ));
+export const deleteComment = id => dispatch => (
+    CommentApiUtils.deleteComment(id)
+    .then(() => {
+        return dispatch(removeComment(id));
+    }
+));
 
 const receiveAllComments = comments => ({
     type: RECEIVE_ALL_COMMENTS, 
@@ -51,8 +47,8 @@ const receiveComment = comment => ({
 });
 
 
-const removeComment = comment => ({
+const removeComment = commentId => ({
     type: REMOVE_COMMENT,
-    comment
+    commentId
 });
 

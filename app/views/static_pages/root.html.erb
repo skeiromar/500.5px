@@ -6,6 +6,8 @@
           "username": "<%= current_user.username %>",
           "email": "<%= current_user.email %>",
           "pictureUrl": "<%= url_for(current_user.profile_picture) %>",
+          "followerIds": <%= current_user.followers.ids %>,
+          "followedIds": <%= current_user.people_followed.ids %>
           };
       </script>
     <% end %>

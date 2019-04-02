@@ -22,8 +22,13 @@ class User < ApplicationRecord
     after_initialize :ensure_session_token
 
 
-  has_many :followers, class_name: "Follow", foreign_key: "follower_id"
-  has_many :followed, class_name: "Follow", foreign_key: "followed_id"
+  has_many :follows, class_name: "Follow", foreign_key: "follower_id"
+  has_many :followed_objects, class_name: "Follow", foreign_key: "followed_id"
+
+  has_many :followers, through: :follows, source: :follower
+  has_many :people_followed, through: :follows, source: :followed
+
+
   has_many :pictures, class_name: "Picture", foreign_key: "author_id" 
   has_many :likes, class_name: "Like", foreign_key: "author_id"
   

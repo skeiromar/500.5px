@@ -14,15 +14,26 @@
 
 class Follow < ApplicationRecord 
 
+    validates :followed_id, uniqueness: {scope: :follower_id}
+
     belongs_to :follower, class_name: "User", foreign_key: "follower_id"
     belongs_to :followed, class_name: "User", foreign_key: "followed_id"
 
+    
+    validate :ensure_follower_not_followed 
+
     # user has many followers 
     # user has many followed 
-
+    
     # backend process
     # 1. 
     
+    def ensure_follower_not_followed 
+        if follower_id == followed_id 
+            errors[:follower_id] << 'cannot follow yourself.'
+        end
+
+    end
 
 
 end

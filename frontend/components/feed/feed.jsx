@@ -10,6 +10,7 @@ export default class Feed extends Component {
         super(props);
         
         this.handleLogout = this.handleLogout.bind(this);
+        this.pushProfilePage = this.pushProfilePage.bind(this);
     }
 
     componentDidMount() {
@@ -19,6 +20,11 @@ export default class Feed extends Component {
 
     handleLogout() {
         this.props.logout();
+    }
+    pushProfilePage() {
+        const {user} = this.props;
+
+        this.props.history.push(`/profile/${user.id}`);
     }
 
     render() {  
@@ -44,7 +50,9 @@ export default class Feed extends Component {
                     <li>
                         <div className="dropdown">
                          
-                        {this.props.user.pictureUrl ? <img src={`${this.props.user.pictureUrl}`} className="icon-avatar"/> : null } 
+                        {this.props.user.pictureUrl ? <img src={`${this.props.user.pictureUrl}`} 
+                        onClick={this.pushProfilePage}
+                        className="icon-avatar"/> : null } 
                         <div className="dropdown-content">
                         <ul>
                             <li>

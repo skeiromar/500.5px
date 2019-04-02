@@ -9,13 +9,12 @@ class CommentItem extends Component {
         };
         this.handleLike = this.handleLike.bind(this);
         this.handleUnlike = this.handleUnlike.bind(this);
-
+        this.handleCommentDelete = this.handleCommentDelete.bind(this);
 
 
     } 
     componentDidMount() {
         const {user, comment} = this.props;
-        console.log(comment.likerIds.includes(user.id));
         // if (comment.likerIds.includes(user.id)) 
         //     this.setState({liked: true});
     }
@@ -39,6 +38,14 @@ class CommentItem extends Component {
             this.props.deleteCommentLike({
                 author_id: user.id, likable_id: comment.id 
             });
+    }
+
+    handleCommentDelete() {
+        const {comment, deleteComment} = this.props; 
+        // if (picture.author_id === user.id) {
+        deleteComment(comment.id).then(() => 
+        null, 
+        errors => console.log(errors.responseJSON));
     }
 
     render() {
@@ -115,6 +122,9 @@ class CommentItem extends Component {
                      <div> {this.props.liked ? svgLiked : regSvg }</div>
                      <span className="comment-likes">{comment.numLikes} Likes</span>
                     </a>
+                    <div className="comment-del-icon-container">
+                      <i className="fas fa-trash-alt comment-del-icon" onClick={this.handleCommentDelete}></i>
+                    </div>
                 </li> 
             </ul>
         )

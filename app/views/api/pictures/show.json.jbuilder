@@ -5,5 +5,6 @@ json.authorProfilePicture url_for(@picture.author.profile_picture)
 json.numLikes @likers
 json.extract! @picture.likers, :ids
 
+
 # json.likerIds @picture.likers.ids
  

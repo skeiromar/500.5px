@@ -8,6 +8,7 @@
     justify-content: flex-start;
     align-items: flex-start;
     padding-bottom: 12px;
+
 }   
 .comment-pic {
     word-break: break-word;
@@ -42,8 +43,11 @@
     /* max-width: 100%; */
     /* width: 100%; */
     text-align: start;
-    align-items: center;
     margin-left: 16px;
+    /* justify-content: flex-end; */
+    align-items: center;
+    
+    /* width: 300px; */
 }
 .comment-username-container {
     word-break: break-word;

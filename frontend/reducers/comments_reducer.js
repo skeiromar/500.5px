@@ -10,6 +10,7 @@ import { RECEIVE_COMMENT_LIKE, REMOVE_COMMENT_LIKE } from '../actions/like_actio
         return merge({}, action.comments);
       case RECEIVE_COMMENT:
         return merge({}, oldState, {[action.comment.id]: action.comment});
+        
       case REMOVE_COMMENT:
         let newState = merge({}, oldState);
         delete newState[action.commentId];

@@ -4,7 +4,8 @@ import { connect } from 'react-redux';
 import PictureDetail from './picture_detail';
 import { fetchPicture, deletePicture } from '../../../actions/picture_actions';
 import { createLike, deletePictureLike, deleteCommentLike } from '../../../actions/like_actions';
-import {createComment, fetchAllComments} from '../../../actions/comment_actions';
+import {createComment, fetchAllComments, deleteComment} from '../../../actions/comment_actions';
+import {createFollow, deleteFollow} from '../../../actions/follow_actions';
 
 const mapStateToProps = (state, ownProps) => {
   const picture = state.entities.pictures[ownProps.match.params.pictureId];
@@ -27,6 +28,9 @@ const mapDispatchToProps = dispatch => ({
   createComment: comment => dispatch(createComment(comment)),
   fetchAllComments: id => dispatch(fetchAllComments(id)),
   deleteCommentLike: like => dispatch(deleteCommentLike(like)),  
+  deleteComment: (id) => dispatch(deleteComment(id)),
+  followUser: (follow) => dispatch(createFollow(follow)),
+  unfollowUser: (follow) => dispatch(deleteFollow(follow)),
 });
 
 export default connect(

@@ -417,11 +417,26 @@ textarea {
     font-size: 16px;
     padding-bottom: 5px;
 }
-.fa-trash-alt {
+.trash-pic {
     font-size: 24px;
 }
 .fa-trash-alt:hover {
     color: rgb(145, 6, 6);
     transform: scale(1.2);
     transition: 0.4s all ease;
+}
+.comment-del-icon-container {
+    display: flex;
+    position: relative;
+    width: 120px;
+    margin-right: 0;
+
+    /* align-items: flex-end; */
+    justify-content: flex-end;
+}
+
+.comment-del-icon {
+    /* margin-bottom: 100px; */
+    position: absolute;
+    bottom: 30px;
 }

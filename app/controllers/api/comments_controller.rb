@@ -1,5 +1,5 @@
 class Api::CommentsController < ApplicationController
-  before_action :set_comment, only: [:show, :edit, :update, :destroy]
+
 
   def index
     # Comment.where(picture_id: 23)
@@ -37,7 +37,7 @@ class Api::CommentsController < ApplicationController
   end
 
   def destroy
-    @comment.find(params[:id])
+    @comment = Comment.find(params[:id])
 
     if @comment.destroy 
 

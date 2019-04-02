@@ -13,21 +13,35 @@ Rails.application.routes.draw do
   # confirm with another.
 
   namespace :api, defaults: {format: :json} do
+
     resources :pictures, only: [:index, :show, :create, :update, :destroy] do 
+
       delete :unlike, to: 'pictures#unlike', as: 'unlike'
+
       resources :comments, only: [:index, :create] 
+
     end
     
     resources :comments, only: [:destroy] do 
+
       delete :unlike, to: 'comments#unlike', as: 'unlike'
+
     end
 
     resources :likes, only: [:create, :destroy]
 
     resources :users do 
-      resources :follows, only: [:create, :destroy]
+
+      # resources :follows, only: [:create, :destroy]
+
       resources :pictures, only: [:index]
+
+      post :follow, to: 'users#follow', as: 'follow'
+
+      delete :unfollow, to: 'users#unfollow', as: 'unfollow'
+
     end
+
     resource :session 
 
   end

@@ -1,0 +1,56 @@
+
+
+.pfp-styling {
+    margin: 10px;
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 1px solid #dfdfdf;
+    transition: 150ms ease-in;
+}
+
+
+.follow-detail-container {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    font-size: 13px;
+}
+
+.follow-username {
+    display: inline;
+    text-decoration: none;
+    font-weight: 700;
+    color: #353535;
+    transition: 150ms ease-in;
+}
+
+.follower-count {
+
+}
+
+.follow-btn {
+    padding: 6px 0;
+    font-size: 13px;
+    text-decoration: none;
+    color: #339bfb;
+    outline: none;
+    border: none;
+    background-color: transparent;
+}
+
+.follows-ul-modal {
+    display: flex;
+    width: 400px;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: space-between;
+}
+
+.follow-li-modal {
+    width: 350px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}

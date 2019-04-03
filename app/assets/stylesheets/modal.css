@@ -24,6 +24,27 @@
     align-items: center;
 }
 
+
+.upload-pic-modal {
+    
+    background: #f6f6f6;
+    width: 50%;
+    height: 80%;
+    padding-bottom: 50px; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+.modal-btn-p-profile {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #0099e5;
+    /* bottom: 50px;  */
+}
+
 .upload-modal-button {
     
 
@@ -73,6 +94,15 @@
     left: 550px;
     opacity: 1e-05;
     /* pointer-events: none; */
+}
+.input-style-profile {
+    position: absolute;
+    /* width: 280%; */
+    /* height: 100%; */
+    top: 0px; right: 0px;
+    bottom: 0px;
+    left: 225px;
+    opacity: 1e-05;
 }
 .modal-btn-p {
     display: flex;
@@ -196,4 +226,8 @@
     /* height: 1000px; */
     /* margin-top: 20px; */
     /* top: -100px; */
+}
+
+.followers-container {
+    /* overflow: scroll; */
 }

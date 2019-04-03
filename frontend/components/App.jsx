@@ -18,7 +18,7 @@ import FeedContainer from './feed/feed_container.js';
 import PictureDetailContainer from './feed/picture_detail/picture_detail_container';
 import PictureEditContainer from './feed/picture_edit/picture_edit_container';
 import ProfileContainer from './profile/profile_container';
-// import Modal from './modal/modal';
+import Modal from './modal/modal';
 // import {closeModal} from '../actions/modal_actions';
 
 class App extends Component {
@@ -26,6 +26,7 @@ class App extends Component {
   render() {
     return (
       <div>
+        <Modal />
         <Switch>
         
         <Route exact path="/" component={Splash} />

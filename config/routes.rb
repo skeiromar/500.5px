@@ -37,6 +37,11 @@ Rails.application.routes.draw do
       resources :pictures, only: [:index]
 
       post :follow, to: 'users#follow', as: 'follow'
+      get :fetchUserPictures, to: 'users#fetchUserPictures', as: 'fetchUserPictures'
+      get :followers, to: 'users#followers', as: 'followers'
+      get :followed, to: 'users#followed', as: 'followed'
+
+
 
       delete :unfollow, to: 'users#unfollow', as: 'unfollow'
 

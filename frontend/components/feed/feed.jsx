@@ -14,7 +14,6 @@ export default class Feed extends Component {
     }
 
     componentDidMount() {
-        
         this.props.fetchPictures();
     }
 
@@ -27,11 +26,11 @@ export default class Feed extends Component {
         this.props.history.push(`/profile/${user.id}`);
     }
 
+
     render() {  
         // console.log(this.state);
         return (
             <div>
-                <Modal />
                 <nav className="perm-navbar">
                 <ul className="perm-navbar-ul-elems">
                     <li>
@@ -147,6 +146,7 @@ export default class Feed extends Component {
                         openModal={this.props.openModal}
                         numLikes={el.numLikes}
                         likerIds={el.likerIds}
+                        history={this.props.history}
                         />)}                    
                         <div  className="feed-flex-item">
                             <img className="feed-flex-img" 

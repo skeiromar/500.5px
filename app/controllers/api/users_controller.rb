@@ -6,11 +6,13 @@ class Api::UsersController < ApplicationController
         @user = User.new(user_params)
 
         file = open('https://picsum.photos/500/700/?random')
+
+        background_file = open('https://picsum.photos/2000/1000/?random')
         
         if @user.save
 
           @user.profile_picture.attach(io: file, filename: 'random_img.jpeg')
-
+          @user.background_img.attach(io: background_file, filename: 'random_background.jpeg')
           login!(@user)
 
           render :show
@@ -24,8 +26,8 @@ class Api::UsersController < ApplicationController
       
     def update
 
-        @user = selected_user
-
+        @user = User.find(params[:id])
+        # debugger
         if @user && @user.update_attributes(user_params)
             render :show
 
@@ -39,7 +41,8 @@ class Api::UsersController < ApplicationController
     end
     
     def show
-        @user = selected_user
+        @user = User.includes(:followers).with_attached_profile_picture.includes(:followed).find(params[:id])
+        
 
     end
     
@@ -80,6 +83,25 @@ class Api::UsersController < ApplicationController
         end
     end
 
+    def followers 
+        @followers = User.find(params[:user_id]).followed
+        # debugger 
+        render '/api/users/followers'
+
+    end
+
+    def followed
+        @followed = User.find(params[:user_id]).people_followed
+        # debugger 
+        render '/api/users/followed'
+    end
+
+    def fetchUserPictures
+        
+        # debugger
+        @pictures = User.find(params[:user_id]).pictures
+        render 'api/pictures/index'
+    end
     
     private
     
@@ -90,7 +112,7 @@ class Api::UsersController < ApplicationController
     end
     
     def user_params
-        params.require(:user).permit(:username, :email, :password)
+        params.require(:user).permit(:username, :email, :password, :profile_picture, :background_img)
     end
 
     def follow_params

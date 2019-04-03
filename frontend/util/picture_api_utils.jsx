@@ -15,6 +15,14 @@ export const fetchPictures = () => {
     });
 };
 
+
+export const fetchUserPictures = (id) => {
+    return $.ajax({
+        method: "GET",
+        url: `/api/users/${id}/fetchUserPictures`,
+    });
+};
+
 export const fetchPicture = (pictureId) => {
     return $.ajax({
         method: "GET",

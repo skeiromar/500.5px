@@ -28,11 +28,15 @@ class User < ApplicationRecord
   has_many :followers, through: :follows, source: :follower
   has_many :people_followed, through: :follows, source: :followed
 
+  has_many :followed, through: :followed_objects, source: :follower
+
 
   has_many :pictures, class_name: "Picture", foreign_key: "author_id" 
   has_many :likes, class_name: "Like", foreign_key: "author_id"
   
   has_one_attached :profile_picture
+
+  has_one_attached :background_img
 
 
   def self.find_by_credentials(username, password)

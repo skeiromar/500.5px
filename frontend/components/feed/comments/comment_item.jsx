@@ -43,9 +43,7 @@ class CommentItem extends Component {
     handleCommentDelete() {
         const {comment, deleteComment} = this.props; 
         // if (picture.author_id === user.id) {
-        deleteComment(comment.id).then(() => 
-        null, 
-        errors => console.log(errors.responseJSON));
+        deleteComment(comment.id);
     }
 
     render() {

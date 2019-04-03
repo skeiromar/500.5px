@@ -11,12 +11,13 @@ export default class PictureIndexItem extends Component {
       this.onHover = this.onHover.bind(this);
       this.offHover = this.offHover.bind(this);
       this.handleClick = this.handleClick.bind(this);
+      this.openProfile = this.openProfile.bind(this);
 
   } 
   handleClick() {   
     // this.props.openModal('show-pic');
     // setTimeout(null , 1000);
-
+    
   }
 
   onHover() {
@@ -27,6 +28,12 @@ export default class PictureIndexItem extends Component {
     this.setState({hover: false});
     
   }
+  openProfile() {
+    // debugger
+    const {picture, numLikes, likerIds} = this.props;
+
+    this.props.history.push(`/profile/${picture.userId}`);
+  }
   render() {
     const {picture, numLikes, likerIds} = this.props;
     let className = this.state.hover ? 'hover-state' : 'base-state';
@@ -34,9 +41,11 @@ export default class PictureIndexItem extends Component {
       <div className={`feed-flex-item`}
         onMouseEnter={this.onHover}
         onMouseLeave={this.offHover} 
-        onClick={this.handleClick}
         >
-        <Link to={`/pictures/${picture.id}`}>
+        <Link 
+        onClick={this.handleClick}
+        
+        to={`/pictures/${picture.id}`}>
         <img src={`${picture.pictureUrl}`}
             className="feed-flex-img"
         />
@@ -47,7 +56,9 @@ export default class PictureIndexItem extends Component {
         <div className={`bottom-middle ${className}`}>
             <div className="profile-info">
                 {/* <i className="fas fa-plus"></i> */}
-                <img src={`${picture.profilePictureUrl}`} className="icon-avatar-pic" />
+                <img 
+                onClick={this.openProfile}
+                src={`${picture.profilePictureUrl}`} className="icon-avatar-pic" />
                 <span className="pic-icon-text">{picture.username}</span>
             </div>
             <div className="like-more icon-hover">

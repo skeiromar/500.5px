@@ -41,3 +41,41 @@
     top: 0%;
     
 }
+
+.fixed-nav {
+    position: fixed;
+    display: flex;
+    width: 100%;
+    background: white;
+    margin: 0;
+    color:rgb(82, 85, 88);
+    height: 50px;
+    border-bottom: 0.8px solid rgba(173, 173, 173, 0.603);
+    z-index: 10;
+}
+
+.perm-navbar-ul-elems-fixed {
+    display: flex;
+    flex-direction: flex-start;
+    list-style: none;
+    align-items: center;
+}
+
+.perm-navbar-ul-elems-fixed > li {
+    padding: 0 10px;
+    z-index: 2;
+}
+
+.perm-navbar-ul-elems-logo-fixed {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 25px;
+    color: black;
+    
+}
+
+.perm-right-ul-elems-fixed {
+    position: absolute; 
+    right: 5%;
+    top: 0%;
+    z-index: 100;
+}

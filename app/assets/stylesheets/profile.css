@@ -1,0 +1,146 @@
+
+.top-profile {
+
+}
+
+
+
+
+.cover {
+    /* position: relative; */
+    min-width: 100%;
+    height: 360px;
+    vertical-align: middle;
+    
+}
+.cover-img {
+    position: fixed;
+    min-width: 100%;
+    max-height: 460px;
+    object-fit: cover;
+    object-position: 39% 39%;
+    overflow: hidden;
+    z-index: -1;
+    
+}
+
+.content {
+    position: relative;
+    padding-right: calc(2.5% - 5px);
+    display: flex;
+    justify-content: flex-end;
+    background-color: white;
+    margin-top: 100px;
+    border-top: 1px solid rgb(230, 230, 230);
+
+}
+
+.profile-img-container {
+    position: relative;
+    right: 50px;
+    text-align: center;
+
+}
+.profile-picture {
+    position: absolute;
+    bottom: 5px;
+    z-index: 9;
+    width: 100px;
+    height: 100px;
+    /* padding-left: 10px; */
+    margin-left: 18px;
+    /* object-fit: cover; */
+    border: 2px solid white;
+    border-radius: 50%;
+    /* background-color: white; */
+    /* top: 0; */
+}
+
+.profilepage-info-container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: white;
+    border-bottom: 1px solid #eeefff;
+}
+
+.profilepage-info {
+    margin-top: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.follow-container {
+    padding-bottom: 20px;
+    font-size: 14px;
+    color: #9b9b9b;
+    padding-right: 10px;
+}
+
+.followers {
+    margin: 0 16px;
+    display: inline;
+    cursor: pointer;
+}
+
+.followed {
+    margin: 0 16px;
+    display: inline;
+    cursor: pointer;
+}
+
+.profile-gallery-container {
+     /* z-index: 100; */
+    background: rgba(244, 244, 244, 0.966);
+    margin-top: -20px;
+    padding-top: 20px; 
+}
+
+.profile-container {
+    display: flex;
+    margin: auto;
+    width: 350px;
+    /* height: 30px; */
+    padding: 30px 10px;
+    background-color: white;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid #eeeff2;
+    margin-top: 60px;
+    text-align: center;
+}
+
+.button-follow {
+    background: #0099e5;
+    margin-left: 10px;
+    align-items: center;
+    text-align: center;
+    width: 10%;
+    padding: 10px 0;
+    border-radius: 5px; 
+    border: none;
+    font-size: 20px;
+    color: white;
+    margin-top: 10px;
+}
+.button-follow:hover {
+    background: #2cb9ff;
+}
+.button-unfollow {
+    background: #e50800;
+    margin-left: 10px;
+    align-items: center;
+    text-align: center;
+    width: 10%;
+    padding: 10px 0;
+    border-radius: 5px; 
+    border: none;
+    font-size: 20px;
+    color: white;
+    margin-top: 10px;
+}
+.button-unfollow:hover {
+    background: #ff2c2c;
+}

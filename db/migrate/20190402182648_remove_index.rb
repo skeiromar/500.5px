@@ -1,6 +1,6 @@
 class RemoveIndex < ActiveRecord::Migration[5.2]
   def change
 
-    remove_index :follows, [:follower_id, :followed_id]
+    remove_index :follows, [:followed_id, :follower_id]
   end
 end

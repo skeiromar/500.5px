@@ -10,6 +10,7 @@ class CommentItem extends Component {
         this.handleLike = this.handleLike.bind(this);
         this.handleUnlike = this.handleUnlike.bind(this);
         this.handleCommentDelete = this.handleCommentDelete.bind(this);
+        this.handleUserRedirection = this.handleUserRedirection.bind(this);
 
 
     } 
@@ -44,6 +45,11 @@ class CommentItem extends Component {
         const {comment, deleteComment} = this.props; 
         // if (picture.author_id === user.id) {
         deleteComment(comment.id);
+    }
+
+    handleUserRedirection() {
+      // debugger
+      this.props.history.push(`/profile/${this.props.comment.author_id}`);
     }
 
     render() {
@@ -99,7 +105,9 @@ class CommentItem extends Component {
         return (
             <ul className="comment-item">  
                 <li className="comment-pic">
-                    <a className="comment-pic-a">
+                    <a className="comment-pic-a"
+                    onClick={this.handleUserRedirection}
+                    >
                         <img 
                         className="comment-pic-icon"
                         src={`${comment.username_pic}`} 

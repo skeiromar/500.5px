@@ -475,6 +475,7 @@ class PictureDetail extends Component {
                       deleteCommentLike={this.props.deleteCommentLike}
                       deleteComment={this.props.deleteComment}
                       user={user}
+                      history={this.props.history}
                       liked={el
                       .likerIds
                       .some(e => {

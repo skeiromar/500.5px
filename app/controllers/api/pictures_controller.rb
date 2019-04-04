@@ -10,7 +10,7 @@ class Api::PicturesController < ApplicationController
         # debugger
         # @picture.author_id = 8
         if @picture.save
-            render json: {message: 'nice'}
+            render :show
         else
             render json: @picture.errors.full_messages, status: 401
         end

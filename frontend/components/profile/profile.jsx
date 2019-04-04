@@ -21,8 +21,15 @@ class Profile extends Component {
     this.pushProfilePage = this
       .pushProfilePage
       .bind(this);
-    this.handleFollowers = this.handleFollowers.bind(this);
-    this.handleFollowed = this.handleFollowed.bind(this);
+    this.handleFollowers = this
+      .handleFollowers
+      .bind(this);
+    this.handleFollowed = this
+      .handleFollowed
+      .bind(this);
+    this.handleDiscover = this
+      .handleDiscover
+      .bind(this);
   }
 
   componentDidMount() {
@@ -61,7 +68,7 @@ class Profile extends Component {
 
   handleFollow() {
     const {followUser, user, currentUser} = this.props;
-    this.setState({follows: true}); 
+    this.setState({follows: true});
 
     followUser({follower_id: currentUser.id, followed_id: user.id});
 
@@ -77,26 +84,32 @@ class Profile extends Component {
   handleFollowers() {
     const {fetchFollowers, user} = this.props;
 
-    fetchFollowers(user.id).then(
-        success => {
-            
-            this.props.openModal('open-followers-modal');
-        }
-    );
+    fetchFollowers(user.id).then(success => {
+
+      this
+        .props
+        .openModal('open-followers-modal');
+    });
     // debugger
 
   }
 
-
   handleFollowed() {
     const {fetchFollowed, user} = this.props;
 
-    fetchFollowed(user.id).then(
-        success => {
-            
-            this.props.openModal('open-followers-modal');
-        }
-    );
+    fetchFollowed(user.id).then(success => {
+
+      this
+        .props
+        .openModal('open-followers-modal');
+    });
+  }
+
+  handleDiscover() {
+    this
+      .props
+      .history
+      .push('/feed/');
   }
 
   render() {
@@ -114,7 +127,7 @@ class Profile extends Component {
               </a>
             </li>
             <li>
-              <a href="">Discover</a>
+              <a onClick={this.handleDiscover}>Discover</a>
             </li>
             <li>
               <a href="">About</a>
@@ -188,12 +201,10 @@ class Profile extends Component {
         <div>
 
           <div className="top-profile">
-            <div className="cover"
-              onClick={() => this.props.openModal('changeBackground-Modal')}                          
-            >
-              <img 
-              className="cover-img" 
-              src={`${user.backgroundImg}`}/>
+            <div
+              className="cover"
+              onClick={() => this.props.openModal('changeBackground-Modal')}>
+              <img className="cover-img" src={`${user.backgroundImg}`}/>
             </div>
             <div className="content">
 
@@ -214,12 +225,13 @@ class Profile extends Component {
                     {/* more stuff */}
                   </a>
                 </div>
-                }
+}
             </div>
             <div className="profile-img-container">
-              <img 
-              onClick={() => this.props.openModal('changeProfile-Modal')}
-              className="profile-picture" src={`${user.pictureUrl}`}/>
+              <img
+                onClick={() => this.props.openModal('changeProfile-Modal')}
+                className="profile-picture"
+                src={`${user.pictureUrl}`}/>
 
             </div>
             <div className="profilepage-info-container">
@@ -230,21 +242,21 @@ class Profile extends Component {
                 </li>
                 <li>
                   {/* profile description */}
-                  <h4>life is a like a box of chocolates</h4>
+                  <h4>Absolutely useless. We *had* tables of arc-tangents. But if you've ever
+                    worked with computers, you understand the disease - the *delight* in being able
+                    to see how much you can do. But he got the disease for the first time, the poor
+                    fellow who invented the thing.”
+                  </h4>
                 </li>
               </ul>
 
               <ul className="follow-container">
-                <li
-                  className="followers"
-                  onClick={this.handleFollowers}>
+                <li className="followers" onClick={this.handleFollowers}>
                   <span>
                     Followers {user.followerIds.length}
                   </span>
                 </li>
-                <li
-                  className="followed"
-                  onClick={this.handleFollowed}>
+                <li className="followed" onClick={this.handleFollowed}>
                   <span>
                     Followed {user.followedIds.length}
                   </span>

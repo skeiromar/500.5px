@@ -31,8 +31,12 @@ class Modal extends Component {
     this.closeMod = this
       .closeMod
       .bind(this);
-    this.handleProfile = this.handleProfile.bind(this);
-    this.handleBackground = this.handleBackground.bind(this);
+    this.handleProfile = this
+      .handleProfile
+      .bind(this);
+    this.handleBackground = this
+      .handleBackground
+      .bind(this);
 
   }
 
@@ -41,15 +45,13 @@ class Modal extends Component {
 
     const file = e.currentTarget.files[0];
     const fileReader = new FileReader();
-    // fileReader.onloadend = () => {
-    //   this.setState({picFile: file, picUrl: fileReader.result});
-    // };
+    // fileReader.onloadend = () => {   this.setState({picFile: file, picUrl:
+    // fileReader.result}); };
     if (file) {
       fileReader.readAsDataURL(file);
     }
 
     const formData = new FormData();
-
 
     formData.append("user[profile_picture]", file);
     // debugger
@@ -68,15 +70,13 @@ class Modal extends Component {
 
     const file = e.currentTarget.files[0];
     const fileReader = new FileReader();
-    // fileReader.onloadend = () => {
-    //   this.setState({picFile: file, picUrl: fileReader.result});
-    // };
+    // fileReader.onloadend = () => {   this.setState({picFile: file, picUrl:
+    // fileReader.result}); };
     if (file) {
       fileReader.readAsDataURL(file);
     }
 
     const formData = new FormData();
-
 
     formData.append("user[background_img]", file);
     // debugger
@@ -150,13 +150,12 @@ class Modal extends Component {
       return null;
     
     // let component; switch (modal) {   case 'open-upload-modal':     component =
-    //  <form onSubmit={this.handleSubmit} className="file-container">
-    //       <input type="file" onChange={this.handleFile}
-    // className="upload-modal-button" id="file-submit"/>                     {/*
-    // <button  onChange={this.handleFile} >upload</button> */}
-    // <input type="submit" value="submit"/>                     </form>;     break;
-    //   case 'open':     component = <h1>modal is closed</h1>;     break;
-    // default:     return null; }
+    // <form onSubmit={this.handleSubmit} className="file-container">       <input
+    // type="file" onChange={this.handleFile} className="upload-modal-button"
+    // id="file-submit"/>                     {/* <button
+    // onChange={this.handleFile} >upload</button> */} <input type="submit"
+    // value="submit"/>                     </form>;     break;   case 'open':
+    // component = <h1>modal is closed</h1>;     break; default:     return null; }
 
     const preview = this.state.picUrl
       ? <img src={this.state.picUrl} className="uploaded-modal-pic"/>
@@ -257,14 +256,12 @@ class Modal extends Component {
                 <ul className="li-wo-bullets">
 
                   <div className="followers-container">
-                      <ul className="follows-ul-modal">
-                        {this.props.follows.map((el, i) =>
-                        <FollowItem 
-                          key={i}
-                          follow={el}
-                        />
-                        )}
-                      </ul>                 
+                    <ul className="follows-ul-modal">
+                      {this
+                        .props
+                        .follows
+                        .map((el, i) => <FollowItem key={i} follow={el}/>)}
+                    </ul>
                   </div>
 
                 </ul>
@@ -275,86 +272,88 @@ class Modal extends Component {
           </div>
         );
       case 'open-followed-modal':
-      return (
-        <div className="modal-background" onClick={this.closeMod}>
-          <div className="modal-child follow-modal" onClick={e => e.stopPropagation()}>
+        return (
+          <div className="modal-background" onClick={this.closeMod}>
+            <div className="modal-child follow-modal" onClick={e => e.stopPropagation()}>
 
-            <div onSubmit={this.handleSubmit} className="profile-container">
-              <h2>Followed</h2>
-              <ul className="li-wo-bullets">
+              <div onSubmit={this.handleSubmit} className="profile-container">
+                <h2>Followed</h2>
+                <ul className="li-wo-bullets">
 
-                <div className="followers-container">
+                  <div className="followers-container">
                     <ul className="follows-ul-modal">
-                      {this.props.follows.map((el, i) =>
-                      <FollowItem 
-                        key={i}
-                        follow={el}
-                      />
-                      )}
-                    </ul>                 
-                </div>
+                      {this
+                        .props
+                        .follows
+                        .map((el, i) => <FollowItem key={i} follow={el}/>)}
+                    </ul>
+                  </div>
 
-              </ul>
+                </ul>
+
+              </div>
 
             </div>
-
           </div>
-        </div>
-      );
+        );
       case 'changeProfile-Modal':
-          return (
+        return (
 
-            <div className="modal-background" onClick={this.closeMod}>
-              <div className="modal-child upload-pic-modal" onClick={e => e.stopPropagation()}>
+          <div className="modal-background" onClick={this.closeMod}>
+            <div
+              className="modal-child upload-pic-modal"
+              onClick={e => e.stopPropagation()}>
 
-                <div
-                  className="drop-modal-area"
-                  aria-disabled="false"
-                  style={{
-                  position: 'relative'
-                }}>
-                  <p className="modal-btn-p-profile">
-                    <button className="button-style">Change Profile Picture</button>
-                    Or drag &amp; drop photos anywhere on this page
-                    <input
-                      accept="image/*"
-                      type="file"
-                      autoComplete="off"
-                      className="input-style-profile"
-                      onChange={this.handleProfile}/>
-                  </p>
-                </div>
-
+              <div
+                className="drop-modal-area"
+                aria-disabled="false"
+                style={{
+                position: 'relative'
+              }}>
+                <p className="modal-btn-p-profile">
+                  <button className="button-style">Change Profile Picture</button>
+                  Or drag &amp; drop photos anywhere on this page
+                  <input
+                    accept="image/*"
+                    type="file"
+                    autoComplete="off"
+                    className="input-style-profile"
+                    onChange={this.handleProfile}/>
+                </p>
               </div>
+
             </div>
-          );
+          </div>
+        );
       case 'changeBackground-Modal':
-          return (
+        return (
 
-            <div className="modal-background" onClick={this.closeMod}>
-              <div className="modal-child upload-pic-modal" onClick={e => e.stopPropagation()}>
+          <div className="modal-background" onClick={this.closeMod}>
+            <div
+              className="modal-child upload-pic-modal"
+              onClick={e => e.stopPropagation()}>
 
-                <div
-                  className="drop-modal-area"
-                  aria-disabled="false"
-                  style={{
-                  position: 'relative'
-                }}>
-                  <p className="modal-btn-p-profile">
-                    <button className="button-style">Change Background</button>
-                    Or drag &amp; drop photos anywhere on this page
-                    <input
-                      accept="image/*"
-                      type="file"
-                      autoComplete="off"
-                      className="input-style-profile"
-                      onChange={this.handleBackground}/>
-                  </p>
-                </div>
-
+              <div
+                className="drop-modal-area"
+                aria-disabled="false"
+                style={{
+                position: 'relative'
+              }}>
+                <p className="modal-btn-p-profile">
+                  <button className="button-style">Change Background</button>
+                  Or drag &amp; drop photos anywhere on this page
+                  <input
+                    accept="image/*"
+                    type="file"
+                    autoComplete="off"
+                    className="input-style-profile"
+                    onChange={this.handleBackground}/>
+                </p>
               </div>
+
             </div>
-          );
+          </div>
+        );
       default:
         return null;
     }
@@ -366,11 +365,7 @@ const mapStateToProps = state => {
   let currentUserId = st;
   let follows = Object.values(state.entities.follows) || [];
   // debugger
-  return {
-    modal: state.ui.modal, 
-    currId: currentUserId,
-    follows: follows
-  };
+  return {modal: state.ui.modal, currId: currentUserId, follows: follows};
 };
 
 const mapDispatchToProps = dispatch => {
@@ -378,7 +373,7 @@ const mapDispatchToProps = dispatch => {
     closeModal: () => dispatch(closeModal()),
     submitForm: (form) => dispatch(createPicture(form)),
     createProfilePicture: (profile_picture) => dispatch(changeProfilePicture(profile_picture)),
-    changeBackgroundImg: (background_img) => dispatch(changeBackgroundImg(background_img)),
+    changeBackgroundImg: (background_img) => dispatch(changeBackgroundImg(background_img))
   };
 };
 

@@ -69,6 +69,8 @@
     margin-top: 15px;
     display: flex;
     flex-direction: column;
+    width: 450px;
+    text-align: center;
     align-items: center;
 }
 

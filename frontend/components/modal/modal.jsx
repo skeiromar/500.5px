@@ -220,19 +220,24 @@ class Modal extends Component {
                   <div className="upload-modal-right">
                     <ul className="upload-modal-right-form">
                       <form onSubmit={this.handleSubmit} className="file-container">
-                        <li className="upload-modal-list"></li>
-                        <li className="upload-modal-list">
-                          <input type="submit" value="Submit" className="btn-submit"/>
+                        <li className="upload-modal-list-btn">
+                          <input type="submit" value="Submit" className="btn-upload"/>
 
                         </li>
-                        <li className="upload-modal-list">
-                          Title:
-                          <input type="text" onChange={this.onChange("title")}/>
+                        <li className="upload-modal-title-input">
+                          Title
+                          <input type="text" 
+                          className="title-input"
+                          onChange={this.onChange("title")}/>
 
                         </li>
-                        <li className="upload-modal-list">
-                          Description: {/* <input type="text" onChange={this.onChange("description")}/> */}
-                          <textarea cols="30" rows="10" onChange={this.onChange("description")}></textarea>
+                        <li className="upload-modal-list-desc">
+                          Description {/* <input type="text" onChange={this.onChange("description")}/> */}
+                          <textarea 
+                          className="modal-desc-btn"
+                          cols="30" 
+                          rows="10" 
+                          onChange={this.onChange("description")}></textarea>
 
                         </li>
                       </form>

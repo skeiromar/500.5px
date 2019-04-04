@@ -172,16 +172,16 @@
 
 .upload-modal-right {
     border-left: 1px solid #e0e0e0;
-    background: #fff;
-    overflow-y: hidden;
-    position: absolute; 
+    /* background: #fff; */
+    /* overflow-y: hidden; */
+    position: absolute;
     /* margin: 0; */
     /* margin-right: 40px; */
     padding-left: 0px;
     /* margin-left: -10px; */
     /* margin-left: 400px; */
     top: 0;
-    right: 0;
+    right: 30px;
     height: 100%;
     width: 20%;
     display: flex;
@@ -189,11 +189,75 @@
     align-items: flex-start;
     justify-content: flex-start;
 }
-.upload-modal-list {
-    padding: 2% 7% 7% 7%;
+.upload-modal-list-btn {
+    padding: 2% 4% 7% 8%;
     border-top: 1px solid rgba(185,193,199,0.5);
-    color: #0e9ce2;
-    font-family: sans-serif;
+    color: rgb(0, 0, 0);
+    font-weight: 500;
+    /* width: 100%; */
+    /* height: 100%; */
+    /* background: green; */
+    /* font-family: sans-serif; */
+    background: #0099e5;
+
+    border: 0.5px solid #0099e5;
+    border-radius: 2%;
+    width: 200px;
+    margin-left: 40px;
+    font-size: 24px;
+    margin-bottom: 30px;
+
+}
+.upload-modal-list-btn:hover {
+    background: #399fd3;
+}
+
+.upload-modal-title-input {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    /* justify-content: center; */
+    margin-left: 7px;
+    /* width: 200px; */
+    font-size: 24px;
+    /* width: 100%; */
+    /* height: 100%; */
+    margin-bottom: 20px;
+}
+.title-input {
+    width: 291px;
+    border: 1px solid black;
+    border-radius: 2%;
+    height: 50px;
+    font-size: 24px;
+    padding: 5px;
+    margin-top: 5px;
+
+
+}
+.modal-desc-btn {
+    width: 291px;
+    border: 1px solid black;
+    border-radius: 2%;
+    height: 150px;
+    font-size: 24px;
+    padding: 5px;
+    margin-left: 6px;
+    margin-top: 5px;
+}
+.upload-modal-list-desc {
+    text-align: center;
+    font-size: 24px;
+    
+}
+.btn-upload {   
+    margin-top: 10px;
+    width: 90%;
+    /* height: 90%; */
+    /* background: #0099e5; */
+    color: #0099e5;
+
 }
 
 .upload-modal-right-form {
@@ -201,6 +265,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    padding-left: 0px;
     
 }
 

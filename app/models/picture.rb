@@ -32,4 +32,10 @@ class Picture < ApplicationRecord
         end
     end 
 
+    def self.include_all
+        includes(picture: :blob)
+          .include_likers
+    end
+
+
 end

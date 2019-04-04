@@ -183,6 +183,7 @@
     display: flex;
     align-items: center;
     padding-right: 32px;
+    width: 100%;
 }
 
 .pic-title {
@@ -257,6 +258,36 @@
     transform: scale(1.5);
     transition: 0.5s transform ease;
     color: #ff2222;
+}
+
+@keyframes heart-burst {
+    0% {background-position:left;}
+    100% { background-position:right;}
+    
+}
+.heart-is-animating {
+    animation: heart-burst .8s steps(28) 1;
+}
+.hearted {
+    border-radius: 50%; 
+    cursor: pointer;
+    height: 100px;
+    width: 100px;
+    background-image: url("https://abs.twimg.com/a/1446542199/img/t1/web_heart_animation.png");
+    background-position: right;
+    background-repeat:no-repeat;
+    background-size: 2900%;
+}
+.heart {
+    border-radius: 50%; 
+    cursor: pointer;
+    height: 100px;
+    width: 100px;
+    background-image: url("https://abs.twimg.com/a/1446542199/img/t1/web_heart_animation.png");
+    background-position: left;
+    background-repeat:no-repeat;
+    background-size: 2900%;
+    
 }
 
 .comment-style {
@@ -406,6 +437,7 @@ textarea {
     /* margin-top: 5px; */
     /* padding-right: 20px; */
     /* align-self: center; */
+    margin-left: -15px;
 }
 
 .delete-pic {
@@ -438,5 +470,6 @@ textarea {
 .comment-del-icon {
     /* margin-bottom: 100px; */
     position: absolute;
-    bottom: 30px;
+    bottom: 37px;
+    right: -10px;
 }

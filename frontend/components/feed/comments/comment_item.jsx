@@ -5,7 +5,9 @@ class CommentItem extends Component {
     super(props);
 
     this.state = {
-      like: 'black'
+      like: 'black',
+      animation: '',
+      // hearted: 'heart'
     };
     this.handleLike = this
       .handleLike
@@ -19,6 +21,8 @@ class CommentItem extends Component {
     this.handleUserRedirection = this
       .handleUserRedirection
       .bind(this);
+  this.heartAnimation = this.heartAnimation.bind(this);
+    
 
   }
   componentDidMount() {
@@ -27,7 +31,7 @@ class CommentItem extends Component {
   }
 
   handleLike(e) {
-    e.preventDefault();
+    // e.preventDefault();
 
     // this.setState({liked: true});
 
@@ -37,7 +41,7 @@ class CommentItem extends Component {
     //   deleteCommentLike={this.props.deleteLike}
   }
   handleUnlike(e) {
-    e.preventDefault();
+    // e.preventDefault();
     const {user, comment} = this.props;
     // this.setState({liked: false});
     this
@@ -57,6 +61,20 @@ class CommentItem extends Component {
       .props
       .history
       .push(`/profile/${this.props.comment.author_id}`);
+  }
+  heartAnimation() {
+    if (this.props.liked === 'heart-comment') {
+      this.setState({animation: 'heart-is-animating'});
+      this.handleLike();
+      setTimeout(() => {
+
+        this.setState({animation: ''});   
+        // this.setState({hearted: 'hearted'});   
+      }, 600);
+    } else {
+      // this.setState({hearted: 'heart'});   
+      this.handleUnlike();
+    }
   }
 
   render() {
@@ -165,10 +183,16 @@ class CommentItem extends Component {
           </p>
           <a className="comment-like">
             <div>
-              {this.props.liked
+              {/* {this.props.liked
                 ? svgLiked
-                : regSvg}</div>
-            <span className="comment-likes">{comment.numLikes} Likes</span>
+                : regSvg} */}
+                <div 
+                onClick={this.heartAnimation}
+                className={`${this.props.liked} ${this.state.animation}`}>
+                    
+                </div>
+                </div>
+            <span className="comment-likes">{comment.numLikes} likes</span>
           </a>
           <div className="comment-del-icon-container">
             <i

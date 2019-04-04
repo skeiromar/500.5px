@@ -1,7 +1,7 @@
 class Api::PicturesController < ApplicationController
 
     def index
-        @pictures = Picture.with_attached_picture.includes(:author).includes(:likers).all
+        @pictures = Picture.all
         # @likers = @pictures.likers.length
     end
 

@@ -97,7 +97,7 @@
     margin-bottom: 20px;
     display: flex;
     justify-content: flex-start;
-    align-items: flex-end;
+    align-items: center;
 }
 .comment-like-icon {
     transform: scale(1.0);
@@ -112,5 +112,38 @@
 }
 .comment-likes {
     position: relative;
-    bottom: 7px;
+    /* bottom: 7px; */
+}
+
+/* @keyframes heart-burst {
+    0% {background-position:left;}
+    100% { background-position:right;}
+    
+} */
+/* .heart-is-animating {
+    animation: heart-burst .8s steps(28) 1;
+} */
+.hearted-comment {
+    border-radius: 50%; 
+    cursor: pointer;
+    height: 50px;
+    width: 50px;
+    background-image: url("https://abs.twimg.com/a/1446542199/img/t1/web_heart_animation.png");
+    background-position: right;
+    background-repeat:no-repeat;
+    background-size: 2900%;
+    /* position: absolute; */
+    /* margin-top: 10px; */
+    /* padding-right: 10px; */
+}
+.heart-comment {
+    border-radius: 50%; 
+    cursor: pointer;
+    height: 50px;
+    width: 50px;
+    background-image: url("https://abs.twimg.com/a/1446542199/img/t1/web_heart_animation.png");
+    background-position: left;
+    background-repeat:no-repeat;
+    background-size: 2900%;
+    
 }

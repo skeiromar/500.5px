@@ -61,7 +61,7 @@ export default class Feed extends Component {
               <a onClick={this.handleDiscover}>Discover</a>
             </li>
             <li>
-              <a href="">About</a>
+              <a href="/#/about">About</a>
             </li>
           </ul>
           <ul className="perm-navbar-ul-elems perm-right-ul-elems">
@@ -102,7 +102,7 @@ export default class Feed extends Component {
 
                     </li>
                     <li>
-                      <a href="">About</a>
+                      <a >About</a>
 
                     </li>
                     <li>
@@ -141,16 +141,16 @@ export default class Feed extends Component {
           <div className="feed-tabs">
             <ul className="feed-tabs-ul">
               <li >
-                <a className="active" href="">POPULAR</a>
+                <a className="active" >POPULAR</a>
               </li>
               <li>
-                <a href="">UPCOMING</a>
+                <a >UPCOMING</a>
               </li>
               <li>
-                <a href="">FRESH</a>
+                <a >FRESH</a>
               </li>
               <li>
-                <a href="">EDITOR'S CHOICE</a>
+                <a >EDITOR'S CHOICE</a>
               </li>
             </ul>
           </div>

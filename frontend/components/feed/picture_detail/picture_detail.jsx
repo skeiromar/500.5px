@@ -13,7 +13,9 @@ class PictureDetail extends Component {
       liked: false,
       commentBody: '',
       comments: this.props.comments,
-      follows: false
+      follows: false,
+      animation: '',
+      hearted: 'heart'
     };
     this.handleClick = this
       .handleClick
@@ -51,8 +53,8 @@ class PictureDetail extends Component {
     this.handleUnfollow = this
       .handleUnfollow
       .bind(this);
-
-    this.handleProfileRedirect = this.handleProfileRedirect.bind(this);
+      this.handleProfileRedirect = this.handleProfileRedirect.bind(this);
+      this.heartAnimation = this.heartAnimation.bind(this);
 
   }
   componentDidMount() {
@@ -63,10 +65,10 @@ class PictureDetail extends Component {
       .requestPicture(this.props.match.params.pictureId)
       .then(s => {
         this.setState({
-        liked: s
+        hearted: s
           .picture
           .ids
-          .includes(user.id),
+          .includes(user.id) ? 'hearted' : 'heart',
         follows: user
           .followedIds
           .includes(s.picture.author_id)
@@ -112,10 +114,10 @@ class PictureDetail extends Component {
         .props
         .requestPicture(this.props.match.params.pictureId)
         .then(s => this.setState({
-          liked: s
+          hearted: s
             .picture
             .ids
-            .includes(user.id),
+            .includes(user.id) ? 'hearted' : 'heart',
           follows: user
             .followedIds
             .includes(s.picture.author_id)
@@ -216,6 +218,21 @@ class PictureDetail extends Component {
   handleProfileRedirect() {
     const {picture} = this.props;
     this.props.history.push(`/profile/${picture.author_id}`);
+  }
+
+  heartAnimation() {
+    if (this.state.hearted === 'heart') {
+      this.setState({animation: 'heart-is-animating'});
+      this.handleLike();
+      setTimeout(() => {
+
+        this.setState({animation: ''});   
+        this.setState({hearted: 'hearted'});   
+      }, 600);
+    } else {
+      this.setState({hearted: 'heart'});   
+      this.handleUnlike();
+    }
   }
 
   render() {
@@ -347,13 +364,17 @@ class PictureDetail extends Component {
                 {/* <i className="far fa-heart fa-2x"></i> */}
                 <div className="like-icon-container">
 
-                  {!this.state.liked
+                  {/* {!this.state.liked
                     ? svgReg
-                    : svgLiked}
+                    : svgLiked} */}
 
-                  <span id="like-icon-likes">{this.props.picture.numLikes}   Likes</span>
+                <div 
+                onClick={this.heartAnimation}
+                className={`${this.state.hearted} ${this.state.animation}`}>
+                    
                 </div>
-
+                  <span id="like-icon-likes">{this.props.picture.numLikes} Likes</span>
+                </div>
                 <svg
                   onClick={this.handleEdit}
                   className="like-icon-edit"
@@ -480,8 +501,8 @@ class PictureDetail extends Component {
                       .likerIds
                       .some(e => {
                         return e === user.id
-                      })}/>)}
-
+                      }) ? 'hearted-comment' : 'heart-comment'}/>)}
+ 
                   </div>
                 </div>
                 <div></div>

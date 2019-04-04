@@ -29,7 +29,8 @@ class PictureEdit extends Component {
     this
       .props
       .updatePicture(this.state)
-      .then(() => this.props.history.push(`/pictures/${this.props.match.params.pictureId}`), errors => this.props.receiveEditErrors(errors.responseJSON));
+      .then(() => this.props.history.push(`/pictures/${this.props.match.params.pictureId}`), 
+      errors => this.props.receiveEditErrors(errors.responseJSON));
   }
   onChange(type) {
     return (e) => {

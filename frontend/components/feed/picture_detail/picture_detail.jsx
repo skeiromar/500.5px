@@ -229,10 +229,12 @@ class PictureDetail extends Component {
         this.setState({animation: ''});   
         this.setState({hearted: 'hearted'});   
       }, 600);
-    } else {
-      this.setState({hearted: 'heart'});   
-      this.handleUnlike();
-    }
+    } else if (this.state.hearted === 'hearted') {
+
+        this.setState({hearted: 'heart'});   
+        this.handleUnlike();
+      }
+    
   }
 
   render() {

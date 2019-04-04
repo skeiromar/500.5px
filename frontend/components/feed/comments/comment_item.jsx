@@ -72,8 +72,12 @@ class CommentItem extends Component {
         // this.setState({hearted: 'hearted'});   
       }, 600);
     } else {
-      // this.setState({hearted: 'heart'});   
-      this.handleUnlike();
+      // this.setState({hearted: 'heart'}); 
+      if (this.state.animation.length === 0) {
+
+        // this.setState({hearted: 'hearted'});   
+        this.handleUnlike();
+      }
     }
   }
 

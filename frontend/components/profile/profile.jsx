@@ -279,30 +279,7 @@ class Profile extends Component {
                     numLikes={el.numLikes}
                     likerIds={el.likerIds}/>)}
 
-                <div className="feed-flex-item">
-                  <img className="feed-flex-img" src='https://picsum.photos/500/900/?random'/>
-                </div>
-                <div className="feed-flex-item">
-                  <img className="feed-flex-img" src='https://picsum.photos/500/300/?random'/>
-                </div>
-                <div className="feed-flex-item">
-                  <img className="feed-flex-img" src='https://picsum.photos/300/200/?random'/>
-                </div>
-                <div className="feed-flex-item">
-                  <img className="feed-flex-img" src='https://picsum.photos/500/700/?random'/>
-                </div>
-                <div className="feed-flex-item">
-                  <img className="feed-flex-img" src='https://picsum.photos/500/500/?random'/>
-                </div>
-                <div className="feed-flex-item">
-                  <img className="feed-flex-img" src='https://picsum.photos/600/800/?random'/>
-                </div>
-                <div className="feed-flex-item">
-                  <img className="feed-flex-img" src='https://picsum.photos/700/400/?random'/>
-                </div>
-                <div className="feed-flex-item">
-                  <img className="feed-flex-img" src='https://picsum.photos/200/600/?random'/>
-                </div>
+              
               </ul>
 
             </div>

@@ -34,10 +34,13 @@ export default class Greeting extends Component {
                 </ul>
                 <ul className="navbar-ul-elems right-ul-elems">
                     <li>
-                        <Link to="/signup">sign up</Link>
+                        <Link 
+                        id="sign-up-cursor"
+                        to="/login">log in</Link>
                     </li>
                     <li>
-                        <Link to="/login" className="splash-btn-nav">log in</Link>
+                        <Link to="/signup" className="splash-btn-nav">
+                        sign up</Link>
                     </li>
                 </ul>
                

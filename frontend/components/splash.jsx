@@ -106,7 +106,10 @@ class Splash extends Component {
             <div >
             <h1>Connect with photographers everywhere</h1>
             <p className="spl-ftr-txt-p">You’re not just joining a network—you’re joining a real community. Follow photographers to get their newest photos appearing in your home feed, share your thoughts by liking and commenting on photos, and discuss all the details of photography in groups.</p>
+            <a href="/#/signup">
+
             <button className="splash-btn ftr-btn">Sign Up</button>
+            </a>
             </div>
             </li>
             <li>
@@ -123,7 +126,10 @@ class Splash extends Component {
             <div >
             <h1>Make money doing what you love</h1>
             <p className="spl-ftr-txt-p">Submit your photos to 500px and license your content through our exclusive distribution partners.</p>
+            <a href="/#/signup">
+
             <button className="splash-btn ftr-btn">Sign Up</button>
+            </a>
             </div>
             </li>
 
@@ -133,7 +139,10 @@ class Splash extends Component {
             <div >
             <h1>Join our community of 15 million inspired photographers around the world.</h1>
             <p className="spl-ftr-txt-p">Get a 14-day trial of our Pro membership when you sign up.</p>
+            <a href="/#/signup">
+
             <button className="splash-btn ftr-btn">Join 500.5px</button>
+            </a>
             </div>
             </li>
         </ul>

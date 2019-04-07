@@ -14,6 +14,8 @@
     border-bottom: 0.8px solid rgba(173, 173, 173, 0.603);
     /* position: fixed; */
     /* margin-bottom: auto; */
+    padding-top: 6px;
+    padding-bottom: 6px; 
   }
 
 .perm-navbar-ul-elems {
@@ -21,23 +23,26 @@
     flex-direction: flex-start;
     list-style: none;
     align-items: center;
+    padding-left: 20px; 
 }
 
 .perm-navbar-ul-elems > li {
     padding: 0 10px;
     z-index: 2;
+    /* padding-top: 20px; */
+    /* padding-bottom: 20px; */
 }
 
 .perm-navbar-ul-elems-logo {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    font-size: 25px;
+    font-size: 23px;
     color: black;
     
 }
 
 .perm-right-ul-elems {
     position: absolute;
-    right: 5%;
+    right: 4%;
     top: 0%;
     
 }
@@ -52,6 +57,8 @@
     height: 50px;
     border-bottom: 0.8px solid rgba(173, 173, 173, 0.603);
     z-index: 10;
+    padding-top: 6px;
+    padding-bottom: 6px;
 }
 
 .perm-navbar-ul-elems-fixed {
@@ -75,7 +82,7 @@
 
 .perm-right-ul-elems-fixed {
     position: absolute; 
-    right: 5%;
+    right: 4%;
     top: 0%;
     z-index: 100;
 }

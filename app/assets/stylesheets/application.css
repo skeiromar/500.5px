@@ -60,9 +60,10 @@ li  {
     border-radius: 5px; 
     border: none;
     background: rgb(57, 160, 57);
-    font-size: 20px;
+    font-size: 18px;
     color: white;
     margin-top: 10px;
+    box-sizing: border-box;
 }
 
 .form-input {
@@ -76,9 +77,11 @@ li  {
 .form-label {
     padding: 0;
     margin: 0;
-    text-align: center;
+    text-align: start;
+    padding-left: 10px; 
     color: rgb(61, 61, 61);
-    font-size: 20px;
+    font-size: 16px;
+
 }
 
 #btn-sub {
@@ -106,7 +109,7 @@ li  {
     flex-direction: flex-start;
     list-style: none;
     align-items: center;
-
+    font-size: 15px;
 }
 
 .navbar-ul-elems > li {
@@ -116,7 +119,7 @@ li  {
 
 .navbar-ul-elems-logo {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    font-size: 25px;
+    font-size: 23px;
 }
 
 .right-ul-elems {
@@ -125,8 +128,11 @@ li  {
     top: 0px;
     position: fixed;
 
-}
 
+}
+#sign-up-cursor {
+    cursor: pointer;
+}
 .splash {
     background-image: url("https://assetcdn.500px.org/assets/static_pages/home/cover_bg-121d68d0f30118182be4f9ada6c2c502.jpg");
     /* position: absolute; */
@@ -382,7 +388,9 @@ a {
     padding: 10px 0;
     border-radius: 5px; 
     border: none;
-    font-size: 20px;
+    font-size: 18px;
     color: white;
     margin-top: 10px;
+    box-sizing: border-box;
+    cursor: pointer;
 }

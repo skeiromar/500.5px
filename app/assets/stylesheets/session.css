@@ -1,7 +1,7 @@
 .form-container {
     display: flex;
     margin: auto;
-    width: 350px;
+    width: 400px;
     /* height: 30px; */
     padding: 30px 10px;
     background-color: white;
@@ -25,12 +25,14 @@
     margin: 5px;
     align-self: center;
     transition: border-color 0.4s;
+    box-sizing: border-box;
 }
 
 .lighten-a {
     color: rgba(55, 218, 55, 0.801);
     padding: 10px;
     /* background: green; */
+    cursor: pointer;
 }
 .lighten-a:hover {
     color: rgba(38, 248, 38, 0.945);

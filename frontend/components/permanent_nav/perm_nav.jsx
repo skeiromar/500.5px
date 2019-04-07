@@ -34,10 +34,12 @@ export default class PermNav extends Component {
                 </ul>
                 <ul className="perm-navbar-ul-elems perm-right-ul-elems">
                     <li>
-                        <Link to="/signup">sign up</Link>
+                        <Link to="/login">log in</Link>
+
                     </li>
                     <li>
-                        <Link to="/login">log in</Link>
+                    <Link to="/signup">sign up</Link>
+
                     </li>
                 </ul>
                

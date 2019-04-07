@@ -76,14 +76,16 @@ export default class SessionForm extends Component {
           className="form-input"/>
       </li> < p className = "form-label" > Password < /p>
                 <li className="form-components">
-                <input type="password" onChange={this.onChange("password")} name="" id="" className="form-input"/ > </li> < li className = "button-log-submit" > <input type="submit" value="sign in"/> < /li>
+                <input type="password" onChange={this.onChange("password")} name="" id="" className="form-input"/ > </li> <li 
+                onClick={this.handleSubmit}                
+                className="button-log-submit"> <input type="submit" value="sign in"/> < /li>
                 <li >
                     <button onClick={this.handleDemoLogin} className="button-log demo-btn">demo sign in</button > </li> < li > {/* <button onClick={this.props.openModal} className="button-log demo-btn">demo sign in</button> */
       } < /li>
                 </ul > <p className="session-errors">
         {this.props.errors}
-      </p> < /form>
-            </ >)
+      </p> </form>
+            </>)
       : ( <> <PermNavContainer/> < form onSubmit = {
         this.handleSubmit
       }
@@ -92,8 +94,8 @@ export default class SessionForm extends Component {
       and grow your skills. < /p>
                 <ul className="li-wo-bullets">
 
-                <label htmlFor="" / > <p className="form-label">Username</p> < li className = "form-components" > <input type="text" onChange={this.onChange("username")} className="form-input"/> < /li>
-                <label htmlFor="" / > <p className="form-label">Email</p> < li className = "form-components" > <input type="text" onChange={this.onChange("email")} className="form-input"/> < /li>    
+                <label htmlFor="" / > <p className="form-label">Username</p> <li className="form-components" > <input type="text" onChange={this.onChange("username")} className="form-input"/> < /li>
+                <label htmlFor="" / > <p className="form-label">Email</p> <li className="form-components" > <input type="text" onChange={this.onChange("email")} className="form-input"/> < /li>    
 
                 <label htmlFor="" / > <p className="form-label">Password</p> < li className = "form-components" > <input
         type="password"
@@ -101,12 +103,16 @@ export default class SessionForm extends Component {
         className="form-input"/> < /li>
 
 
-                <li className="button-log-submit">
-                <input type="submit" value="sign up" / > </li> < p > Already have an account
+                <li 
+                onClick={this.handleSubmit}
+                className="button-log-submit">
+                <input type="submit" value="sign up" / > 
+                </li> 
+                <p> Already have an account
         ? <a href="/#/login" className="lighten-a">Log in</a> < /p>
                 </ul > <p className="session-errors">
           {this.props.errors}
-        </p> < /form>
+        </p> </form>
             
 
             </ >)

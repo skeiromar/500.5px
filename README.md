@@ -9,11 +9,11 @@ constitute the frontend of the web app.
 
 # Key Features 
 
-# User Profiles 
+## User Profiles 
 
 Users can sign in, sign up or use the demo login to try the website. 
 
-# Uploading Photos 
+## Uploading Photos 
 
 Users can upload their pictures to the website
 
@@ -26,7 +26,7 @@ Users can visit the picture show page to edit pictures, delete pictures, comment
 ![Picture Show Image](readme_resources/picture_show_2.png)
 
 
-# Profile Page 
+## Profile Page 
 
 Users can visit other users' profiles. On the profile, users can see all the pictures uploaded by other users,
 follow the user, see the followers, and people followed of that user. In their own profile page, users can change 
@@ -35,7 +35,7 @@ their background or profile pictures.
 
 ![Profile Image](readme_resources/profile.png)
 
-# Feed page
+## Feed page
 
 After signing in or signing up, users are taken to the feed page
 
@@ -44,16 +44,16 @@ After signing in or signing up, users are taken to the feed page
 
 
 
-# Development Log
+## Development Log
 
-# Week 1
+### Week 1
 
 * Made authentication 
 * Finished the Splash page 
 * created backend for Pictures using aws 
 * Made backend for Likes, Follows and Comments
 
-# Week 2
+### Week 2
 
 * Made Picture Show page, Likes for Pictures
 * Added feature to edit and delete pictures

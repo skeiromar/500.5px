@@ -5,15 +5,15 @@ export default function Navbar({handleDiscover, user, pushProfilePage, handleLog
     <nav className="perm-navbar">
     <ul className="perm-navbar-ul-elems">
       <li>
-        <a href="/#/" className="perm-navbar-ul-elems-logo">
+        <a href="/#/" className="perm-navbar-ul-elems-logo" style={{cursor: 'pointer'}}>
           500.5px
         </a>
       </li>
       <li>
-        <a onClick={handleDiscover}>Discover</a>
+        <a onClick={handleDiscover} style={{cursor: 'pointer'}}>Discover</a>
       </li>
       <li>
-        <a href="/#/about">About</a>
+        <a href="/#/about" style={{cursor: 'pointer'}}>About</a>
       </li>
     </ul>
     <ul className="perm-navbar-ul-elems perm-right-ul-elems">
@@ -65,7 +65,7 @@ export default function Navbar({handleDiscover, user, pushProfilePage, handleLog
           </div>
         </div>
       </li>
-      <li >
+      <li style={{cursor: 'pointer'}}>
         <a className="nav-upload-icon" onClick={openModal}>
           <i className="fas fa-cloud-upload-alt cloud-margin-right"></i>
           <span>

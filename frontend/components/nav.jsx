@@ -19,12 +19,26 @@ export default class Greeting extends Component {
                 <nav className="navbar">
                 <ul className="navbar-ul-elems">
                     <li>
-                        <a href="/#/" className="navbar-ul-elems-logo">
+                        <a href="/#/" className="navbar-ul-elems-logo" style={{cursor: 'pointer'}}>
                             500.5px
                         </a>
                     </li>
-                    <li>Discover</li>
-                    <li>About</li>
+                    <Link
+                    to="/feed/"
+                    >
+
+                    <li style={{cursor: 'pointer'}}>
+                        Discover
+                    </li>
+                    </Link>
+                    <li >
+                    
+                    <Link to="/about" style={{cursor: 'pointer'}}>
+                    About
+                    </Link>
+                    
+                    </li>
+
                 </ul>
                 <ul className="navbar-ul-elems right-ul-elems">
                     <li>

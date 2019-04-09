@@ -12,6 +12,7 @@ import {
       case RECEIVE_ALL_PICTURES:
         return merge({}, action.pictures);
       case RECEIVE_PICTURE:
+
         return merge({}, oldState, {[action.picture.id]: action.picture});
       case REMOVE_PICTURE:
         let newState = merge({}, oldState);
@@ -22,7 +23,7 @@ import {
         let picture = newerState[action.like.pictureId];  
         
         picture.numLikes += 1;
-        picture.ids.push(action.like.authorId);
+        picture.likerIds.push(action.like.authorId);
         
         return newerState;
 
@@ -32,7 +33,7 @@ import {
         let pic = newestState[action.like.pictureId];  
         
         pic.numLikes -= 1;
-        pic.ids.filter(el => el !== action.like.authorId);
+        pic.likerIds = pic.likerIds.filter(el => el !== action.like.authorId);
         
         
         return newestState;

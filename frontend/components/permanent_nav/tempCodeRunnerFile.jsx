@@ -1,20 +1,3 @@
-import React, {Component} from 'react';
-import {Link} from 'react-router-dom';
-
-
-export default class PermNav extends Component {
-    constructor(props) {
-        super(props);
-        
-    }
-
-
-    render() {
-
-        return (
-            <div>
-                
-
                 <nav className="perm-navbar">
                 <ul className="perm-navbar-ul-elems">
                     <li>
@@ -38,10 +21,3 @@ export default class PermNav extends Component {
                
                 <br/>
                 </nav>
-
-            </div>
-        )
-    }
-
-
-}

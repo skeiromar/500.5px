@@ -3,7 +3,8 @@ class Api::CommentsController < ApplicationController
 
   def index
     # Comment.where(picture_id: 23)
-    @comments = Comment.includes(:author).includes(:likers).where(picture_id: params[:picture_id]) # Comment.where(picture_id: params[:picture_id])
+    @comments = Comment.includes(:author).includes(:likers).includes(:picture)
+    .where(picture_id: params[:picture_id]) # Comment.where(picture_id: params[:picture_id])
 
   end
 
@@ -36,6 +37,16 @@ class Api::CommentsController < ApplicationController
 
   end
 
+  def like 
+    @like = Like.new(like_params)
+    @like.likable_type = 'Comment'
+
+    if @like.save
+
+    end
+
+  end
+
   def destroy
     @comment = Comment.find(params[:id])
 
@@ -52,6 +63,6 @@ class Api::CommentsController < ApplicationController
     end
     
     def like_params
-      params.require(:like).permit(:author_id, :likable_id, :likable_type)
+      params.require(:like).permit(:author_id, :likable_id)
   end
 end

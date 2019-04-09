@@ -4,7 +4,7 @@ class PictureEdit extends Component {
 
   constructor(props) {
     super(props);
-    this.state = this.props.picture;
+    this.state = {};
 
     this.handleSubmit = this
       .handleSubmit
@@ -13,19 +13,21 @@ class PictureEdit extends Component {
   }
   componentDidMount() {
     // find ways to minimize backend requests.
-    if (this.props.picture.empty) 
-      this.props.requestPicture(this.props.match.params.pictureId);
-    }
+    
+    this.props.requestPicture(this.props.match.params.pictureId)
+    .then(s => this.setState({title: s.picture.title, description: s.picture.description, id: s.picture.id}));
+  }
   componentDidUpdate(prevProps) {
     if (prevProps.match.params.pictureId !== this.props.match.params.pictureId) {
       this
         .props
-        .requestPicture(this.props.match.params.pictureId);
+        .requestPicture(this.props.match.params.pictureId)
+        .then(s => this.setState({title: s.picture.title, description: s.picture.description, id: s.picture.id}));
+    
     }
   }
   handleSubmit(e) {
     e.preventDefault();
-
     this
       .props
       .updatePicture(this.state)

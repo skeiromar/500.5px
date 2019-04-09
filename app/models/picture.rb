@@ -32,9 +32,23 @@ class Picture < ApplicationRecord
         end
     end 
 
-    def self.include_all
-        includes(picture: :blob)
-          .include_likers
+    # def self.include_all
+    #     includes(picture: :blob)
+    #       .include_likers
+    # end
+    def self.include_likers
+        # google how to get rid of n+1 queries
+        
+        # joins(
+        # %{
+        #   LEFT INNER JOIN (
+        #     SELECT author.channel_id, COUNT(*) num_views
+        #     FROM   views inner_views
+        #     JOIN videos ON videos.id = inner_views.video_id
+        #     GROUP BY videos.channel_id
+        #   ) views ON views.channel_id = channels.id
+        # }
+        # ).select("channels.*, COALESCE(views.num_views, 0) AS num_views")
     end
 
 

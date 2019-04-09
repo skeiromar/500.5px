@@ -17,6 +17,7 @@ Rails.application.routes.draw do
     resources :pictures, only: [:index, :show, :create, :update, :destroy] do 
 
       delete :unlike, to: 'pictures#unlike', as: 'unlike'
+      post :like, to: 'pictures#like', as: 'like'
 
       resources :comments, only: [:index, :create] 
 
@@ -25,6 +26,7 @@ Rails.application.routes.draw do
     resources :comments, only: [:destroy] do 
 
       delete :unlike, to: 'comments#unlike', as: 'unlike'
+      post :like, to: 'comments#like', as: 'like'
 
     end
 

@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
 
+import Button from '../components/ui_components/button';
 
 export default class Greeting extends Component {
     constructor(props) {
@@ -11,14 +12,7 @@ export default class Greeting extends Component {
 
     render() {
 
-        return this.props.currentUser ? (
-
-            <div>
-                <h1>Welcome, {this.props.currentUser.username}</h1>
-                <button onClick={this.props.logout}>Log Out</button>
-            </div>
-
-        ) : (
+        return (
             <div>
                 
 

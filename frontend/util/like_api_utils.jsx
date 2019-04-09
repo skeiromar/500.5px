@@ -1,19 +1,4 @@
 
-export const createLike = (like) => {
-    return $.ajax({
-        method: "POST",
-        url: `api/likes`,
-        data: {like},
-    });
-};
-
-
-export const deleteLike = id => (
-    $.ajax({
-      url: `api/likes/${id}`,
-      method: 'DELETE'
-    })
-);
 
 export const deletePictureLike = like => {
     return $.ajax({
@@ -27,6 +12,22 @@ export const deleteCommentLike = like => {
   return $.ajax({
     url: `/api/comments/${like.likable_id}/unlike`,
     method: 'DELETE',
+    data: {like}
+  });
+};
+
+export const createPictureLike = like => {
+  return $.ajax({
+    url: `api/pictures/${like.likable_id}/like`,
+    method: 'POST',
+    data: {like}
+  });
+};
+
+export const createCommentLike = like => {
+  return $.ajax({
+    url: `/api/comments/${like.likable_id}/like`,
+    method: 'POST',
     data: {like}
   });
 };

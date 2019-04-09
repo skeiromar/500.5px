@@ -16,7 +16,9 @@ class Comment < ApplicationRecord
     
     
     has_many :likes, as: :likable
+
     has_many :likers, through: :likes, source: :author
+    
     belongs_to :author, class_name: "User", foreign_key: "author_id"
     belongs_to :picture, class_name: "Picture", foreign_key: "picture_id"
 

@@ -7,16 +7,6 @@ export const REMOVE_COMMENT_LIKE = "REMOVE_COMMENT_LIKE";
 
 
 
-export const createLike = like => dispatch => (
-    LikeApiUtils.createLike(like)
-    .then(id => {
-        if (like.likable_type === 'Picture') {
-           return dispatch(receivePictureLike({likeId: id, authorId: like.author_id, pictureId: like.likable_id}));
-       } else {
-            return dispatch(receiveCommentLike({likeId: id, authorId: like.author_id, commentId: like.likable_id}));
-       }
-    }
-));
 
 
 export const deleteCommentLike = like => dispatch => (
@@ -33,6 +23,22 @@ export const deletePictureLike = like => dispatch => (
         return dispatch(removePictureLike({authorId: like.author_id, pictureId: like.likable_id}));
     }
 ));
+
+export const createCommentLike = like => dispatch => (
+    LikeApiUtils.createCommentLike(like)
+    .then(() => {
+        return dispatch(receiveCommentLike({authorId: like.author_id, commentId: like.likable_id}));
+    }
+));
+
+
+export const createPictureLike = like => dispatch => (
+    LikeApiUtils.createPictureLike(like)
+    .then(() => {
+        return dispatch(receivePictureLike({authorId: like.author_id, pictureId: like.likable_id}));
+    }
+));
+
 
 const receivePictureLike = like => ({
     type: RECEIVE_PICTURE_LIKE,

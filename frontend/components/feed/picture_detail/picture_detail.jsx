@@ -15,7 +15,15 @@ class PictureDetail extends Component {
       comments: this.props.comments,
       follows: false,
       animation: '',
-      hearted: 'heart'
+      hearted: 'heart',
+      tHeight: 20,
+      height: 'calc(100vh - 128px)',
+      picHeight: '90',
+      hover: false,
+      picWidth: 95,
+
+
+
     };
     this.handleClick = this
       .handleClick
@@ -50,12 +58,12 @@ class PictureDetail extends Component {
     this.handleFollow = this
       .handleFollow
       .bind(this);
-    this.handleUnfollow = this
-      .handleUnfollow
-      .bind(this);
+    this.handleUnfollow = this.handleUnfollow.bind(this);
       this.handleProfileRedirect = this.handleProfileRedirect.bind(this);
       this.heartAnimation = this.heartAnimation.bind(this);
-
+      this.handleResize = this.handleResize.bind(this);
+      this.onHover = this.onHover.bind(this);
+      this.offHover = this.offHover.bind(this);
   }
   componentDidMount() {
     const {picture, user} = this.props;
@@ -63,21 +71,22 @@ class PictureDetail extends Component {
     this
       .props
       .requestPicture(this.props.match.params.pictureId)
-      .then(s => {
+      .then(success => {
         this.setState({
-        hearted: s
+        hearted: success
           .picture
-          .ids
+          .likerIds
           .includes(user.id) ? 'hearted' : 'heart',
         follows: user
           .followedIds
-          .includes(s.picture.author_id)
+          .includes(success.picture.author_id)
       });
-    });
-
-    this
+      this
       .props
       .fetchAllComments(this.props.match.params.pictureId);
+    });
+
+    
 
   }
 
@@ -102,6 +111,9 @@ class PictureDetail extends Component {
   }
   onChange(type) {
     return (e) => {
+      if (type === 'commentBody' && (this.state.commentBody.length+1) % 34 === 0) {
+        this.setState({tHeight: this.state.tHeight + 25});
+      } 
       this.setState({[type]: e.target.value});
     };
   }
@@ -116,7 +128,7 @@ class PictureDetail extends Component {
         .then(s => this.setState({
           hearted: s
             .picture
-            .ids
+            .likerIds
             .includes(user.id) ? 'hearted' : 'heart',
           follows: user
             .followedIds
@@ -167,11 +179,11 @@ class PictureDetail extends Component {
     this.setState({like: 'black'});
   }
   handleLike() {
+
     this.setState({liked: true});
 
-    this
-      .props
-      .createLike({author_id: this.props.user.id, likable_id: this.props.picture.id, likable_type: 'Picture'});
+    this.props.createPictureLike({author_id: this.props.user.id, likable_id: this.props.picture.id})
+    .then(() => this.setState({hearted: 'hearted'}));
   }
   handleUnlike() {
     const {user, picture} = this.props;
@@ -203,7 +215,6 @@ class PictureDetail extends Component {
   handleFollow() {
     const {followUser, user, picture} = this.props;
     this.setState({follows: true});
-
     followUser({follower_id: user.id, followed_id: picture.author_id});
 
   }
@@ -221,19 +232,40 @@ class PictureDetail extends Component {
   }
 
   heartAnimation() {
-    if (this.state.hearted === 'heart') {
+    if (this.state.hearted === 'heart' && this.state.animation === '') {
       this.setState({animation: 'heart-is-animating'});
-      this.handleLike();
+      this.handleLike()   
       setTimeout(() => {
 
         this.setState({animation: ''});   
-        this.setState({hearted: 'hearted'});   
       }, 600);
     } else if (this.state.hearted === 'hearted') {
 
         this.setState({hearted: 'heart'});   
         this.handleUnlike();
       }
+    
+  }
+
+  handleResize() {
+    if (this.state.height === 'calc(100vh)') {
+      this.setState({height: 'calc(100vh - 128px)', picHeight: '90'});
+    } else {
+      this.setState({height: 'calc(100vh)', picHeight: '98'});
+    }
+  }
+
+  onHover() {
+    if (!this.state.hover && this.state.height === 'calc(100vh)') {
+      this.setState({hover: true});
+      setTimeout(() => {
+        this.setState({hover: false});
+      }, 6000);
+
+    }
+  }
+
+  offHover() {
     
   }
 
@@ -247,99 +279,59 @@ class PictureDetail extends Component {
       ? 'pic-fade-out'
       : 'base';
 
-    let svgReg = (
-      <svg
-        className="like-icon"
-        onMouseEnter={this.hoverOn}
-        onMouseLeave={this.hoverOff}
-        onClick={this.handleLike}
-        width="24px"
-        height="24px"
-        viewBox="0 0 24 24"
-        version="1.1"
-        xmlns="http://www.w3.org/2000/svg"
-        xmlnsXlink="http://www.w3.org/1999/xlink">
-        <defs>
-          <path
-            d="M11.928876,4.6480912 L12.268427,4.08281926 C13.4186334,2.16799854 15.4502756,1.00047365 17.640319,1.00047365 C20.9665079,1.00047365 23.6115335,3.72719604 23.952284,7.46069537 C24.0524883,8.09583562 23.989822,8.95324869 23.7520608,9.95403891 C23.2561658,12.0442247 22.1102297,13.9438554 20.4356532,15.4532147 L11.9291005,23 L11.5587201,22.6657451 L3.56335709,15.4502177 C1.89207231,13.9442591 0.745805889,12.0443377 0.249864075,9.95441177 C0.0120791844,8.95320548 -0.0509420637,8.09022324 0.0393524413,7.54691523 C0.389542516,3.73723479 3.02636199,1 6.36151742,1 C8.51703851,1 10.4575214,2.14427858 11.5948462,4.07967088 L11.928876,4.6480912 Z M11.935454,21.4750856 L19.6923785,14.5933728 C21.1939099,13.2399645 22.216764,11.544368 22.657827,9.68529788 C22.8629005,8.82209743 22.9146912,8.11348627 22.843875,7.67089565 L22.8335753,7.58638408 C22.5422299,4.39738972 20.3577125,2.14539935 17.640319,2.14539935 C15.8438074,2.14539935 14.1754415,3.10416003 13.2290188,4.67972935 L11.9183033,6.86175965 L10.6285982,4.66706093 C9.692462,3.07403263 8.11687011,2.1449257 6.36151742,2.1449257 C3.63696721,2.1449257 1.45864191,4.40620594 1.15496645,7.69411485 C1.08707312,8.10935089 1.13917743,8.82284185 1.34410083,9.68568309 C1.785178,11.5444063 2.80832786,13.2402637 4.31014954,14.593523 L11.935454,21.4750856 Z"
-            id="path-1___wCMwVYuq"/>
-        </defs>
-        <g
-          id="Icon/Very-Dark-Grey/Like---Outline___wCMwVYuq"
-          stroke="none"
-          strokeWidth={1}
-          fill="none"
-          fillRule="evenodd">
-          <g id="01-Icon/Utility-Icon/_/Like---Outline___wCMwVYuq">
-            <mask id="mask-2___wCMwVYuq" fill="white">
-              <use xlinkHref="#path-1___wCMwVYuq"/>
-            </mask>
-            <use
-              id="Mask___wCMwVYuq"
-              fill={this.state.like}
-              fillRule="zero"
-              xlinkHref="#path-1___wCMwVYuq"/>
-            <g
-              className="inline_svg_icon__fill"
-              id="00-Mixin/Fill/01-Very-Dark-Grey___wCMwVYuq"
-              mask="url(#mask-2___wCMwVYuq)"
-              fill="#222222"
-              fillRule="evenodd">
-              <rect id="Box___wCMwVYuq" x={0} y={0} width={24} height={24}/>
-            </g>
-          </g>
-        </g>
-      </svg>
-    );
-
-    let svgLiked = (
-      <svg
-        className="like-icon"
-        onMouseEnter={this.hoverOn}
-        onMouseLeave={this.hoverOff}
-        onClick={this.handleUnlike}
-        width="24px"
-        height="24px"
-        viewBox="0 0 24 24"
-        version="1.1"
-        xmlns="http://www.w3.org/2000/svg"
-        xmlnsXlink="http://www.w3.org/1999/xlink">
-
-        <defs>
-          <path
-            d="M11.928876,4.6480912 L12.268427,4.08281926 C13.4186334,2.16799854 15.4502756,1.00047365 17.640319,1.00047365 C20.9665079,1.00047365 23.6115335,3.72719604 23.952284,7.46069537 C24.0524883,8.09583562 23.989822,8.95324869 23.7520608,9.95403891 C23.2561658,12.0442247 22.1102297,13.9438554 20.4356532,15.4532147 L11.9291005,23 L11.5587201,22.6657451 L3.56335709,15.4502177 C1.89207231,13.9442591 0.745805889,12.0443377 0.249864075,9.95441177 C0.0120791844,8.95320548 -0.0509420637,8.09022324 0.0393524413,7.54691523 C0.389542516,3.73723479 3.02636199,1 6.36151742,1 C8.51703851,1 10.4575214,2.14427858 11.5948462,4.07967088 L11.928876,4.6480912 Z"
-            id="path-1___mMfJpL2P"/>
-        </defs>
-        <g
-          id="Icon---Like---Filled___mMfJpL2P"
-          stroke="none"
-          strokeWidth={1}
-          fill="none"
-          fillRule="evenodd">
-          <g id="01-Icon/Utility-Icon/_/Like---Filled___mMfJpL2P">
-            <mask id="mask-2___mMfJpL2P" fill="white">
-              <use xlinkHref="#path-1___mMfJpL2P"/>
-            </mask>
-            <use
-              id="Mask___mMfJpL2P"
-              fill="#000000"
-              fillRule="nonzero"
-              xlinkHref="#path-1___mMfJpL2P"/>
-            <g
-              id="00-Mixin/Fill/Raspberry-Red___mMfJpL2P"
-              mask="url(#mask-2___mMfJpL2P)"
-              fill="#C22B3F"
-              fillRule="evenodd">
-              <rect id="Box___mMfJpL2P" x={0} y={0} width={24} height={24}/>
-            </g>
-          </g>
-        </g>
-      </svg>
-    );
+    
+    let hover = this.state.hover ? 'hover-state' : 'base-state';
 
     return (
       <section className={`picture-detail ${cName}`}>
-        <ul className="pic-detail-img">
+        <ul className="pic-detail-img" style={{height: `${this.state.height}`}}
+          onMouseMove={this.onHover}
+          onMouseLeave={this.offHover} 
+        >
+          <li className="resize-pic-container" onClick={this.handleResize}> 
+            <button className="resize-pic-btn">
+            <i className="fas fa-expand resize-icon" />
+            </button>
+          </li>
+
+          <li 
+          className={`hover-detail-container ${hover}`}
+
+          >
+            {/* here */}
+              <div className="profile-info-detail"
+              >
+                  {/* <i className="fas fa-plus"></i> */}
+                  <img 
+                  onClick={this.openProfile}
+                  src={`${picture.authorProfilePicture}`} className="icon-avatar-pic-detail" />
+                  <div className="pic-detail-info">
+                    <p className="pic-icon-text-detail">{picture.title}</p>
+                    <p className="pic-detail-user">
+                    by {picture.author}
+                    &nbsp;•&nbsp; {this.state.follows
+                      ? <a onClick={this.handleUnfollow} className="follow-style-detail">Unfollow</a>
+                      : <a onClick={this.handleFollow} className="follow-style-detail">Follow</a>}
+                  </p>
+                                      
+                  </div>
+
+  
+
+              </div>
+              <div className="like-side-detail">
+
+              <div 
+              onClick={this.heartAnimation}
+              className={`${this.state.hearted} ${this.state.animation}`}>
+                  
+              </div>
+              <span id="likes-resize-detail">{this.props.picture.numLikes}</span>
+
+              </div>
+
+          </li>
+
           <li className="prev-pic-container" onClick={this.handleClickPrev}>
             <button className="prev-pic">
               <i className="fas fa-less-than"></i>
@@ -356,7 +348,11 @@ class PictureDetail extends Component {
             </button>
           </li>
           <li className="pic-container">
-            <img src={`${picture.pictureUrl}`} className="pic-style"/>
+            <img src={`${picture.pictureUrl}`} className="pic-style" 
+            style={{
+              height: `${this.state.picHeight}%`,
+              maxWidth: `${this.state.picWidth}%`
+              }}/>
           </li>
         </ul>
         <div className="pic-content-container">
@@ -451,7 +447,7 @@ class PictureDetail extends Component {
                 </div>
 
                 <div>
-                  <img src="https://i.imgur.com/cx9qaS3.jpg" width="508" height="378"/>
+                  {/* here have tags and other picture detail */}
                 </div>
 
               </div>
@@ -472,6 +468,7 @@ class PictureDetail extends Component {
                     <div className="comment-btn-text-cont">
                       <div className="comment-container">
                         <textarea
+                          style={{height: `${this.state.tHeight}px`}}
                           className="comment-style-text"
                           onChange={this.onChange('commentBody')}
                           placeholder="Add a comment"
@@ -494,7 +491,7 @@ class PictureDetail extends Component {
                     {comments.map((el, i) => <CommentItem
                       comment={el}
                       key={i}
-                      createLike={this.props.createLike}
+                      createCommentLike={this.props.createCommentLike}
                       deleteCommentLike={this.props.deleteCommentLike}
                       deleteComment={this.props.deleteComment}
                       user={user}

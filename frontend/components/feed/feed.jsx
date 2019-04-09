@@ -4,6 +4,7 @@ import {ProtectedRoute} from '../../util/route_utils';
 import Modal from '../modal/modal';
 import PictureIndexItem from './picture_index_item';
 import PictureDetailContainer from './picture_detail/picture_detail_container';
+import Navbar from './Navbar';
 
 export default class Feed extends Component {
   constructor(props) {
@@ -48,84 +49,17 @@ export default class Feed extends Component {
 
   render() {
     // console.log(this.state);
+ 
     return (
       <div>
-        <nav className="perm-navbar">
-          <ul className="perm-navbar-ul-elems">
-            <li>
-              <a href="/#/" className="perm-navbar-ul-elems-logo">
-                500.5px
-              </a>
-            </li>
-            <li>
-              <a onClick={this.handleDiscover}>Discover</a>
-            </li>
-            <li>
-              <a href="/#/about">About</a>
-            </li>
-          </ul>
-          <ul className="perm-navbar-ul-elems perm-right-ul-elems">
-            <li>
-              <div className="dropdown">
+         <Navbar 
+          handleDiscover={this.handleDiscover}
+          user={this.props.user}
+          pushProfilePage={this.pushProfilePage}
+          handleLogout={this.handleLogout}
+          openModal={this.props.openModal}
+        />
 
-                {this.props.user.pictureUrl
-                  ? <img
-                      src={`${this.props.user.pictureUrl}`}
-                      onClick={this.pushProfilePage}
-                      className="icon-avatar"/>
-                  : null}
-                <div className="dropdown-content">
-                  <ul>
-                    <li>
-                      <a href="">My Profile</a>
-
-                    </li>
-                    <li>
-                      <a href="">My Stats</a>
-
-                    </li>
-                    <li>
-                      <a href="">My Galleries</a>
-
-                    </li>
-                    <li>
-                      <a href="">My Liked Photos</a>
-
-                    </li>
-                    <p className="hline"></p>
-                    <li>
-                      <a href="">My Settings</a>
-
-                    </li>
-                    <li>
-                      <a href="">Manage Photos</a>
-
-                    </li>
-                    <li>
-                      <a >About</a>
-
-                    </li>
-                    <li>
-                      <button onClick={this.handleLogout}>Log Out</button>
-
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </li>
-            <li >
-              <a className="nav-upload-icon" onClick={this.props.openModal}>
-                <i className="fas fa-cloud-upload-alt cloud-margin-right"></i>
-                <span>
-                  <button >upload</button>
-
-                </span>
-              </a>
-            </li>
-          </ul>
-
-          <br/>
-        </nav>
 
         <div className="feed-cnt">
 

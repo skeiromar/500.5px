@@ -2,7 +2,7 @@ import {connect} from 'react-redux';
 
 import PictureDetail from './picture_detail';
 import {fetchPicture, deletePicture} from '../../../actions/picture_actions';
-import {createLike, deletePictureLike, deleteCommentLike} from '../../../actions/like_actions';
+import {deletePictureLike, deleteCommentLike, createPictureLike, createCommentLike} from '../../../actions/like_actions';
 import {createComment, fetchAllComments, deleteComment} from '../../../actions/comment_actions';
 import {createFollow, deleteFollow} from '../../../actions/follow_actions';
 
@@ -17,14 +17,16 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = dispatch => ({
   requestPicture: id => dispatch(fetchPicture(id)),
   deletePicture: id => dispatch(deletePicture(id)),
-  createLike: like => dispatch(createLike(like)),
   deletePictureLike: like => dispatch(deletePictureLike(like)),
   createComment: comment => dispatch(createComment(comment)),
   fetchAllComments: id => dispatch(fetchAllComments(id)),
   deleteCommentLike: like => dispatch(deleteCommentLike(like)),
   deleteComment: (id) => dispatch(deleteComment(id)),
   followUser: (follow) => dispatch(createFollow(follow)),
-  unfollowUser: (follow) => dispatch(deleteFollow(follow))
+  unfollowUser: (follow) => dispatch(deleteFollow(follow)),
+  createPictureLike: like => dispatch(createPictureLike(like)),
+  createCommentLike: like => dispatch(createCommentLike(like)),
+
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(PictureDetail);

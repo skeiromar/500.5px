@@ -58,12 +58,12 @@ export default class SessionForm extends Component {
   }
   render() {
     return this.props.formType === "login"
-      ? ( <> <PermNavContainer/> < form onSubmit = {
+      ? ( <> <PermNavContainer /> <form onSubmit = {
         this.handleSubmit
       }
-      className = "form-container" > <h2>Join 500.5px</h2> < p > Share your photos,
+      className = "form-container" > <h2>Join 500.5px</h2> <p> Share your photos,
       get inspired,
-      and grow your skills. < /p>
+      and grow your skills. </p>
                 <ul className="li-wo-bullets">
 
 

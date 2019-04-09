@@ -1,15 +1,18 @@
 class Api::PicturesController < ApplicationController
 
     def index
-        @pictures = Picture.all
+        @pictures = Picture.includes(:likers).includes(:author).with_attached_picture.all
         # @likers = @pictures.likers.length
     end
 
     def create
         @picture = Picture.new(picture_params)
+
         # debugger
         # @picture.author_id = 8
         if @picture.save
+             @likers = @picture.likers
+
             render :show
         else
             render json: @picture.errors.full_messages, status: 401
@@ -17,9 +20,11 @@ class Api::PicturesController < ApplicationController
     end
         
     def update
-
+        
         @picture = Picture.find(params[:id])
         if @picture && @picture.update_attributes(picture_update_params)
+            @likers = @picture.likers
+
             render :show
         elsif !@picture
             render json: ['Could not locate picture'], status: 400
@@ -30,7 +35,7 @@ class Api::PicturesController < ApplicationController
     
     def show
         @picture = Picture.with_attached_picture.includes(:author).includes(:likers).find(params[:id])
-        @likers = @picture.likers.length
+        @likers = @picture.likers
         
     end
     
@@ -40,9 +45,23 @@ class Api::PicturesController < ApplicationController
         
         if @picture
             @picture.destroy
-            render :show
+            # render :show
         else
             render json: ['Could not find picture'], status: 404
+        end
+    end
+
+    def like 
+        @like = Like.new(like_params)
+        @like.likable_type = "Picture"
+        if @like.save
+            
+            # render 'api/users/show';
+            #  we don't have a route or jbuilder for show yet
+            render json: @like.id
+        else
+            
+            render json: ['could not process the like'], status: 401
         end
     end
 

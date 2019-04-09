@@ -41,7 +41,12 @@ class Api::UsersController < ApplicationController
     end
     
     def show
-        @user = User.includes(:followers).with_attached_profile_picture.includes(:followed).find(params[:id])
+        @user = User.includes(:followers)
+        .with_attached_profile_picture
+        .includes(:followed)
+        .with_attached_background_img
+        .includes(:people_followed)
+        .find(params[:id])
         
 
     end
@@ -99,7 +104,13 @@ class Api::UsersController < ApplicationController
     def fetchUserPictures
         
         # debugger
-        @pictures = User.find(params[:user_id]).pictures
+        @pictures = User.find(params[:user_id]).pictures.includes(:likers).includes(:author).with_attached_picture
+        # json.extract! picture, :id
+        # json.author picture.author.username
+        # json.author_id picture.author.id
+        # json.authorProfilePicture url_for(picture.author.profile_picture)
+        # json.pictureUrl url_for(picture.picture)
+        # json.numLikes picture.likers.length 
         render 'api/pictures/index'
     end
     

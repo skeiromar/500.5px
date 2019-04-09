@@ -206,6 +206,7 @@ class Modal extends Component {
                         <div className="pic-name">
                           <span>{this.state.picFile.name}</span>
                         </div>
+                        
                       </li>
                       <li className="add-more-pics">
                         <div className="modal-ico">

@@ -37,7 +37,7 @@ class CommentItem extends Component {
 
     this
       .props
-      .createLike({author_id: this.props.user.id, likable_id: this.props.comment.id, likable_type: 'Comment'});
+      .createCommentLike({author_id: this.props.user.id, likable_id: this.props.comment.id});
     //   deleteCommentLike={this.props.deleteLike}
   }
   handleUnlike(e) {

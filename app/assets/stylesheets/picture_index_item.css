@@ -126,33 +126,7 @@
     text-overflow: ellipsis;  */
 }
 
-.pic-icon-text {
-    /* position: absolute; */
-    margin-left: 8px;
-    margin-bottom: -5px;
-    /* width: 100%; */
-    /* padding-bottom: 90px; */
-    align-self: center;
-    /* color: white; */
-    /* line-height: 20px; */
-    /* line-height: 1.4em; */
-    /* display: inline-block; */
-    /* max-width: 100%; */
-    font-size: 15px;
-    font-weight: bold;
-    font-weight: 500;
-    color: #fff;
-    position: relative;
-    position: static;
-    pointer-events: auto;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
-.pic-icon-text:hover {
-    border: 0.8px solid rgba(219, 219, 219, 0.075);
-    background: rgba(255, 255, 255, 0.137);
-}
+
 
 /* top fade in for picture: */
 /* position: absolute;

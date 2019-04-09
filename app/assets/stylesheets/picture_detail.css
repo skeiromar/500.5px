@@ -36,11 +36,12 @@
     display: flex;
     flex-direction: column;
     margin: 0;
+    padding-left: 0;
     align-items: center;
     justify-content: center;
     background-color: rgb(34, 34, 34);
     min-height: 600px;
-    height: calc(100vh - 128px);
+    /* height: calc(100vh - 128px); */
     /* height: 90vh; */
     position: relative;
     flex: 1 1 0%;
@@ -59,9 +60,199 @@
     padding: 0px;
 }
 
+.resize-pic-container {
+    position: absolute;
+    top: 24px;
+    right: 24px;
+    height: 40px;
+    line-height: 32px;
+    width: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 1;
+    z-index: 2;
+    border-radius: 40px;
+    transition: opacity 0.5s linear 0s;
+}   
+.resize-pic-btn {
+    position: relative;
+    height: 24px;
+    min-width: 24px;
+    cursor: pointer;
+}
+.resize-icon {
+    color: white;
+    font-size: 24px;
+}
+.resize-pic-container:hover {
+    background: rgba(255, 255, 255, 0.137);
+    transition: 0.6s all ease;
+}
+
+.like-side-detail {
+    /* position: absolute; */
+    /* right: 0px; */
+    /* margin-right: 0; */
+    position: absolute;
+    top: 32px;
+    right: 42px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    bottom: 0;
+}
+#likes-resize-detail {
+    font-size: 32px;
+    color: white;
+    margin-left: -20px;
+}
+.hover-detail-container {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    padding: 32px 32px 32px 0;
+    width: 96%;
+    height: 124px;
+    background-image: linear-gradient(rgba(0, 0, 0, 0), rgb(0, 0, 0));
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+    /* left: 0px; */
+    opacity: 1;
+    z-index: 3;
+    padding: 0px 32px 32px;
+    transition: opacity 0.5s linear 0s;
+}
+.bottom-middle-info {
+    /* position: absolute; */
+    padding: 0;
+    margin: 0;
+    /* width: 100%; */
+    bottom: 0px;
+    left:  0px;
+    /* display: flex; */
+    /* justify-content: space-between; */
+    /* align-items: stretch; */
+    text-align: right;
+    /* left: 0; */
+    /* right: 0; */
+    /* height: 50px; */
+    opacity: 0;
+    background: linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.6) 100%);
+    transition: opacity 0.2s;
+}
+.profile-info-detail {
+    position: absolute;
+    /* width: 100%; */
+    /* margin-left: 100px; */
+    /* bottom: 10px; */
+    /* text-align: end; */
+    /* align-self: start; */
+    /* justify-content: start; */
+    align-items: flex-end;
+    padding-right: 0px;
+    display: flex;
+
+
+    font-size: 24px;
+    line-height: 28px;
+    letter-spacing: -0.2px;
+    font-weight: bold;
+}
+
+.pic-icon-text {
+    /* position: absolute; */
+    margin-left: 8px;
+    margin-bottom: -5px;
+    /* width: 100%; */
+    /* padding-bottom: 90px; */
+    align-self: center;
+    /* color: white; */
+    /* line-height: 20px; */
+    /* line-height: 1.4em; */
+    /* display: inline-block; */
+    /* max-width: 100%; */
+    font-size: 15px;
+    font-weight: bold;
+    font-weight: 500;
+    color: #fff;
+    position: relative;
+    position: static;
+    pointer-events: auto;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.pic-detail-user {
+    font-size: 20px;
+    padding: 0;
+    margin: 0;
+    color: white;
+    font-weight: normal;
+    font-size: 18px;
+}
+.pic-icon-text:hover {
+    border: 0.8px solid rgba(219, 219, 219, 0.075);
+    background: rgba(255, 255, 255, 0.137);
+}
+.follow-style-detail {
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+    line-height: 18px;
+    height: 48px;
+    /* width: 110px; */
+    color: rgb(8, 112, 209);
+    background-color: transparent;
+    border-radius: 100px;
+    margin: 0px;
+    /* padding: 0px; */
+}
+.follow-style-detail:hover {
+    color: rgb(77, 159, 236);
+}
+.pic-detail-info {
+    margin-left: 16px;
+
+}
+.pic-icon-text-detail {
+    /* margin-left: 8px; */
+    align-items: center;
+    padding-right: 0px;
+    margin-bottom: 8px;
+    display: flex;
+    color: #ffffff;
+    width: auto;
+    /* height: 200px; */
+    font-size: 24px;
+    line-height: 28px;
+    letter-spacing: -0.2px;
+    font-weight: bold;
+}
+.pic-icon-text-detail:hover {
+    /* border: 0.8px solid rgba(10, 10, 10, 0.075); */
+    /* background: rgba(255, 255, 255, 0.137); */
+}
+.icon-avatar-pic-detail {
+
+    border-radius: 50%;
+    width: 64px;
+    height: 64px;
+    margin: 0;
+    
+    /* align-self: center; */
+
+    /* padding-top: -5; */
+}
+.icon-avatar-pic-detail:hover {
+    /* background: green; */
+    opacity: 0.8;
+    transition: opacity 0.2s;
+}
+
 .pic-style {
     width: auto;
-    height: 90%;
 }
 .cross-container {
     position: absolute;
@@ -105,16 +296,23 @@
     padding-left: 32px;
     padding-top: 3px;
     border-radius: 50%;
-    top: 30%;
+    top: 28%;
     cursor: pointer;
     height: calc(100% - 470px);
     width: 10%;
+    
 }
-.prev-pic-container:hover {
+.prev-pic-container:hover .prev-pic {
     background: rgba(255, 255, 255, 0.137);
     transition: 0.6s all ease;
 }
 .prev-pic {
+    border: 1px solid rgb(255, 255, 255, 0);
+    border-radius: 50%;
+    width: 42px;
+    padding-right: 4px;
+    padding-top: 2px;
+    height: 42px;
     word-break: break-word;
     max-width: 100%;
 }
@@ -140,11 +338,17 @@
     justify-content: flex-end;
     margin: 64px 0px;
 }
-.next-pic-container:hover {
+.next-pic-container:hover .next-pic {
     background: rgba(255, 255, 255, 0.137);
     transition: 0.6s all ease;
 }
 .next-pic {
+    border: 1px solid rgb(255, 255, 255, 0);
+    border-radius: 50%;
+    width: 42px;
+    padding-left: 4px;
+    padding-top: 2px;
+    height: 42px;
     word-break: break-word;
     max-width: 100%;
 }
@@ -239,7 +443,7 @@
     color: rgb(34, 34, 34);
     font-weight: 100;
     max-width: 95%;
-    text-align: center;
+    text-align: start;
 }
 
 
@@ -338,7 +542,6 @@ textarea {
     /* will have to implement height via react using state 
     and increasing height after a certain amount of chars. */
     
-    height: 25px;
     min-height: 25px;
     max-height: 170px;
     overflow-y: hidden;

@@ -32,7 +32,7 @@ export default class PictureIndexItem extends Component {
     // debugger
     const {picture, numLikes, likerIds} = this.props;
 
-    this.props.history.push(`/profile/${picture.userId}`);
+    this.props.history.push(`/profile/${picture.author_id}`);
   }
   render() {
     const {picture, numLikes, likerIds} = this.props;
@@ -43,9 +43,10 @@ export default class PictureIndexItem extends Component {
         onMouseLeave={this.offHover} 
         >
         <Link 
-        onClick={this.handleClick}
+        
         
         to={`/pictures/${picture.id}`}>
+        
         <img src={`${picture.pictureUrl}`}
             className="feed-flex-img"
         />
@@ -58,8 +59,8 @@ export default class PictureIndexItem extends Component {
                 {/* <i className="fas fa-plus"></i> */}
                 <img 
                 onClick={this.openProfile}
-                src={`${picture.profilePictureUrl}`} className="icon-avatar-pic" />
-                <span className="pic-icon-text">{picture.username}</span>
+                src={`${picture.authorProfilePicture}`} className="icon-avatar-pic" />
+                <span className="pic-icon-text">{picture.author}</span>
             </div>
             <div className="like-more icon-hover">
                 <i className="far fa-heart fa-2x"></i>

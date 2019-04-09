@@ -34,9 +34,9 @@ class App extends Component {
         <AuthRoute exact path="/login" component={ LoginFormContainer } />
         <AuthRoute exact path="/signup" component={ SignupFormContainer } />
         <ProtectedRoute exact path="/feed" component={ FeedContainer } />
-        <ProtectedRoute exact path="/pictures/:pictureId" component={ PictureDetailContainer } />
-        <ProtectedRoute path="/pictures/:pictureId/edit" component={ PictureEditContainer } />
         <ProtectedRoute path="/profile/:userId" component={ ProfileContainer } />
+        <ProtectedRoute path="/pictures/:pictureId/edit" component={ PictureEditContainer } />
+        <ProtectedRoute exact path="/pictures/:pictureId" component={ PictureDetailContainer } />
         </Switch>
       </div>
     )

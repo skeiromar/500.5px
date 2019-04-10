@@ -1,5 +1,7 @@
 import React, {Component} from 'react';
 import PictureIndexItem from '../feed/picture_index_item';
+import Navbar from '../feed/Navbar';
+
 
 class Profile extends Component {
   constructor(props) {
@@ -30,6 +32,7 @@ class Profile extends Component {
     this.handleDiscover = this
       .handleDiscover
       .bind(this);
+    this.handleLogout = this.handleLogout.bind(this);
   }
 
   componentDidMount() {
@@ -111,6 +114,11 @@ class Profile extends Component {
       .history
       .push('/feed/');
   }
+  handleLogout() {
+    this
+      .props
+      .logout();
+  }
 
   render() {
 
@@ -119,18 +127,19 @@ class Profile extends Component {
       return null;
     return (
       <div>
+
         <nav className="fixed-nav">
           <ul className="perm-navbar-ul-elems-fixed">
             <li>
-              <a href="/#/" className="perm-navbar-ul-elems-logo-fixed">
+              <a href="/#/" className="perm-navbar-ul-elems-logo-fixed" style={{cursor: 'pointer'}}>
                 500.5px
               </a>
             </li>
-            <li>
-              <a onClick={this.handleDiscover}>Discover</a>
+            <li className="profile-nav-stuff">
+              <a onClick={this.handleDiscover} style={{cursor: 'pointer'}}>Discover</a>
             </li>
-            <li>
-              <a href="">About</a>
+            <li className="profile-nav-stuff">
+              <a style={{cursor: 'pointer'}} href="/#/about">About</a>
             </li>
           </ul>
           <ul className="perm-navbar-ul-elems perm-right-ul-elems-fixed">
@@ -146,36 +155,34 @@ class Profile extends Component {
                 <div className="dropdown-content">
                   <ul>
                     <li>
-                      <a href="">My Profile</a>
+                      <a href="/#/coming">My Stats</a>
 
                     </li>
                     <li>
-                      <a href="">My Stats</a>
+                      <a href="/#/coming">My Galleries</a>
 
                     </li>
                     <li>
-                      <a href="">My Galleries</a>
-
-                    </li>
-                    <li>
-                      <a href="">My Liked Photos</a>
+                      <a href="/#/coming">My Liked Photos</a>
 
                     </li>
                     <p className="hline"></p>
                     <li>
-                      <a href="">My Settings</a>
+                      <a href="/#/coming">My Settings</a>
 
                     </li>
                     <li>
-                      <a href="">Manage Photos</a>
+                      <a href="/#/coming">Manage Photos</a>
 
                     </li>
                     <li>
-                      <a href="">About</a>
+                      <a href="/#/about">About</a>
 
                     </li>
                     <li>
-                      <button onClick={this.handleLogout}>Log Out</button>
+                      <button 
+                      id="btn-prof"
+                      onClick={this.handleLogout} style={{cursor: 'pointer'}}>Log Out</button>
 
                     </li>
 
@@ -184,15 +191,7 @@ class Profile extends Component {
                 </div>
               </div>
             </li>
-            <li >
-              <a className="nav-upload-icon" onClick={this.props.openModal}>
-                <i className="fas fa-cloud-upload-alt cloud-margin-right"></i>
-                <span>
-                  <button >upload</button>
-
-                </span>
-              </a>
-            </li>
+ 
           </ul>
 
           <br/>
@@ -202,23 +201,24 @@ class Profile extends Component {
 
           <div className="top-profile">
             <div
+              style={{cursor: 'pointer'}}
               className="cover"
               onClick={() => this.props.openModal('changeBackground-Modal')}>
-              <img className="cover-img" src={`${user.backgroundImg}`}/>
+              <img className="cover-img" src={`${user.backgroundImg}`} />
             </div>
             <div className="content">
 
               {this.state.follows
-                ? <div className="button-unfollow" onClick={this.handleUnfollow}>
-                    <a>
+                ? <div className="button-unfollow" onClick={this.handleUnfollow} style={{cursor: 'pointer'}}>
+                    <a style={{cursor: 'pointer'}}>
                       Unfollow
                     </a>
                     <a href="">
                       {/* more stuff */}
                     </a>
                   </div>
-                : <div className="button-follow" onClick={this.handleFollow}>
-                  <a>
+                : <div className="button-follow" onClick={this.handleFollow} style={{cursor: 'pointer'}}>
+                  <a style={{cursor: 'pointer'}}>
                     Follow
                   </a>
                   <a href="">
@@ -227,7 +227,9 @@ class Profile extends Component {
                 </div>
 }
             </div>
-            <div className="profile-img-container">
+            <div 
+            style={{cursor: 'pointer'}}
+            className="profile-img-container">
               <img
                 onClick={() => this.props.openModal('changeProfile-Modal')}
                 className="profile-picture"
@@ -242,11 +244,7 @@ class Profile extends Component {
                 </li>
                 <li>
                   {/* profile description */}
-                  <h4>Absolutely useless. We *had* tables of arc-tangents. But if you've ever
-                    worked with computers, you understand the disease - the *delight* in being able
-                    to see how much you can do. But he got the disease for the first time, the poor
-                    fellow who invented the thing.”
-                  </h4>
+          
                 </li>
               </ul>
 

@@ -18,7 +18,7 @@
 body {
     background: rgba(244, 244, 244, 0.966);
     /* background: black; */
-    font-family: Arial, Helvetica, sans-serif;
+    /* font-family: Arial, Helvetica, sans-serif; */
     font-family: 'Montserrat';
     border: 0;
     padding: 0;
@@ -39,6 +39,7 @@ button, input[type="submit"], input[type="reset"], input[type="file"] {
 li  {
     list-style-type: none;
 }
+
 
 .li-wo-bullets {
     list-style-type: none;
@@ -246,6 +247,10 @@ li  {
     position: relative;
     margin: 0 auto 40px auto;
     /* align-items: center; */
+}
+textarea {
+    font-family: 'Montserrat';
+    
 }
 a {
     padding: 0;

@@ -20,6 +20,8 @@ import PictureEditContainer from './feed/picture_edit/picture_edit_container';
 import ProfileContainer from './profile/profile_container';
 import Modal from './modal/modal';
 // import {closeModal} from '../actions/modal_actions';
+import ComingSoon from './coming_soon';
+import About from './about';
 
 class App extends Component {
 
@@ -37,6 +39,8 @@ class App extends Component {
         <ProtectedRoute path="/profile/:userId" component={ ProfileContainer } />
         <ProtectedRoute path="/pictures/:pictureId/edit" component={ PictureEditContainer } />
         <ProtectedRoute exact path="/pictures/:pictureId" component={ PictureDetailContainer } />
+        <Route exact path="/coming" component={ComingSoon} />
+        <Route exact path="/about" component={About} />
         </Switch>
       </div>
     )

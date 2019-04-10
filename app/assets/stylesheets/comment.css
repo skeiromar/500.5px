@@ -29,6 +29,8 @@
     height: 32px;
     border-radius: 50%;
     overflow: hidden;
+    cursor: pointer;
+
 }
 
 .comment-pic-icon:hover {

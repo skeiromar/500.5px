@@ -1,7 +1,7 @@
 import {connect} from 'react-redux';
 import Profile from './profile';
 import { fetchUserPictures } from '../../actions/picture_actions';
-import {fetchUser} from '../../actions/session_actions';
+import {fetchUser, logout} from '../../actions/session_actions';
 import {openModal} from '../../actions/modal_actions';
 import { createFollow, deleteFollow } from '../../actions/follow_actions';
 import { fetchFollowers, fetchFollowed } from '../../actions/user_actions';
@@ -27,8 +27,8 @@ const mdp = (dispatch) => {
         followUser: (follow) => dispatch(createFollow(follow)),
         unfollowUser: (follow) => dispatch(deleteFollow(follow)),
         fetchFollowers: id => dispatch(fetchFollowers(id)),
-        fetchFollowed: id => dispatch(fetchFollowed(id))
-         
+        fetchFollowed: id => dispatch(fetchFollowed(id)),
+        logout: () => dispatch(logout())        
     };
 };
 

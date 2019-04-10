@@ -44,7 +44,7 @@ export default class PictureIndexItem extends Component {
         >
         <Link 
         
-        
+        style={{cursor: 'pointer'}}
         to={`/pictures/${picture.id}`}>
         
         <img src={`${picture.pictureUrl}`}

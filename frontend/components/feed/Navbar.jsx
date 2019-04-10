@@ -9,14 +9,14 @@ export default function Navbar({handleDiscover, user, pushProfilePage, handleLog
           500.5px
         </a>
       </li>
-      <li>
-        <a onClick={handleDiscover} style={{cursor: 'pointer'}}>Discover</a>
+      <li className="nav-stuff">
+        <a onClick={handleDiscover} style={{cursor: 'pointer' }}>Discover</a>
       </li>
-      <li>
+      <li className="nav-stuff">
         <a href="/#/about" style={{cursor: 'pointer'}}>About</a>
       </li>
     </ul>
-    <ul className="perm-navbar-ul-elems perm-right-ul-elems">
+    <ul className="perm-navbar-ul-elems perm-right-ul-feed">
       <li>
         <div className="dropdown">
 
@@ -29,32 +29,32 @@ export default function Navbar({handleDiscover, user, pushProfilePage, handleLog
           <div className="dropdown-content">
             <ul>
               <li>
-                <a href="">My Profile</a>
+                <a onClick={pushProfilePage}>My Profile</a>
 
               </li>
               <li>
-                <a href="">My Stats</a>
+                <a href="/#/coming">My Stats</a>
 
               </li>
               <li>
-                <a href="">My Galleries</a>
+                <a href="/#/coming">My Galleries</a>
 
               </li>
               <li>
-                <a href="">My Liked Photos</a>
+                <a href="/#/coming">My Liked Photos</a>
 
               </li>
               <p className="hline"></p>
               <li>
-                <a href="">My Settings</a>
+                <a href="/#/coming">My Settings</a>
 
               </li>
               <li>
-                <a href="">Manage Photos</a>
+                <a href="/#/coming">Manage Photos</a>
 
               </li>
               <li>
-                <a >About</a>
+                <a href="/#/coming">About</a>
 
               </li>
               <li>

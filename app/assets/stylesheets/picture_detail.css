@@ -208,9 +208,11 @@
     border-radius: 100px;
     margin: 0px;
     /* padding: 0px; */
+    cursor: pointer;
 }
 .follow-style-detail:hover {
     color: rgb(77, 159, 236);
+    
 }
 .pic-detail-info {
     margin-left: 16px;
@@ -436,6 +438,11 @@
     /* margin-left: 100px; */
     /* padding-top: 10px; */
     /* top: -100px; */
+    cursor: pointer;
+}
+.icon-avatar-detail:hover {
+    opacity: 0.8;
+    transition: opacity 0.2s;
 }
 .pic-description {
     font-size: 20px;

@@ -75,16 +75,16 @@ export default class Feed extends Component {
           <div className="feed-tabs">
             <ul className="feed-tabs-ul">
               <li >
-                <a className="active" >POPULAR</a>
+                <a className="active" href="/#/coming">POPULAR</a>
               </li>
               <li>
-                <a >UPCOMING</a>
+                <a href="/#/coming">UPCOMING</a>
               </li>
               <li>
-                <a >FRESH</a>
+                <a href="/#/coming">FRESH</a>
               </li>
               <li>
-                <a >EDITOR'S CHOICE</a>
+                <a href="/#/coming">EDITOR'S CHOICE</a>
               </li>
             </ul>
           </div>

@@ -311,7 +311,7 @@ class PictureDetail extends Component {
                     by {picture.author}
                     &nbsp;•&nbsp; {this.state.follows
                       ? <a onClick={this.handleUnfollow} className="follow-style-detail">Unfollow</a>
-                      : <a onClick={this.handleFollow} className="follow-style-detail">Follow</a>}
+                      : <a onClick={this.handleFollow} className="follow-style-detail" >Follow</a>}
                   </p>
                                       
                   </div>
@@ -374,6 +374,7 @@ class PictureDetail extends Component {
                   <span id="like-icon-likes">{this.props.picture.numLikes} Likes</span>
                 </div>
                 <svg
+                  style={{cursor: 'pointer'}}
                   onClick={this.handleEdit}
                   className="like-icon-edit"
                   width="24px"
@@ -416,7 +417,7 @@ class PictureDetail extends Component {
                 </svg>
                 <span>Edit Picture</span>
                 <div className="delete-pic">
-                  <i className="fas fa-trash-alt trash-pic" onClick={this.handleDelete}></i>
+                  <i className="fas fa-trash-alt trash-pic" style={{cursor: 'pointer'}} onClick={this.handleDelete}></i>
                   <span>Delete Picture</span>
                 </div>
               </div>
@@ -481,7 +482,9 @@ class PictureDetail extends Component {
                         <a className="make-comment-cancel">
                           Cancel
                         </a>
-                        <a className="make-comment" onClick={this.handleCreateComment}>
+                        <a className="make-comment" 
+                        style={{cursor: 'pointer'}}                        
+                        onClick={this.handleCreateComment}>
                           Comment
                         </a>
                       </div>

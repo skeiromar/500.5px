@@ -3,15 +3,16 @@
 .icon-avatar {
 
     border-radius: 50%;
-    width: 28px;
-    height: 26px;
+    width: 32px;
+    height: 32px;
     /* align-self: center; */
     /* margin: 10px; */
     margin-top: -10px;
-    /* padding-top: 10px; */
+    /* padding-bottom: 1px; */
     /* top: -100px; */
-    
-}
+    border: 1px solid rgb(218, 201, 201);
+
+  }
 .dropdown {
     position: relative;
     display: inline-block;

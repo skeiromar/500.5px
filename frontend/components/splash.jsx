@@ -34,16 +34,16 @@ class Splash extends Component {
         <div >
             <ul className="rst-spl-tabs">
                 <li className="spl-tpc">
-                    <a href="">People</a>
+                    <a href="/#/coming" style={{cursor: 'pointer'}}>People</a>
                 </li>
                 <li className="spl-tpc">
-                    <a href="">Landscapes</a>
+                    <a href="/#/coming" style={{cursor: 'pointer'}}>Landscapes</a>
                 </li>
                 <li className="spl-tpc">
-                    <a href="">Nature</a>
+                    <a href="/#/coming" style={{cursor: 'pointer'}}>Nature</a>
                 </li>
                 <li className="spl-tpc">
-                    <a href="">City</a>
+                    <a href="/#/coming" style={{cursor: 'pointer'}}>City</a>
                 </li>
             </ul>
         </div>
@@ -96,7 +96,7 @@ class Splash extends Component {
             <div >
             <h1>Get global exposure</h1>
             <p className="spl-ftr-txt-p">Imagine having your photos seen by photographers like you from all over the world. When you upload your photos, they’re shared with 500px members worldwide. Watch as your photos get reactions from the community—and see if your shot makes it to Popular.</p>
-            <button className="splash-btn ftr-btn">Discover</button>
+            <a className="splash-btn ftr-btn" href="/#/feed">Discover</a>
             </div>
             </li>
 
@@ -162,22 +162,22 @@ class Splash extends Component {
         <h3>Community</h3>
         </li>
         <li>
-        <a href="/popular">Popular</a>
+        <a href="/#/about">Popular</a>
         </li>
         <li>
-        <a href="/upgrade">Memberships</a>
+        <a href="/#/about" >Memberships</a>
         </li>
         <li>
-        <a href="//itunes.apple.com/us/app/500px-discover-worlds-best/id471965292?mt=8" target="_blank">App Store</a>
+        <a href="/#/about" target="_blank">App Store</a>
         </li>
         <li>
-        <a href="//play.google.com/store/apps/details?id=com.fivehundredpx.viewer">Google Play</a>
+        <a href="/#/about" >Google Play</a>
         </li>
         <li>
-        <a href="/signup">Sign up</a>
+        <a href="/#/about" >Sign up</a>
         </li>
         <li>
-        <a href="/login">Log in</a>
+        <a href="/#/about" >Log in</a>
         </li>
         </ul>
         <ul>
@@ -185,16 +185,16 @@ class Splash extends Component {
         <h3><span title="translation missing: en.static_pages.footer.business.business">Business</span></h3>
         </li>
         <li>
-        <a href="/licensing">Licensing</a>
+        <a href="/#/about" >Licensing</a>
         </li>
         <li>
-        <a href="/business">Studio</a>
+        <a href="/#/about" >Studio</a>
         </li>
         <li>
-        <a href="//about.500px.com/explore/directory/">Directory</a>
+        <a href="/#/about" >Directory</a>
         </li>
         <li>
-        <a href="//about.500px.com/explore/quests/">Quests</a>
+        <a href="/#/about" >Quests</a>
         </li>
         </ul>
         <ul>
@@ -202,22 +202,22 @@ class Splash extends Component {
         <h3>Company</h3>
         </li>
         <li>
-        <a href="//about.500px.com/">About</a>
+        <a href="/#/about" >About</a>
         </li>
         <li>
-        <a href="//iso.500px.com/category/news-and-reviews/">Press</a>
+        <a href="/#/about" >Press</a>
         </li>
         <li>
-        <a href="//about.500px.com/jobs/">Jobs</a>
+        <a href="/#/about" >Jobs</a>
         </li>
         <li>
-        <a href="//about.500px.com/terms/">Terms</a>
+        <a href="/#/about" >Terms</a>
         </li>
         <li>
-        <a href="//about.500px.com/privacy/">Privacy</a>
+        <a href="/#/about" >Privacy</a>
         </li>
         <li>
-        <a href="//support.500px.com/">Support</a>
+        <a href="/#/about" >Support</a>
         </li>
         </ul>
         <ul>
@@ -225,22 +225,22 @@ class Splash extends Component {
         <h3>Follow</h3>
         </li>
         <li>
-        <a href="//iso.500px.com">Blog</a>
+        <a href="/#/about" >Blog</a>
         </li>
         <li>
-        <a href="//facebook.com/500px">Facebook</a>
+        <a href="/#/about" >Facebook</a>
         </li>
         <li>
-        <a href="//twitter.com/500px">Twitter</a>
+        <a href="/#/about" >Twitter</a>
         </li>
         <li>
-        <a href="//instagram.com/500px">Instagram</a>
+        <a href="/#/about" >Instagram</a>
         </li>
         <li>
-        <a href="//pinterest.com/500px">Pinterest</a>
+        <a href="/#/about" >Pinterest</a>
         </li>
         <li>
-        <a href="//plus.google.com/+500px">Google+</a>
+        <a href="/#/about" >Google+</a>
         </li>
         </ul>
         </footer>

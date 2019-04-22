@@ -162,14 +162,7 @@ class Modal extends Component {
     const {modal, closeModal} = this.props;
     if (!modal) 
       return null;
-    
-    // let component; switch (modal) {   case 'open-upload-modal':     component =
-    // <form onSubmit={this.handleSubmit} className="file-container">       <input
-    // type="file" onChange={this.handleFile} className="upload-modal-button"
-    // id="file-submit"/>                     {/* <button
-    // onChange={this.handleFile} >upload</button> */} <input type="submit"
-    // value="submit"/>                     </form>;     break;   case 'open':
-    // component = <h1>modal is closed</h1>;     break; default:     return null; }
+
 
     const preview = this.state.picUrl
       ? <img src={this.state.picUrl} className="uploaded-modal-pic"/>
@@ -256,7 +249,7 @@ class Modal extends Component {
 
                         </li>
                       </form>
-                        <li className="upload-modal-title-input">
+                        {/* <li className="upload-modal-title-input">
                           Tags
                           <input type="text" 
                           className="title-input"
@@ -269,7 +262,7 @@ class Modal extends Component {
                         <li className="tag-item-cont">
                           
                           {this.state.tags.map((e, i) => <TagItem key={i} tag={e} />)}
-                        </li>
+                        </li> */}
                     </ul>
                   </div>
 

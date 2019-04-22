@@ -5,7 +5,7 @@ import {openModal, closeModal} from '../../actions/modal_actions';
 import { logout } from '../../actions/session_actions';
 
 const msp = (state, props) => {
-    let pictures = Object.values(state.entities.pictures) || [];
+    let pictures = Object.values(state.entities.pictures).reverse() || [];
     let user = state.entities.users[state.session.id] || {};
     return {
         pictures: pictures,

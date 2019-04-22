@@ -51,7 +51,7 @@ export default class PictureIndexItem extends Component {
             className="feed-flex-img"
         />
         </Link>
-        <div className={`top-right ${className}`}>
+        <div className={`top-right ${className}`} style={{cursor: 'default'}}>
             <span className="like-more icon-hover likes">{numLikes}</span>
         </div>
         <div className={`bottom-middle ${className}`}>
@@ -60,7 +60,7 @@ export default class PictureIndexItem extends Component {
                 <img 
                 onClick={this.openProfile}
                 src={`${picture.authorProfilePicture}`} className="icon-avatar-pic" />
-                <span className="pic-icon-text">{picture.author}</span>
+                <span className="pic-icon-text" style={{cursor: 'default'}}>{picture.author}</span>
             </div>
             
         </div>

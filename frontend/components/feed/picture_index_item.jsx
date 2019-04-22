@@ -62,9 +62,7 @@ export default class PictureIndexItem extends Component {
                 src={`${picture.authorProfilePicture}`} className="icon-avatar-pic" />
                 <span className="pic-icon-text">{picture.author}</span>
             </div>
-            <div className="like-more icon-hover">
-                <i className="far fa-heart fa-2x"></i>
-            </div>
+            
         </div>
       </div>
     )

@@ -659,6 +659,14 @@ textarea {
     font-size: 16px;
     padding-bottom: 5px;
 }
+/* make grayscale later on. */
+.not-deletable {
+    /* visibility: hidden; */
+    pointer-events: none;
+    cursor: default;
+    color: #c9c9c9bb;
+}
+
 .trash-pic {
     font-size: 24px;
 }

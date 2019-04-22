@@ -69,14 +69,14 @@ export default class SessionForm extends Component {
 
                 <p className="form-label">Username</p > <li className="form-components">
         <input
+          id="45"
           type="text"
           onChange={this.onChange("username")}
           name=""
-          id=""
           className="form-input"/>
-      </li> < p className = "form-label" > Password < /p>
+      </li> < p className = "form-label" > Password </p>
                 <li className="form-components">
-                <input type="password" onChange={this.onChange("password")} name="" id="" className="form-input"/ > </li> <li 
+                <input type="password" id="3" onChange={this.onChange("password")} name="" className="form-input"/ > </li> <li 
                 onClick={this.handleSubmit}                
                 className="button-log-submit"> <input type="submit" value="sign in"/> < /li>
                 <li >
@@ -98,6 +98,7 @@ export default class SessionForm extends Component {
                 <label htmlFor="" / > <p className="form-label">Email</p> <li className="form-components" > <input type="text" onChange={this.onChange("email")} className="form-input"/> < /li>    
 
                 <label htmlFor="" / > <p className="form-label">Password</p> < li className = "form-components" > <input
+          
         type="password"
         onChange={this.onChange("password")}
         className="form-input"/> < /li>

@@ -279,7 +279,7 @@ class PictureDetail extends Component {
       ? 'pic-fade-out'
       : 'base';
 
-    
+    let isAuthor = picture.author_id === user.id ? '' : 'not-deletable';
     let hover = this.state.hover ? 'hover-state' : 'base-state';
 
     return (
@@ -374,9 +374,10 @@ class PictureDetail extends Component {
                   <span id="like-icon-likes">{this.props.picture.numLikes} Likes</span>
                 </div>
                 <svg
+                  
                   style={{cursor: 'pointer'}}
                   onClick={this.handleEdit}
-                  className="like-icon-edit"
+                  className={`like-icon-edit ${isAuthor}`}
                   width="24px"
                   height="28px"
                   viewBox="0 0 24 24"
@@ -415,10 +416,13 @@ class PictureDetail extends Component {
                     </g>
                   </g>
                 </svg>
-                <span>Edit Picture</span>
-                <div className="delete-pic">
-                  <i className="fas fa-trash-alt trash-pic" style={{cursor: 'pointer'}} onClick={this.handleDelete}></i>
-                  <span>Delete Picture</span>
+                <span
+                className={`${isAuthor}`}
+                >Edit Picture</span>
+                
+                <div className={`delete-pic`}>
+                  <i className={`fas fa-trash-alt trash-pic ${isAuthor}`} style={{cursor: 'pointer'}} onClick={this.handleDelete}></i>
+                  <span className={`${isAuthor}`}>Delete Picture</span>
                 </div>
               </div>
               <div className="pic-title">
@@ -520,20 +524,3 @@ class PictureDetail extends Component {
 }
 export default PictureDetail;
 
-// clock Icon
-
-{/* <svg xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" width={24} height={24} viewBox="0 0 24 24">
-<defs>
-  <path id="a___5AaFimna" d="M12 0c6.601 0 12 5.399 12 12s-5.399 12-12 12S0 18.601 0 12 5.399 0 12 0zm0 .96C5.93.96.96 5.93.96 12c0 6.07 4.97 11.04 11.04 11.04 6.07 0 11.04-4.97 11.04-11.04C23.04 5.93 18.07.96 12 .96zm0 21.12c5.59 0 10.08-4.49 10.08-10.08S17.59 1.92 12 1.92A10.05 10.05 0 0 0 1.92 12c0 5.59 4.49 10.08 10.08 10.08zm0 .96A11.01 11.01 0 0 1 .96 12 11.01 11.01 0 0 1 12 .96 11.01 11.01 0 0 1 23.04 12 11.01 11.01 0 0 1 12 23.04zm-.48-19.104a.48.48 0 0 1 .48-.48h.96a.48.48 0 0 1 .48.48v9.024a.48.48 0 0 1-.48.48H7.488a.48.48 0 0 1-.48-.48V12a.48.48 0 0 1 .48-.48h4.032V3.936z" />
-</defs>
-<g fill="none" fillRule="evenodd">
-  <mask id="b___5AaFimna" fill="#fff">
-    <use xlinkHref="#a___5AaFimna" />
-  </mask>
-  <use fill="#000" fillRule="nonzero" xlinkHref="#a___5AaFimna" />
-  <g className="inline_svg_icon__fill" fill="#222" mask="url(#b___5AaFimna)">
-    <path d="M0 0h24v24H0z" />
-  </g>
-</g>
-</svg> */
-}

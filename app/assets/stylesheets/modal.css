@@ -227,8 +227,8 @@
 }
 .title-input {
     width: 291px;
-    border: 1px solid black;
-    border-radius: 2%;
+    border: 1px solid rgb(71, 71, 71);
+    border-radius: 1%;
     height: 50px;
     font-size: 24px;
     padding: 5px;
@@ -238,7 +238,7 @@
 }
 .modal-desc-btn {
     width: 291px;
-    border: 1px solid black;
+    border: 1px solid rgb(71, 71, 71);
     border-radius: 2%;
     height: 150px;
     font-size: 24px;

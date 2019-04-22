@@ -6,6 +6,7 @@ import SignupFormContainer from '../auth/signup_form_container';
 import {createPicture} from '../../actions/picture_actions';
 import {changeProfilePicture, changeBackgroundImg} from '../../actions/user_actions';
 import FollowItem from './follow_item';
+import TagItem from '../tag/tag_item';
 
 class Modal extends Component {
 
@@ -20,7 +21,10 @@ class Modal extends Component {
       picUrl: null,
       uploaded: false,
       title: '',
-      description: ''
+      description: '',
+      tag: '',
+      tags: [],
+
     };
     this.handleFile = this
       .handleFile
@@ -37,6 +41,8 @@ class Modal extends Component {
     this.handleBackground = this
       .handleBackground
       .bind(this);
+
+    this.handleKeyDown = this.handleKeyDown.bind(this);
 
   }
 
@@ -144,6 +150,14 @@ class Modal extends Component {
     // formData.append("picture[author_id]", '8');
   }
 
+  handleKeyDown(e) {
+    if (e.key === 'Enter' && this.state.tag.length > 0) {
+      this.setState({tags: [...this.state.tags, this.state.tag]});
+      
+      this.setState({tag: ''});
+    }
+  }
+
   render() {
     const {modal, closeModal} = this.props;
     if (!modal) 
@@ -242,7 +256,20 @@ class Modal extends Component {
 
                         </li>
                       </form>
-
+                        <li className="upload-modal-title-input">
+                          Tags
+                          <input type="text" 
+                          className="title-input"
+                          onKeyDown={this.handleKeyDown}
+                          onChange={this.onChange("tag")}
+                          value={this.state.tag}
+                          />
+                          
+                        </li>
+                        <li className="tag-item-cont">
+                          
+                          {this.state.tags.map((e, i) => <TagItem key={i} tag={e} />)}
+                        </li>
                     </ul>
                   </div>
 

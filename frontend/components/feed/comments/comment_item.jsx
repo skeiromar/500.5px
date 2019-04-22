@@ -83,7 +83,7 @@ class CommentItem extends Component {
 
   render() {
     const {comment} = this.props;
-
+    let isAuthor = comment.author_id === this.props.user.id ? '' : 'not-deletable';
     return (
       <ul className="comment-item">
         <li className="comment-pic">
@@ -112,7 +112,7 @@ class CommentItem extends Component {
                 </div>
             <span className="comment-likes">{comment.numLikes} likes</span>
           </a>
-          <div className="comment-del-icon-container">
+          <div className={`comment-del-icon-container ${isAuthor}`}>
             <i
               className="fas fa-trash-alt comment-del-icon"
               style={{cursor: 'pointer'}}

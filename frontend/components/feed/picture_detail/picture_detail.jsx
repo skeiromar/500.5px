@@ -281,6 +281,7 @@ class PictureDetail extends Component {
 
     let isAuthor = picture.author_id === user.id ? '' : 'not-deletable';
     let hover = this.state.hover ? 'hover-state' : 'base-state';
+    let isAuth = picture.author_id === user.id ? '#222222' : '#c9c9c9bb';
 
     return (
       <section className={`picture-detail ${cName}`}>
@@ -402,14 +403,14 @@ class PictureDetail extends Component {
                       </mask>
                       <use
                         id="Mask___DDQ0V4qe"
-                        fill="#222222"
+                        fill={`${isAuth}`}
                         fillRule="nonzero"
                         xlinkHref="#path-1___DDQ0V4qe"/>
                       <g
                         className="inline_svg_icon__fill"
                         id="00-Mixin/Fill/01-Very-Dark-Grey___DDQ0V4qe"
                         mask="url(#mask-2___DDQ0V4qe)"
-                        fill="#222222"
+                        fill={`${isAuth}`}
                         fillRule="evenodd">
                         <rect id="Box___DDQ0V4qe" x={0} y={0} width={24} height={24}/>
                       </g>

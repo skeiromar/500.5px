@@ -94,7 +94,7 @@ class CommentItem extends Component {
         <li className="comment-body-container">
           <div className="comment-username-container">
             <p className="comment-username">{comment.username}</p>
-            <p className="comment-timestamp">2 hours ago</p>
+            <p className="comment-timestamp" style={{'visibility': 'hidden'}}>2 hours ago</p>
           </div>
           <p className="comment-body">
             {comment.body}

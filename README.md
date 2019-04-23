@@ -13,6 +13,12 @@ constitute the frontend of the web app.
 
 Users can sign in, sign up or use the demo login to try the website. 
 
+![Sign Up Image](readme_resources/sign_up.png)
+
+Profile picture and background image for each user is randomly generated and assigned after the user credentials are verified
+![Code Snippet for signing up](readme_resources/user_creation.png)
+
+
 ## Uploading Photos 
 
 Users can upload their pictures to the website
@@ -21,9 +27,15 @@ Users can upload their pictures to the website
 
 Users can visit the picture show page to edit pictures, delete pictures, comment, like or follow the artist.
 
-![Picture Show Image](readme_resources/picture_show.png)
+![Picture Show Image](readme_resources/pic_detail.png)
 
-![Picture Show Image](readme_resources/picture_show_2.png)
+When closing a picture, the following method is run. 
+![Closing Image](readme_resources/closing_pic.png)
+This turns a boolean to true in state, thereby changing the class that is applied to the picture show page. The following CSS animation keyframes run. Midway through the animation, the timeout is complete and the feed page is pushed to the URL, giving the impression that the picture faded out
+![Closing Image](readme_resources/closing_pic_animation.png)
+
+
+![Picture Show Image](readme_resources/pic_detail_2.png)
 
 
 ## Profile Page 

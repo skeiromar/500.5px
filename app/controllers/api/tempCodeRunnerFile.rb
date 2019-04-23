@@ -1,1 +1,0 @@
-https://picsum.photos/500/700/?random

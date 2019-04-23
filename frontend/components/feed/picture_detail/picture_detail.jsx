@@ -139,6 +139,7 @@ class PictureDetail extends Component {
         .fetchAllComments(this.props.match.params.pictureId);
     }
   }
+
   handleClick() {
     this.setState({feedTransition: true});
     setTimeout(() => {
@@ -149,6 +150,7 @@ class PictureDetail extends Component {
         .push('/feed/');
     }, 300);
   }
+  
   handleClickNext() {
     const {pictureIds, match} = this.props;
     if (isEmpty(pictureIds)) 

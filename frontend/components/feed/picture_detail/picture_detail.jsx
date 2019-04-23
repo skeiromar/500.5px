@@ -156,7 +156,7 @@ class PictureDetail extends Component {
     
     let indexInPicIds = pictureIds.indexOf(match.params.pictureId);
 
-    let nextPage = pictureIds[indexInPicIds + 1];
+    let nextPage = pictureIds[indexInPicIds - 1];
     if (nextPage !== undefined) 
       this.props.history.push(`/pictures/${nextPage}`);
 
@@ -167,7 +167,7 @@ class PictureDetail extends Component {
       return null;
     let indexInPicIds = pictureIds.indexOf(match.params.pictureId);
 
-    let prevPage = pictureIds[indexInPicIds - 1];
+    let prevPage = pictureIds[indexInPicIds + 1];
     if (prevPage !== undefined) 
       this.props.history.push(`/pictures/${prevPage}`);
 

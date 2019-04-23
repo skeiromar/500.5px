@@ -5,7 +5,7 @@ class Api::UsersController < ApplicationController
     def create
         @user = User.new(user_params)
 
-        file = open('https://picsum.photos/500/700/?random')
+        file = open('https://picsum.photos/id/355/500/700')
 
         background_file = open('https://picsum.photos/2000/1000/?random')
         

@@ -435,8 +435,8 @@ class PictureDetail extends Component {
                   <p>
                     by {picture.author}
                     &nbsp;•&nbsp; {this.state.follows
-                      ? <a onClick={this.handleUnfollow} className="follow-style">Unfollow</a>
-                      : <a onClick={this.handleFollow} className="follow-style">Follow</a>
+                      ? <a onClick={this.handleUnfollow} style={{cursor: 'pointer'}} className="follow-style">Unfollow</a>
+                      : <a onClick={this.handleFollow} style={{cursor: 'pointer'}} className="follow-style">Follow</a>
 }
                   </p>
 

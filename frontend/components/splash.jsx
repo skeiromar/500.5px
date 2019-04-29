@@ -32,7 +32,7 @@ class Splash extends Component {
         <p className="rst-spl-p">Discover what’s trending according to photographers around the world.</p>
         </header>
         <div >
-            <ul className="rst-spl-tabs">
+            {/* <ul className="rst-spl-tabs">
                 <li className="spl-tpc">
                     <a href="/#/coming" style={{cursor: 'pointer'}}>People</a>
                 </li>
@@ -45,7 +45,7 @@ class Splash extends Component {
                 <li className="spl-tpc">
                     <a href="/#/coming" style={{cursor: 'pointer'}}>City</a>
                 </li>
-            </ul>
+            </ul> */}
         </div>
         <ul className="feed-flex-img-cnt spl-imgs">                  
             <div  className="feed-flex-item">
@@ -162,22 +162,22 @@ class Splash extends Component {
         <h3>Community</h3>
         </li>
         <li>
-        <a href="/#/about">Popular</a>
+        <a href="https://skeiromar.github.io/My-Portfolio-Site/">Popular</a>
         </li>
         <li>
-        <a href="/#/about" >Memberships</a>
+        <a href="https://skeiromar.github.io/My-Portfolio-Site/" >Memberships</a>
         </li>
         <li>
-        <a href="/#/about" target="_blank">App Store</a>
+        <a href="https://skeiromar.github.io/My-Portfolio-Site/" target="_blank">App Store</a>
         </li>
         <li>
-        <a href="/#/about" >Google Play</a>
+        <a href="https://skeiromar.github.io/My-Portfolio-Site/" >Google Play</a>
         </li>
         <li>
-        <a href="/#/about" >Sign up</a>
+        <a href="/#/signup" >Sign up</a>
         </li>
         <li>
-        <a href="/#/about" >Log in</a>
+        <a href="/#/login" >Log in</a>
         </li>
         </ul>
         <ul>
@@ -185,16 +185,16 @@ class Splash extends Component {
         <h3><span title="translation missing: en.static_pages.footer.business.business">Business</span></h3>
         </li>
         <li>
-        <a href="/#/about" >Licensing</a>
+        <a href="https://skeiromar.github.io/My-Portfolio-Site/" >Licensing</a>
         </li>
         <li>
-        <a href="/#/about" >Studio</a>
+        <a href="https://skeiromar.github.io/My-Portfolio-Site/" >Studio</a>
         </li>
         <li>
-        <a href="/#/about" >Directory</a>
+        <a href="https://skeiromar.github.io/My-Portfolio-Site/" >Directory</a>
         </li>
         <li>
-        <a href="/#/about" >Quests</a>
+        <a href="https://skeiromar.github.io/My-Portfolio-Site/" >Quests</a>
         </li>
         </ul>
         <ul>
@@ -202,22 +202,22 @@ class Splash extends Component {
         <h3>Company</h3>
         </li>
         <li>
-        <a href="/#/about" >About</a>
+        <a href="https://skeiromar.github.io/My-Portfolio-Site/" >About</a>
         </li>
         <li>
-        <a href="/#/about" >Press</a>
+        <a href="https://skeiromar.github.io/My-Portfolio-Site/" >Press</a>
         </li>
         <li>
-        <a href="/#/about" >Jobs</a>
+        <a href="https://skeiromar.github.io/My-Portfolio-Site/" >Jobs</a>
         </li>
         <li>
-        <a href="/#/about" >Terms</a>
+        <a href="https://skeiromar.github.io/My-Portfolio-Site/" >Terms</a>
         </li>
         <li>
-        <a href="/#/about" >Privacy</a>
+        <a href="https://skeiromar.github.io/My-Portfolio-Site/" >Privacy</a>
         </li>
         <li>
-        <a href="/#/about" >Support</a>
+        <a href="https://skeiromar.github.io/My-Portfolio-Site/" >Support</a>
         </li>
         </ul>
         <ul>
@@ -225,22 +225,22 @@ class Splash extends Component {
         <h3>Follow</h3>
         </li>
         <li>
-        <a href="/#/about" >Blog</a>
+        <a href="https://skeiromar.github.io/My-Portfolio-Site/" >Blog</a>
         </li>
         <li>
-        <a href="/#/about" >Facebook</a>
+        <a href="https://skeiromar.github.io/My-Portfolio-Site/" >Facebook</a>
         </li>
         <li>
-        <a href="/#/about" >Twitter</a>
+        <a href="https://skeiromar.github.io/My-Portfolio-Site/" >Twitter</a>
         </li>
         <li>
-        <a href="/#/about" >Instagram</a>
+        <a href="https://skeiromar.github.io/My-Portfolio-Site/" >Instagram</a>
         </li>
         <li>
-        <a href="/#/about" >Pinterest</a>
+        <a href="https://skeiromar.github.io/My-Portfolio-Site/" >Pinterest</a>
         </li>
         <li>
-        <a href="/#/about" >Google+</a>
+        <a href="https://skeiromar.github.io/My-Portfolio-Site/" >Google+</a>
         </li>
         </ul>
         </footer>

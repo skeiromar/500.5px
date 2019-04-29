@@ -73,7 +73,7 @@ export default class Feed extends Component {
           </div>
 
           <div className="feed-tabs">
-            <ul className="feed-tabs-ul">
+            {/* <ul className="feed-tabs-ul">
               <li >
                 <a className="active" href="/#/coming">POPULAR</a>
               </li>
@@ -86,7 +86,7 @@ export default class Feed extends Component {
               <li>
                 <a href="/#/coming">EDITOR'S CHOICE</a>
               </li>
-            </ul>
+            </ul> */}
           </div>
           <p className="hline-feed"></p>
 

@@ -33,9 +33,9 @@ export default class Greeting extends Component {
                     </Link>
                     <li >
                     
-                    <Link to="/about" style={{cursor: 'pointer'}}>
+                    <a href="https://skeiromar.github.io/My-Portfolio-Site/" style={{cursor: 'pointer'}}>
                     About
-                    </Link>
+                    </a>
                     
                     </li>
 

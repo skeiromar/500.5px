@@ -13,7 +13,7 @@ export default function Navbar({handleDiscover, user, pushProfilePage, handleLog
         <a onClick={handleDiscover} style={{cursor: 'pointer' }}>Discover</a>
       </li>
       <li className="nav-stuff">
-        <a href="/#/about" style={{cursor: 'pointer'}}>About</a>
+        <a href="https://skeiromar.github.io/My-Portfolio-Site/" style={{cursor: 'pointer'}}>About</a>
       </li>
     </ul>
     <ul className="perm-navbar-ul-elems perm-right-ul-feed">
@@ -54,7 +54,7 @@ export default function Navbar({handleDiscover, user, pushProfilePage, handleLog
 
               </li>
               <li>
-                <a href="/#/coming">About</a>
+                <a href="https://skeiromar.github.io/My-Portfolio-Site/">About</a>
 
               </li>
               <li>

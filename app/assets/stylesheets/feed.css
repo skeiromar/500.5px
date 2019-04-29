@@ -7,13 +7,15 @@
 }
 
 .feed-txt {
-    
+    margin-bottom: 50px;
+    margin-top: 50px;
 }
 
 .feed-tabs {
     display: flex;
     justify-content: flex-start;
     align-items: flex-start;
+    
 }
 
 .feed-tabs-ul {

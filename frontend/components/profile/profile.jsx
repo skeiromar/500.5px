@@ -44,7 +44,7 @@ class Profile extends Component {
         .followedIds
         .includes(s.user.id)
     }));
-
+    
   }
 
   componentDidUpdate(prevProps) {
@@ -139,7 +139,7 @@ class Profile extends Component {
               <a onClick={this.handleDiscover} style={{cursor: 'pointer'}}>Discover</a>
             </li>
             <li className="profile-nav-stuff">
-              <a style={{cursor: 'pointer'}} href="/#/about">About</a>
+              <a style={{cursor: 'pointer'}} href="https://skeiromar.github.io/My-Portfolio-Site/">About</a>
             </li>
           </ul>
           <ul className="perm-navbar-ul-elems perm-right-ul-elems-fixed">
@@ -176,7 +176,7 @@ class Profile extends Component {
 
                     </li>
                     <li>
-                      <a href="/#/about">About</a>
+                      <a href="https://skeiromar.github.io/My-Portfolio-Site/">About</a>
 
                     </li>
                     <li>
@@ -200,14 +200,24 @@ class Profile extends Component {
         <div>
 
           <div className="top-profile">
+          {this.props.currentUser.id === this.props.user.id ? 
             <div
-              style={{cursor: 'pointer'}}
+              
               className="cover"
+              style={{cursor: 'pointer'}}
               onClick={() => this.props.openModal('changeBackground-Modal')}>
+              <img className="cover-img-editable" src={`${user.backgroundImg}`} />
+            </div>
+            : 
+            <div
+              className="cover"
+              >
               <img className="cover-img" src={`${user.backgroundImg}`} />
             </div>
-            <div className="content">
+          }
+           
 
+            <div className="content">
               {this.state.follows
                 ? <div className="button-unfollow" onClick={this.handleUnfollow} style={{cursor: 'pointer'}}>
                     <a style={{cursor: 'pointer'}}>
@@ -227,15 +237,26 @@ class Profile extends Component {
                 </div>
 }
             </div>
+            {this.props.currentUser.id === this.props.user.id ? 
             <div 
             style={{cursor: 'pointer'}}
             className="profile-img-container">
               <img
                 onClick={() => this.props.openModal('changeProfile-Modal')}
+                className="profile-picture-editable"
+                src={`${user.pictureUrl}`}/>
+
+            </div>
+            : 
+            <div 
+            
+            className="profile-img-container">
+              <img
                 className="profile-picture"
                 src={`${user.pictureUrl}`}/>
 
             </div>
+            }
             <div className="profilepage-info-container">
               <ul className="profilepage-info">
                 <li>

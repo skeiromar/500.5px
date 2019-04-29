@@ -24,7 +24,7 @@ class FollowItem extends Component {
                         </div>
                         <div className="follower-count">
                             {/* follower count */}
-                            Followers {follow.followed_ids.length}
+                            Followers: {follow.followed_ids.length}
                         </div>
                     </div>
                     <div>

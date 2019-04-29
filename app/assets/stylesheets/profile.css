@@ -11,6 +11,8 @@
     min-width: 100%;
     height: 360px;
     vertical-align: middle;
+    transition: opacity 0.2s;
+
     
 }
 .cover-img {
@@ -23,7 +25,20 @@
     z-index: -1;
     
 }
+.cover-img-editable {
+    position: fixed;
+    min-width: 100%;
+    max-height: 460px;
+    object-fit: cover;
+    object-position: 39% 39%;
+    overflow: hidden;
+    z-index: -1;
+    transition: opacity 0.2s;
 
+}
+.cover:hover {
+    opacity: 0.8;
+}
 .content {
     position: relative;
     padding-right: calc(2.5% - 5px);
@@ -55,7 +70,24 @@
     /* background-color: white; */
     /* top: 0; */
 }
-
+.profile-picture-editable {
+    position: absolute;
+    bottom: 5px;
+    z-index: 9;
+    width: 100px;
+    height: 100px;
+    /* padding-left: 10px; */
+    margin-left: 18px;
+    /* object-fit: cover; */
+    border: 2px solid white;
+    border-radius: 50%;
+    /* background-color: white; */
+    /* top: 0; */
+    transition: opacity 0.2s;
+}
+.profile-picture-editable:hover {
+    opacity: 0.8;
+}
 .profilepage-info-container {
     position: relative;
     display: flex;

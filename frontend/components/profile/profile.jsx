@@ -154,7 +154,7 @@ class Profile extends Component {
                   : null}
                 <div className="dropdown-content">
                   <ul>
-                    <li>
+                    {/* <li>
                       <a href="/#/coming">My Stats</a>
 
                     </li>
@@ -174,7 +174,7 @@ class Profile extends Component {
                     <li>
                       <a href="/#/coming">Manage Photos</a>
 
-                    </li>
+                    </li> */}
                     <li>
                       <a href="https://skeiromar.github.io/My-Portfolio-Site/">About</a>
 

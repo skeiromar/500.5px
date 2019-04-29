@@ -7,7 +7,7 @@ class FollowItem extends Component {
     }
     
     render() {
-        const {follow} = this.props;
+        const {follow, isFollow} = this.props;
 
         return (
             <div>
@@ -29,9 +29,16 @@ class FollowItem extends Component {
                     </div>
                     <div>
                         {/* follow user */}
-                        <button className="follow-btn">
-                            Follow
-                        </button>
+                        {!isFollow ? 
+                            <button className="follow-btn" onClick={() => this.props.handleFollow(follow.id)}>
+                                Follow
+                            </button> 
+                            :
+                            <button className="follow-btn" onClick={() => this.props.handleUnfollow(follow.id)}>
+                                Unfollow
+                            </button> 
+                        }
+                        
                     </div>
                 </li>
             </div>

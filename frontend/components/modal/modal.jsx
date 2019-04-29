@@ -7,6 +7,7 @@ import {createPicture} from '../../actions/picture_actions';
 import {changeProfilePicture, changeBackgroundImg} from '../../actions/user_actions';
 import FollowItem from './follow_item';
 import TagItem from '../tag/tag_item';
+import { createFollow, deleteFollow } from '../../actions/follow_actions';
 
 class Modal extends Component {
 
@@ -43,6 +44,8 @@ class Modal extends Component {
       .bind(this);
 
     this.handleKeyDown = this.handleKeyDown.bind(this);
+    this.handleFollow = this.handleFollow.bind(this);
+    this.handleUnfollow = this.handleUnfollow.bind(this);
 
   }
 
@@ -149,7 +152,20 @@ class Modal extends Component {
 
     // formData.append("picture[author_id]", '8');
   }
+  handleFollow(uId) {
+    const {followUser, currId} = this.props;
 
+    // this.setState({follows: true});
+
+    followUser({follower_id: currId[0], followed_id: uId});
+
+  }
+  handleUnfollow(uId) {
+    const {unFollowUser, currId} = this.props;
+    // debugger
+    unFollowUser({follower_id: currId[0], followed_id: uId});
+
+  }
   handleKeyDown(e) {
     if (e.key === 'Enter' && this.state.tag.length > 0) {
       this.setState({tags: [...this.state.tags, this.state.tag]});
@@ -286,7 +302,11 @@ class Modal extends Component {
                       {this
                         .props
                         .follows
-                        .map((el, i) => <FollowItem key={i} follow={el}/>)}
+                        .map((el, i) => <FollowItem key={i} follow={el} 
+                        handleUnfollow={this.handleUnfollow}
+                        handleFollow={this.handleFollow} 
+                        isFollow={this.props.currentUser.followedIds.includes(el.id)}
+                        />)}
                     </ul>
                   </div>
 
@@ -311,7 +331,12 @@ class Modal extends Component {
                       {this
                         .props
                         .follows
-                        .map((el, i) => <FollowItem key={i} follow={el}/>)}
+                        .map((el, i) => <FollowItem 
+                        key={i} 
+                        follow={el}
+                        handleUnfollow={this.handleUnfollow}
+                        handleFollow={this.handleFollow} 
+                        />)}
                     </ul>
                   </div>
 
@@ -390,8 +415,14 @@ const mapStateToProps = state => {
   let st = state.session.id || [1]
   let currentUserId = st;
   let follows = Object.values(state.entities.follows) || [];
+  let currentUser = state.entities.users[st];
   // debugger
-  return {modal: state.ui.modal, currId: currentUserId, follows: follows};
+  return {
+    modal: state.ui.modal, 
+    currId: currentUserId, 
+    follows: follows, 
+    currentUser: currentUser
+  };
 };
 
 const mapDispatchToProps = dispatch => {
@@ -399,7 +430,9 @@ const mapDispatchToProps = dispatch => {
     closeModal: () => dispatch(closeModal()),
     submitForm: (form) => dispatch(createPicture(form)),
     createProfilePicture: (profile_picture) => dispatch(changeProfilePicture(profile_picture)),
-    changeBackgroundImg: (background_img) => dispatch(changeBackgroundImg(background_img))
+    changeBackgroundImg: (background_img) => dispatch(changeBackgroundImg(background_img)),
+    followUser: (follow) => dispatch(createFollow(follow)),
+    unFollowUser: (unfollow) => dispatch(deleteFollow(unfollow)),
   };
 };
 

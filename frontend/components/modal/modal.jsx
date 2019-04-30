@@ -152,18 +152,19 @@ class Modal extends Component {
 
     // formData.append("picture[author_id]", '8');
   }
+
   handleFollow(uId) {
     const {followUser, currId} = this.props;
 
     // this.setState({follows: true});
-
-    followUser({follower_id: currId[0], followed_id: uId});
+    let newCurr = currId[0] ? currId[0] : currId;
+    followUser({follower_id: newCurr, followed_id: uId});
 
   }
   handleUnfollow(uId) {
     const {unFollowUser, currId} = this.props;
-    // debugger
-    unFollowUser({follower_id: currId[0], followed_id: uId});
+    let newCurr = currId[0] ? currId[0] : currId;
+    unFollowUser({follower_id: newCurr, followed_id: uId});
 
   }
   handleKeyDown(e) {

@@ -141,14 +141,14 @@ class PictureDetail extends Component {
   }
 
   handleClick() {
-    this.setState({feedTransition: true});
-    setTimeout(() => {
+    this.setState({feedTransition: true}, () => setTimeout(() => {
 
       this
         .props
         .history
         .push('/feed/');
-    }, 300);
+    }, 400));
+    
   }
   
   handleClickNext() {

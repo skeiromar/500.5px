@@ -1,7 +1,9 @@
 
 # 500.5px
 
-500.5px is a single-page, web app clone of 500px, an online pohotography portfolio site.
+Link to [live site](https://fivehundredpixels.herokuapp.com/)
+
+500.5px is a single-page, web app clone of 500px, an online photography portfolio site.
 500.5px uses a Ruby on Rails backend, with PostgresSQL as the database. React and Redux 
 constitute the frontend of the web app.   
 
@@ -16,8 +18,27 @@ Users can sign in, sign up or use the demo login to try the website.
 ![Sign Up Image](readme_resources/sign_up.png)
 
 Profile picture and background image for each user is randomly generated and assigned after the user credentials are verified
-![Code Snippet for signing up](readme_resources/user_creation.png)
+```ruby
+def create
+    @user = User.new(user_params)
 
+     file = open('https://picsum.photos/id/355/500/700')
+
+     background_file = open('https://picsum.photos/2000/1000/?random')
+    
+    if @user.save
+
+        @user.profile_picture.attach(io: file, filename: 'random_img.jpeg')
+        @user.background_img.attach(io: background_file, filename: 'random_background.jpeg')
+        login!(@user)
+
+        render :show
+
+    else
+        render json: @user.errors.full_messages, status: 401
+    end
+end
+```
 
 ## Uploading Photos 
 
@@ -30,9 +51,36 @@ Users can visit the picture show page to edit pictures, delete pictures, comment
 ![Picture Show Image](readme_resources/pic_detail.png)
 
 When closing a picture, the following method is run. 
-![Closing Image](readme_resources/closing_pic.png)
+```javascript
+handleClick() {
+    this.setState({feedTransition: true}, () => setTimeout(() => {
+
+      this
+        .props
+        .history
+        .push('/feed/');
+    }, 400));
+    
+}
+```
 This turns a boolean to true in state, thereby changing the class that is applied to the picture show page. The following CSS animation keyframes run. Midway through the animation, the timeout is complete and the feed page is pushed to the URL, giving the impression that the picture faded out
-![Closing Image](readme_resources/closing_pic_animation.png)
+```css
+@keyframes picFadeOutAnimation{
+    0%{
+        transform: scale(1) translateY(0%);
+        opacity: 1;
+        }
+    100%{
+        transform: scale(0.6) translateY(-10%);
+        opacity: 0.2;
+        }
+}
+
+
+.pic-fade-out {
+    animation: picFadeOutAnimation 0.4s forwards 0s ease;
+}
+```
 
 
 ![Picture Show Image](readme_resources/pic_detail_2.png)

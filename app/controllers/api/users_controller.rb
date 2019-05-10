@@ -71,26 +71,25 @@ class Api::UsersController < ApplicationController
         @follow = Follow.new(follow_params)
 
         if @follow.save
-            render json: ['worked']            
+            render json: ['works']            
         else
             
-            render json: ['Nope. Wrong credentials!'], status: 401
+            render json: ['error'], status: 401
         end
 
     end
 
     def unfollow 
         @follow = Follow.where(follower_id: follow_params[:follower_id])
-        .where(followed_id: follow_params[:followed_id])[0]
+        .where(followed_id: follow_params[:followed_id]) 
 
-        if @follow.destroy 
+        @follow.destroy
 
-        end
     end
 
     def followers 
         @followers = User.find(params[:user_id]).followed
-        # debugger 
+        
         render '/api/users/followers'
 
     end

@@ -374,7 +374,8 @@ class PictureDetail extends Component {
                 className={`${this.state.hearted} ${this.state.animation}`}>
                     
                 </div>
-                  <span id="like-icon-likes">{this.props.picture.numLikes} Likes</span>
+                  <span id="like-icon-likes">{this.props.picture.numLikes} Like
+                  {this.props.picture.numLikes === 1 ? "" : <span>s</span> }</span>
                 </div>
                 <svg
                   

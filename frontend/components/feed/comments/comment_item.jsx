@@ -57,10 +57,14 @@ class CommentItem extends Component {
 
   handleUserRedirection() {
     // debugger
+    const { comment } = this.props;
+    comment.author_id ? 
     this
       .props
       .history
-      .push(`/profile/${this.props.comment.author_id}`);
+      .push(`/profile/${this.props.comment.author_id}`) 
+      : 
+    this.props.history.push(`/profile/${this.props.comment.authorId}`);
   }
   heartAnimation() {
     if (this.props.liked === 'heart-comment') {
@@ -84,6 +88,7 @@ class CommentItem extends Component {
   render() {
     const {comment} = this.props;
     let isAuthor = comment.author_id === this.props.user.id ? '' : 'not-deletable';
+    console.log(this.props);
     return (
       <ul className="comment-item">
         <li className="comment-pic">

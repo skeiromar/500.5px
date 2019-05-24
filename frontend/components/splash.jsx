@@ -149,100 +149,39 @@ class Splash extends Component {
         </section>
             <p className="hline"></p>
         <footer className="ftr-cnt">
-        <ul >
-        <li>
-        <h3>© 2017 500.5px</h3>
-        </li>
-        <li>
-        <div className="ftr-abt">500.5px is the leading network for photographers to discover and share incredible photos, gain global exposure, and get paid for their work and skills.</div>
-        </li>
-        </ul>
-        <ul>
-        <li>
-        <h3>Community</h3>
-        </li>
-        <li>
-        <a href="https://skeiromar.github.io/My-Portfolio-Site/">Popular</a>
-        </li>
-        <li>
-        <a href="https://skeiromar.github.io/My-Portfolio-Site/" >Memberships</a>
-        </li>
-        <li>
-        <a href="https://skeiromar.github.io/My-Portfolio-Site/" target="_blank">App Store</a>
-        </li>
-        <li>
-        <a href="https://skeiromar.github.io/My-Portfolio-Site/" >Google Play</a>
-        </li>
-        <li>
-        <a href="/#/signup" >Sign up</a>
-        </li>
-        <li>
-        <a href="/#/login" >Log in</a>
-        </li>
-        </ul>
-        <ul>
-        <li>
-        <h3><span title="translation missing: en.static_pages.footer.business.business">Business</span></h3>
-        </li>
-        <li>
-        <a href="https://skeiromar.github.io/My-Portfolio-Site/" >Licensing</a>
-        </li>
-        <li>
-        <a href="https://skeiromar.github.io/My-Portfolio-Site/" >Studio</a>
-        </li>
-        <li>
-        <a href="https://skeiromar.github.io/My-Portfolio-Site/" >Directory</a>
-        </li>
-        <li>
-        <a href="https://skeiromar.github.io/My-Portfolio-Site/" >Quests</a>
-        </li>
-        </ul>
-        <ul>
-        <li>
-        <h3>Company</h3>
-        </li>
-        <li>
-        <a href="https://skeiromar.github.io/My-Portfolio-Site/" >About</a>
-        </li>
-        <li>
-        <a href="https://skeiromar.github.io/My-Portfolio-Site/" >Press</a>
-        </li>
-        <li>
-        <a href="https://skeiromar.github.io/My-Portfolio-Site/" >Jobs</a>
-        </li>
-        <li>
-        <a href="https://skeiromar.github.io/My-Portfolio-Site/" >Terms</a>
-        </li>
-        <li>
-        <a href="https://skeiromar.github.io/My-Portfolio-Site/" >Privacy</a>
-        </li>
-        <li>
-        <a href="https://skeiromar.github.io/My-Portfolio-Site/" >Support</a>
-        </li>
-        </ul>
-        <ul>
-        <li>
-        <h3>Follow</h3>
-        </li>
-        <li>
-        <a href="https://skeiromar.github.io/My-Portfolio-Site/" >Blog</a>
-        </li>
-        <li>
-        <a href="https://skeiromar.github.io/My-Portfolio-Site/" >Facebook</a>
-        </li>
-        <li>
-        <a href="https://skeiromar.github.io/My-Portfolio-Site/" >Twitter</a>
-        </li>
-        <li>
-        <a href="https://skeiromar.github.io/My-Portfolio-Site/" >Instagram</a>
-        </li>
-        <li>
-        <a href="https://skeiromar.github.io/My-Portfolio-Site/" >Pinterest</a>
-        </li>
-        <li>
-        <a href="https://skeiromar.github.io/My-Portfolio-Site/" >Google+</a>
-        </li>
-        </ul>
+
+            <ul>
+                <li>
+                    <a href="https://www.linkedin.com/in/muhammad-omar-3403a315a/">
+                        <i class="fab fa-linkedin fa-8x"></i>
+                    </a>
+                </li>
+            
+                </ul>
+                <ul>
+                <li>
+                    <a href="https://github.com/skeiromar/2048" class="github-logo-a">
+                        <i class="fab fa-github fa-8x"></i>
+                    </a>
+                </li>
+                
+                </ul>
+                <ul>
+                <li>
+                    <a href="https://angel.co/muhammad-omar-5">
+                        <i class="fab fa-angellist fa-8x"></i>
+                    </a>
+                </li>
+
+                </ul>
+                <ul>
+                <li>
+                    <a href="https://skeiromar.github.io/My-Portfolio-Site/">
+                        <i class="fas fa-laptop-code fa-8x"></i>
+                    </a>
+                </li>
+        
+            </ul>
         </footer>
       </div>
     )

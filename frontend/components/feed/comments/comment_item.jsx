@@ -88,7 +88,7 @@ class CommentItem extends Component {
   render() {
     const {comment} = this.props;
     let isAuthor = comment.author_id === this.props.user.id ? '' : 'not-deletable';
-    console.log(this.props);
+    
     return (
       <ul className="comment-item">
         <li className="comment-pic">

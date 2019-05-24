@@ -49,7 +49,9 @@ export default class Feed extends Component {
 
   render() {
     // console.log(this.state);
- 
+    const { pictures } = this.props;
+    
+
     return (
       <div>
          <Navbar 
@@ -96,13 +98,17 @@ export default class Feed extends Component {
               {this
                 .props
                 .pictures
-                .map((el, i) => <PictureIndexItem
+                .map((el, i) => {
+                  let pic = pictures[pictures.length - 1 - i];
+                  return <PictureIndexItem
                   key={i}
-                  picture={el}
+                  picture={pic}
                   openModal={this.props.openModal}
-                  numLikes={el.numLikes}
-                  likerIds={el.likerIds}
-                  history={this.props.history}/>)}
+                  numLikes={pic.numLikes}
+                  likerIds={pic.likerIds}
+                  history={this.props.history}/> 
+                })
+              }
               
             </ul>
 

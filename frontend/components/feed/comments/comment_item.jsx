@@ -115,7 +115,8 @@ class CommentItem extends Component {
                     
                 </div>
                 </div>
-            <span className="comment-likes">{comment.numLikes} likes</span>
+            <span className="comment-likes">{comment.numLikes} like
+            {comment.numLikes === 1 ? "" : <span>s</span> }</span>
           </a>
           <div className={`comment-del-icon-container ${isAuthor}`}>
             <i

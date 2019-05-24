@@ -20,6 +20,8 @@ bundle.js*
 /node_modules
 /yarn-error.log
 
+/readme_resources
+
 /public/assets
 .byebug_history
 

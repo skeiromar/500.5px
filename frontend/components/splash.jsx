@@ -162,7 +162,7 @@ class Splash extends Component {
                 </ul>
                 <ul>
                 <li>
-                    <a href="https://github.com/skeiromar/2048" class="github-logo-a">
+                    <a href="https://github.com/skeiromar/500.5px" class="github-logo-a">
                         <abbr title="My Github">
                             <i class="fab fa-github fa-8x"></i>
                         </abbr>

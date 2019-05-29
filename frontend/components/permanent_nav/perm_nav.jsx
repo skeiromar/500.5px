@@ -23,7 +23,7 @@ export default class PermNav extends Component {
                         </a>
                     </li>
                     <li>
-                        <a href="/#/about" style={{cursor: 'pointer'}}>About</a>
+                        <a href="https://skeiromar.github.io/My-Portfolio-Site/" style={{cursor: 'pointer'}}>About</a>
                     </li>
                 </ul>
                 <ul className="perm-navbar-ul-elems perm-right-ul-elems">

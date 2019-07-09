@@ -29,16 +29,16 @@ document.addEventListener('DOMContentLoaded', () => {
         store = configureStore();
     }
     
-    window.getState = store.getState;
-    window.dispatch = store.dispatch; 
-    window.login = login;
-    window.logout = logout;
-    window.signup = signup;
-    window.requestPictures = requestPictures;
-    window.openModal = openModal;
-    // window.openModal = closeModal;
-    window.updatePicture = updatePicture;
-    window.createComment = createComment;
+    // window.getState = store.getState;
+    // window.dispatch = store.dispatch; 
+    // window.login = login;
+    // window.logout = logout;
+    // window.signup = signup;
+    // window.requestPictures = requestPictures;
+    // window.openModal = openModal;
+    // // window.openModal = closeModal;
+    // window.updatePicture = updatePicture;
+    // window.createComment = createComment;
 
     ReactDOM.render(<Root store={store}/>, root);
 });

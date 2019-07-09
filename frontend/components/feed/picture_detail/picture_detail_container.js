@@ -7,6 +7,7 @@ import {createComment, fetchAllComments, deleteComment} from '../../../actions/c
 import {createFollow, deleteFollow} from '../../../actions/follow_actions';
 
 const mapStateToProps = (state, ownProps) => {
+  console.log(ownProps);
   const picture = state.entities.pictures[ownProps.match.params.pictureId];
   let user = state.entities.users[state.session.id] || {};
   let comments = Object.values(state.entities.comments);

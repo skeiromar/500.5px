@@ -25,7 +25,7 @@ class App extends Component {
         <Modal />
         <Switch>
         
-          <FeedRo ute exact path="/" component={Splash} />
+          <FeedRoute exact path="/" component={Splash} />
 
           <AuthRoute exact path="/login" component={ LoginFormContainer } />
           <AuthRoute exact path="/signup" component={ SignupFormContainer } />
@@ -36,6 +36,8 @@ class App extends Component {
           <Route exact path="/coming" component={ComingSoon} />
           <Route exact path="/about" component={About} />
         </Switch>
+
+
       </div>
     )
   }

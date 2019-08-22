@@ -154,7 +154,7 @@ class Splash extends Component {
                 <li>
                     <a href="https://www.linkedin.com/in/muhammad-omar-3403a315a/">
                         <abbr title="My Linkedin">
-                            <i class="fab fa-linkedin fa-8x"></i>
+                            <i className="fab fa-linkedin fa-8x"></i>
                         </abbr>
                     </a>
                 </li>
@@ -162,9 +162,9 @@ class Splash extends Component {
                 </ul>
                 <ul>
                 <li>
-                    <a href="https://github.com/skeiromar/500.5px" class="github-logo-a">
+                    <a href="https://github.com/skeiromar/500.5px" className="github-logo-a">
                         <abbr title="My Github">
-                            <i class="fab fa-github fa-8x"></i>
+                            <i className="fab fa-github fa-8x"></i>
                         </abbr>
                     </a>
                 </li>
@@ -174,7 +174,7 @@ class Splash extends Component {
                 <li>
                     <a href="https://angel.co/muhammad-omar-5">
                         <abbr title="My Angel list">
-                            <i class="fab fa-angellist fa-8x"></i>
+                            <i className="fab fa-angellist fa-8x"></i>
                         </abbr>
                     </a>
                 </li>
@@ -184,7 +184,7 @@ class Splash extends Component {
                 <li>
                     <a href="https://skeiromar.github.io/My-Portfolio-Site/">
                         <abbr title="My Personal Site">
-                            <i class="fas fa-laptop-code fa-8x"></i>
+                            <i className="fas fa-laptop-code fa-8x"></i>
                         </abbr>
                     </a>
                 </li>

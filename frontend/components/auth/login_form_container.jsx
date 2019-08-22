@@ -1,6 +1,6 @@
 import {connect} from 'react-redux';
 import {login, receiveErrors, clearErrors, receiveSessionErrors} from '../../actions/session_actions';
-import SessionForm from './session_form';
+import SessionForm from './sessionForm';
 import {closeModal, openModa} from '../../actions/modal_actions';
 
 const msp = (state, ownProps) => {

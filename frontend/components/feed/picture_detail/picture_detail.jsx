@@ -21,9 +21,6 @@ class PictureDetail extends Component {
       picHeight: '90',
       hover: false,
       picWidth: 95,
-
-
-
     };
     this.handleClick = this
       .handleClick

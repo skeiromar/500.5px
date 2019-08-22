@@ -14,8 +14,13 @@
 
   }
 .dropdown {
-    position: relative;
-    display: inline-block;
+  position: relative;
+  width: 34px;
+  padding-bottom: 18px;
+  padding-right: 20px;
+  padding-left: 25px;
+  top: 8px;
+  right: -20px;
 
   }
 .dropdown-content {
@@ -64,6 +69,9 @@
 }
 .dropdown:hover .dropdown-content {
   display: block;
+}
+.dropdown:hover .dropdown-new {
+  visibility: visible;
 }
 
 @keyframes dropdownAnimation{

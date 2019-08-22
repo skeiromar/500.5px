@@ -144,7 +144,7 @@ class Profile extends Component {
           </ul>
           <ul className="perm-navbar-ul-elems perm-right-ul-elems-fixed">
             <li>
-              <div className="dropdown">
+              <div className="dropdown-profile">
 
                 {this.props.currentUser.pictureUrl
                   ? <img
@@ -152,29 +152,13 @@ class Profile extends Component {
                       onClick={this.pushProfilePage}
                       className="icon-avatar"/>
                   : null}
-                <div className="dropdown-content">
+                  <div className="dropdown-new">
+                    <a href="https://skeiromar.github.io/My-Portfolio-Site/" target="_blank">About</a>
+                    <a onClick={this.handleLogout}>Log Out</a>
+                  </div>
+                {/* <div className="dropdown-content">
                   <ul>
-                    {/* <li>
-                      <a href="/#/coming">My Stats</a>
 
-                    </li>
-                    <li>
-                      <a href="/#/coming">My Galleries</a>
-
-                    </li>
-                    <li>
-                      <a href="/#/coming">My Liked Photos</a>
-
-                    </li>
-                    <p className="hline"></p>
-                    <li>
-                      <a href="/#/coming">My Settings</a>
-
-                    </li>
-                    <li>
-                      <a href="/#/coming">Manage Photos</a>
-
-                    </li> */}
                     <li>
                       <a href="https://skeiromar.github.io/My-Portfolio-Site/">About</a>
 
@@ -188,7 +172,7 @@ class Profile extends Component {
 
                   </ul>
 
-                </div>
+                </div> */}
               </div>
             </li>
  

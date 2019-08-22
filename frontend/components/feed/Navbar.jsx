@@ -30,50 +30,17 @@ export default function Navbar({handleDiscover, user, pushProfilePage, handleLog
       <ul className="perm-navbar-ul-elems perm-right-ul-feed">
         <li>
           <div className="dropdown">
-
             {user.pictureUrl
               ? <img
                   src={`${user.pictureUrl}`}
                   onClick={pushProfilePage}
                   className="icon-avatar"/>
               : null}
-            <div className="dropdown-content">
-              <ul>
-                <li>
-                  <a onClick={pushProfilePage}>My Profile</a>
-
-                </li>
-                {/* <li>
-                <a href="/#/coming">My Stats</a>
-
-              </li>
-              <li>
-                <a href="/#/coming">My Galleries</a>
-
-              </li>
-              <li>
-                <a href="/#/coming">My Liked Photos</a>
-
-              </li>
-              <p className="hline"></p>
-              <li>
-                <a href="/#/coming">My Settings</a>
-
-              </li>
-              <li>
-                <a href="/#/coming">Manage Photos</a>
-
-              </li> */}
-                <li>
-                  <a href="https://skeiromar.github.io/My-Portfolio-Site/">About</a>
-
-                </li>
-                <li>
-                  <a onClick={handleLogout}>Log Out</a>
-
-                </li>
-              </ul>
-            </div>
+              <div className="dropdown-new">
+                <a onClick={pushProfilePage}>My Profile</a>
+                <a href="https://skeiromar.github.io/My-Portfolio-Site/" target="_blank">About</a>
+                <a onClick={handleLogout}>Log Out</a>
+              </div>
           </div>
         </li>
         <li style={{

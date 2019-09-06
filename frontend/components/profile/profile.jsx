@@ -156,23 +156,6 @@ class Profile extends Component {
                     <a href="https://skeiromar.github.io/My-Portfolio-Site/" target="_blank">About</a>
                     <a onClick={this.handleLogout}>Log Out</a>
                   </div>
-                {/* <div className="dropdown-content">
-                  <ul>
-
-                    <li>
-                      <a href="https://skeiromar.github.io/My-Portfolio-Site/">About</a>
-
-                    </li>
-                    <li>
-                      <button 
-                      id="btn-prof"
-                      onClick={this.handleLogout} style={{cursor: 'pointer'}}>Log Out</button>
-
-                    </li>
-
-                  </ul>
-
-                </div> */}
               </div>
             </li>
  

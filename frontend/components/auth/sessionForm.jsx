@@ -84,7 +84,7 @@ function SessionForm(props) {
             <PermNavContainer />
             <form onSubmit={handleSubmit} className="form-container"> 
                 <h2>Join 500.5px</h2> 
-                <p> Share your photos,get inspired, and grow your skills.</p>
+                <p> Share your photos, get inspired, and grow your skills.</p>
                 
                 <ul className="li-wo-bullets">
                     <p className="form-label">Username</p> 

@@ -22,6 +22,7 @@ export default function Navbar({handleDiscover, user, pushProfilePage, handleLog
         <li className="nav-stuff">
           <a
             href="https://skeiromar.github.io/My-Portfolio-Site/"
+            target="_blank"
             style={{
             cursor: 'pointer'
           }}>About</a>

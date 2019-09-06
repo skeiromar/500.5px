@@ -18,7 +18,7 @@ function PictureDetail(props) {
         hover: false,
         picWidth: 95,
     });
-
+    
     useEffect(() => {
         const {user} = props;
 
